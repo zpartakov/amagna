@@ -1,0 +1,14 @@
+msgid "Delete"
+msgstr "Borrar"
+
+msgid "Are you sure you want to delete # %s?"
+msgstr "Confirmer la suppression de # %s?"
+
+msgid "View"
+msgstr "Ver"
+
+msgid "Edit"
+msgstr "Cambiar"
+
+msgid "New Recette"
+msgstr "Nueva receta"

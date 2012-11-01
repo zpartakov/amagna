@@ -1,0 +1,5 @@
+msid "activate js"
+msgstr "Activate JavaScript! if you want the best from this website"
+
+msgid "New Recette"
+msgstr "New recipe"

@@ -1,0 +1,51 @@
+<h1>cake</h1>
+http://bakery.cakephp.org/articles/stas_1/2008/06/13/flow-player-video-helper
+<div id="examplevid"></div> 
+
+<h1>html5</h1>
+<video src="http://129.194.18.197/atable20/videos/poisson1.flv" controls>
+	Votre navigateur n'est pas compatible avec le HTML 5, désolé.
+</video>
+<h1>code</h1>
+<noembed>  
+<object style="width:320px;height:260px">  
+  <param name="movie" value="flvplayer.swf?file=http://129.194.18.197/atable20/videos/poisson1.flv" />  
+  <param name="quality" value="high" />  
+</object>   
+</noembed>  
+<embed  width="320" height="260"  src="flvplayer.swf?file=mavideo.flv" quality="high" type="application/x-shockwave-flash" />  
+<h1>code2</h1>
+
+<div>
+  <object data="fichier.swf" type="application/x-shockwave-flash" width="320" height="280">
+    <param name="play" value="true" />
+    <param name="loop" value="false" />
+    <param name="movie" value="http://129.194.18.197/atable20/videos/poisson1.flv" />
+    <param name="menu" value="false" />
+    <param name="quality" value="high" />
+    <param name="scalemode" value="noborder" />
+    <param name="wmode" value="transparent" />
+    <p>Macromedia Flash Player 8 est nécessaire pour lire ce fichier.</p>
+  </object>
+</div>
+<h1>code unige ko</h1>
+<!-- video: largeur native = 600, hauteur native = 352 -->
+<div align="center"><br>
+<div id='player' align="center">
+             <script type="text/javascript">
+                jwplayer("player").setup({
+                flashplayer: "https://mediaserver.unige.ch/swf/player.swf",
+                file:'http://129.194.18.197/atable20/videos/poisson1.flv',
+                height: 235,
+                width: 400,
+                skin: 'https://mediaserver.unige.ch/swf/skin/beelden.zip',
+                provider:'http',
+                image: 'http://www.unige.ch/sciences/chimie/highlights/pics_movies/cover_fr.jpg',
+                'logo.file':'https://mediaserver.unige.ch/img/logo_unige.png',
+                'logo.hide': true,
+                'http.startparam':'start',
+                smoothing: true
+            });
+        </script>
+</div>
+</div>
