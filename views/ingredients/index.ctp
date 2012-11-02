@@ -3,7 +3,7 @@
 <!-- begin search form -->
 <table>
 	<tr>
-	<td>
+	<td> 
 		<div class="input">
 			<?php echo $form->create('Ingredient', array('url' => array('action' => 'index'))); ?>
 			<?php #echo $form->input('q', array('style' => 'width: 250px;', 'label' => false, 'size' => '80')); ?>
