@@ -1,17 +1,7 @@
 /**
  *
- * Generic CSS for Fred's Radeff recettes
+ * Generic CSS for ATable
  *
- * Copyright 2005-2010, A table!
- *
- * Licensed under The MIT License
- * Redistributions of files must etain the above copyright notice.
- *
- * @copyright     Copyright 2005-2010, Copyright 2005-2010, A table! (http://radeff.net)
- * @link          http://www.picadametles.ch/recettes
- * @package       cake_recettes
- * @subpackage    cake.app.webroot.recettes
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
 * {
@@ -60,51 +50,6 @@ content: url(http://www.picadametles.ch/pics/cadenassmall.jpg)" ";
 .public {
 padding-bottom: 5px;
 
-}
-/* ##################################################################
- * infobulles see http://www.picadametles.ch/dokuwiki/info:infobulles
- * usage:
- * <a href="url-du-lien" class="tooltip">texte du lien<em><span></span>texte de l'infobulle</em></a>
- * */
-a.tooltip em {
-    display:none;
-}
-a.tooltip:hover {
-    border: 0;
-    position: relative;
-    z-index: 500;
-    text-decoration:none;
-}
-a.tooltip:hover em {
-    font-style: normal;
-    display: block;
-    position: absolute;
-    top: 20px;
-    left: 50px;
-    padding: 15px;
-    color: #000;
-    border: 1px solid #bbb;
-    background: #ffc;
-    width:470px;
-    -moz-border-radius : 2em 1em; -webkit-border-radius : 2em 1em; 
-}
-a.tooltip:hover em span {
-    position: absolute;
-    top: -7px;
-    left: 115px;
-    height: 7px;
-    width: 11px;
-    background: transparent url(infobulle.gif);
-    margin:0;
-    padding: 0;
-    border: 0;
-}
-
-.bigbutton {  font-size: x-large; color: #333333; background-color: #CCCCCC; border-style: outset; border-top-width: medium; border-right-width: medium; border-bottom-width: medium; border-left-width: medium; vertical-align: top}
-.bigbutton:hover {  font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #666666; background-color: #FFCC99; border-style: inset; border-top-width: thin; border-right-width: thin; border-bottom-width: thin; border-left-width: thin}
-
-.permalink {
-display: none;
 }
 
 /* multi columns print */
@@ -253,13 +198,40 @@ a.tooltip:hover em span {
 	width: 30%
 }
 
-/* recipes menus (not navigation) */
-.menuindeximg {
+/* facilitated recipes menus (not navigation) */
+/* recettes/indeximg.ctp */
+.image_index_img {
 	position: relative;
 	top: 5px;
 	left: 30px;
 	float: right;
 	padding-right: 50px;
+	vertical-align: middle;
+	    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+}
+
+.titre_index_img {
+	
+}
+.audio_index_img {
+	
+}
+.preparation_recette_index_img
+ {
+	
+}
+.market_index_img
+ {
+	position: relative;
+	left: 600px;
+	top: -100px;
+	
+}
+.suite_index_img
+ {
+	
 }
 
 /* blog */
@@ -268,4 +240,11 @@ a.tooltip:hover em span {
 padding-top: 20px;
 float: right;
 font-size: 9px;
+}
+
+.bigbutton {  font-size: x-large; color: #333333; background-color: #CCCCCC; border-style: outset; border-top-width: medium; border-right-width: medium; border-bottom-width: medium; border-left-width: medium; vertical-align: top}
+.bigbutton:hover {  font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #666666; background-color: #FFCC99; border-style: inset; border-top-width: thin; border-right-width: thin; border-bottom-width: thin; border-left-width: thin}
+
+.permalink {
+display: none;
 }
