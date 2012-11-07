@@ -19,11 +19,15 @@
 <div class="titre_index_img">	
 <a href="<? echo CHEMIN; ?>recettes/viewimg/<? echo $recette['Recette']['id']?>" 
 title="Voir la recette de : <? echo $recette['Recette']['titre']?>">
-			<? echo $html->image('pics/'.$recette['Recette']['pict'], array("alt"=>"Lien vers les recettes de viandes", "width" => $largeur_image."px", "class" => "rounded", "style"=>"vertical-align: middle"));?>
-<br />
+<? echo $html->image('pics/'.$recette['Recette']['pict'], 
+		array("alt"=>"Lien vers les recettes de viandes", 
+			"width" => $largeur_image."px", 
+				"class" => "image_index_img"));?>
+<h1>
 <?php
 	echo $recette['Recette']['titre'];
 ?>
+</h1>
 </a>
 </div>
 <div class="audio_index_img">	
