@@ -1,5 +1,0 @@
-echo "rsync to your local git repository and anonymise values"
-rsync -az /home/radeff/atable /home/radeff/git/atable20
-cp /home/radeff/git/atable20/config/database.php.default /home/radeff/git/atable20/config/database.php
-cp /home/radeff/git/atable20/config/core.php.default /home/radeff/git/atable20/config/core.php
-
