@@ -19,7 +19,11 @@
 </table>
 <!-- end search form -->
 	<table cellpadding="0" cellspacing="0">
-	<tr>
+	<?php
+############## ADMIN AREA ##################
+/*	hide from non-admin registred user */
+	if($session->read('Auth.User.role')=="administrator") {
+?><tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('libelle');?></th>
 			<th><?php echo $this->Paginator->sort('typ');?></th>
@@ -30,6 +34,10 @@
 			<th><?php echo $this->Paginator->sort('commissions');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
+	<?
+	}
+//end hide from non-admin registred user
+?>
 	<?php
 	/*
 	 * no results, levenshtein
@@ -50,8 +58,18 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
+	<?php
+############## ADMIN AREA ##################
+/*	hide from non-admin registred user */
+	if($session->read('Auth.User.role')=="administrator") {
+?>
 		<td><?php echo $ingredient['Ingredient']['id']; ?>&nbsp;</td>
-		<td><?php echo $ingredient['Ingredient']['libelle']; ?>&nbsp;</td>
+<?
+	}
+//end hide from non-admin registred user
+?>		<td>
+					<?php echo $this->Html->link($ingredient['Ingredient']['libelle'], array('action' => 'view', $ingredient['Ingredient']['id'])); ?>
+		<?php #echo $ingredient['Ingredient']['libelle']; ?>&nbsp;</td>
 		<td><?php echo $ingredient['Ingredient']['typ']; ?>&nbsp;</td>
 		<td><?php echo $ingredient['Ingredient']['unit']; ?>&nbsp;</td>
 		<td><?php echo $ingredient['Ingredient']['kcal']; ?>&nbsp;</td>
@@ -84,6 +102,11 @@
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>
+<?php
+############## ADMIN AREA ##################
+/*	hide from non-admin registred user */
+	if($session->read('Auth.User.role')=="administrator") {
+?>
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
@@ -92,3 +115,7 @@
 		<li><?php echo $this->Html->link(__('New Recette', true), array('controller' => 'recettes', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<?
+	}
+//end hide from non-admin registred user
+?>	
