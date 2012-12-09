@@ -2,10 +2,31 @@
 class StopwordsController extends AppController {
 
 	var $name = 'Stopwords';
+	var $components = array('Auth', 'RequestHandler');
+	function beforeFilter() {
+		$this->Auth->allow('index', 'view');
+	}
 
+	var $paginate = array(
+			'limit' => 10,
+			'order' => array(
+					'Stopword.lib' => 'asc'
+			)
+	);
 	function index() {
 		$this->Stopword->recursive = 0;
+		if($this->data['Stopword']['q']) {
+			$input = $this->data['Stopword']['q'];
+			# sanitize the query
+			App::import('Sanitize');
+			$q = Sanitize::escape($input);
+			$options = array(
+					"Stopword.lib LIKE '%" .$q ."%'"
+			);
+			$this->set(array('stopwords' => $this->paginate('Stopword', $options)));
+		} else {
 		$this->set('stopwords', $this->paginate());
+		}
 	}
 
 	function view($id = null) {

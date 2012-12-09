@@ -1,3 +1,4 @@
+<?php App::import('Lib', 'functions'); //imports app/libs/functions ?>
 <div class="recettes index">
 	<h2><?php __('Recettes');?></h2>
 	<!-- begin search form -->
@@ -35,45 +36,17 @@
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>-->
 	<?php
+	/* 
+	 * no results, levenshtein
+	 * 
+	 */
 	if(count($recettes)<1) {
-			$word=$this->data['Recette']['q'];
-			$word = strtolower($word);
-			echo "Désolé, il n'y a pas de recettes correspondant à votre recherche: <em>" .$word."</em>";
-				
-echo "<br/>Voulez-vous dire:<br/>";
-//FUNCTION picadametlesch5.levenshtein does not exist
-
-			
-			$lev = 0;
-			
-			$q = mysql_query("SELECT titre FROM `recettes`");
-			$mots=array();
-			while($r = mysql_fetch_assoc($q))
-			{
-			
-//echo $r['titre'];
-$titre=explode(" ",$r['titre']);
-
-$size=count($titre);
-
-for ($i=0; $i <= $size; $i++)
-	//echo $titre[$i] . "<BR>";
-array_push($mots,$titre[$i]);
-
-
-}
-				
-foreach ($mots as $mot){
-	$lev = levenshtein($word, $mot);
-	if($lev >= 0 && $lev < 5)
-	{
-		echo "<em>" .$mot ."</em><br/>";
+			levenshtein_recettes($this->data['Recette']['q']);
 	}
-}
-
-			}
 	
-	
+/*
+ * there are some results
+ */	
 	$i = 0;
 	foreach ($recettes as $recette):
 		$class = null;
