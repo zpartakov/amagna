@@ -25,10 +25,22 @@ if($session->read('Auth.User.role')) {
 
      
 
-
+<script type="text/javascript">
+       function glossaire(terme) {
+           //alert(terme);
+           $.ajax({
+               type: 'GET',
+               url: '/atable20/glossaires/terme?terme='+terme,
+               success: function(data) {
+                 alert(data); },
+               error: function() {
+                 alert('La requête n\'a pas abouti'); }
+             })
+       }
+</script>
 
 <p>
-Duis interdum elementum fringilla. Sed consequat, ipsum sit amet molestie iaculis, metus magna egestas elit, sed tincidunt massa metus vulputate nisl. Nulla euismod adipiscing neque at hendrerit. In in malesuada lectus. Nullam tincidunt commodo metus laoreet mattis? In molestie tincidunt gravida. Quisque eu ante tortor. In hac habitasse platea dictumst. Donec sit amet lectus vitae libero laoreet malesuada sed sed ipsum.
+Braiser <a onmouseOver=glossaire('Abricoter')>Abricoter</a> Duis <a href="/atable20/glossaires/terme?terme=test_terme">interdum elementum test link glossaire</a> fringilla. Sed consequat, ipsum sit amet molestie iaculis, metus magna egestas elit, sed tincidunt massa metus vulputate nisl. Nulla euismod adipiscing neque at hendrerit. In in malesuada lectus. Nullam tincidunt commodo metus laoreet mattis? In molestie tincidunt gravida. Quisque eu ante tortor. In hac habitasse platea dictumst. Donec sit amet lectus vitae libero laoreet malesuada sed sed ipsum.
 </p>
 
 <p>

@@ -6,7 +6,7 @@ class GlossairesController extends AppController {
 	var $components = array('Alaxos.AlaxosFilter','Auth','RequestHandler');
 	
 	function beforeFilter() {
-		$this->Auth->allow('index','view','viewimg');
+		$this->Auth->allow('index','view','viewimg', 'terme');
 	 }
 
 	var $paginate = array(
@@ -127,6 +127,10 @@ class GlossairesController extends AppController {
 	    }
 	    
 	    $this->set('glossaire', $this->data);
+	}
+	
+	function terme($id){
+
 	}
 	
 	
