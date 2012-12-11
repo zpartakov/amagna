@@ -468,41 +468,6 @@ function ingredient_info($id = null,$idrec){
 	echo "<input type=\"hidden\" name=\"id_ingr\" value=\"".$id."\">";	
 	echo $titre_ingredient."&nbsp;<input style=\"width: 50px\" type=\"text\" name=\"ing2add\" value=\"1\">" ." " .$unit."&nbsp;<input type=\"submit\"></h3></form>";
 }
-function glossaire($match) {
-/*
- * highlight glossaries
-*/
-	// Strip the opening and closing markup
-	//$text = preg_replace('/\[\[(.*?)|(.*?)\]\]/', '<a target="_blank" href="$1" title="$2">$2</a>', $match);
-	//$text = preg_replace('/\[\[(.*?)\]\]/', '<a target="_blank" href="$1">$1</a>', $match);
-	$text = preg_replace('/\[\[(.*?)\|(.*?)\]\]/', "
-			<a href=\"/atable20/glossaires/viewimg/$1\" title=\"chercher dans le glossaire\"
-			onclick=\"window.open('/atable20/glossaires/viewimg/$1','','width=500, height=300,left=50,top=10');return false;\">
-			<span style=\"color: #008080;\">
-			<img src=\"/atable20/img/icons/glossaire_icone.jpg\"
-			border=\"0\" alt=\"chercher dans le glossaire\" />$2</span></a>", $match);
-	 
-
-	//echo "test text: ";
-	echo $text;
-	//new version ajax style
-	/*         $sql="SELECT * FROM glossaires WHERE id=".$1;
-	 echo $sql;
-	$sql=mysql_query($sql);
-	echo "test";
-	echo mysql_result($sql,0,'libelle');
-	echo mysql_result($sql,0,'definition1');
-	echo mysql_result($sql,0,'image');
-	*/
-	/* is there an audio file? */
-	if(mysql_result($sql,0,'definition2')) {
-		//allvideomp3('glossaire/'.mysql_result($sql,0,'definition2'));
-	}
-	 
-	return true;
-}
-
-
 function levenshtein_ingredients($word) {
 	$word = strtolower($word);
 	echo "<p>Désolé, il n'y a pas d'ingrédient correspondant à votre recherche: <em>" .$word."</em></p><br/>";
@@ -547,6 +512,88 @@ function levenshtein_ingredients($word) {
 	}
 	}
 }
+
+/* glossaire */
+
+function glossaire($match) {
+/*
+ * highlight glossaries
+*/
+	// Strip the opening and closing markup
+	//$text = preg_replace('/\[\[(.*?)|(.*?)\]\]/', '<a target="_blank" href="$1" title="$2">$2</a>', $match);
+	//$text = preg_replace('/\[\[(.*?)\]\]/', '<a target="_blank" href="$1">$1</a>', $match);
+	$text = preg_replace('/\[\[(.*?)\|(.*?)\]\]/', "
+			<a href=\"/atable20/glossaires/viewimg/$1\" title=\"chercher dans le glossaire\"
+			onclick=\"window.open('/atable20/glossaires/viewimg/$1','','width=500, height=300,left=50,top=10');return false;\">
+			<span style=\"color: #008080;\">
+			<img src=\"/atable20/img/icons/glossaire_icone.jpg\"
+			border=\"0\" alt=\"chercher dans le glossaire\" />$2</span></a>", $match);
+	 
+
+	//echo "test text: ";
+	echo $text;
+	//new version ajax style
+	/*         $sql="SELECT * FROM glossaires WHERE id=".$1;
+	 echo $sql;
+	$sql=mysql_query($sql);
+	echo "test";
+	echo mysql_result($sql,0,'libelle');
+	echo mysql_result($sql,0,'definition1');
+	echo mysql_result($sql,0,'image');
+	*/
+	/* is there an audio file? */
+	if(mysql_result($sql,0,'definition2')) {
+		//allvideomp3('glossaire/'.mysql_result($sql,0,'definition2'));
+	}
+	 
+	return true;
+}
+
+function levenshtein_glossaire($word) {
+	$word = strtolower($word);
+	echo "<p>Désolé, il n'y a pas d'entrée dans le glossaire correspondant à votre recherche: <em>" .$word."</em></p><br/>";
+
+	/* levenshtein fuzzy logic search */
+
+	echo "<p>Voulez-vous dire:</p><br/>";
+
+	/*
+	 * construct the array with the recipe's title words
+	*/
+	$lev = 0;
+	$q = mysql_query("SELECT libelle FROM `glossaires`");
+	$mots=array();
+	while($r = mysql_fetch_assoc($q))
+	{
+		$titre=explode(" ",$r['libelle']);
+		$size=count($titre);
+		for ($i=0; $i <= $size; $i++)
+			array_push($mots,$titre[$i]);
+	}
+
+	/*
+	 * find suggested levenshtein's words
+	*/
+	$all_lev="";
+	foreach ($mots as $mot){
+		$lev = levenshtein($word, $mot);
+		if($lev >= 0 && $lev < 3)
+			if(!preg_match("/;$mot;/",$all_lev)){
+		$all_lev=$all_lev.";".$mot.";";	
+		
+		{
+			echo '
+	<form action="/atable20/glossaires" id="GlossaireIndexForm" method="post">
+	<input type="hidden" name="_method" value="POST" />
+	<input name="data[Glossaire][q]" type="hidden" value="'.$mot.'" id="GlossaireQ" />
+	<input type="submit" class="chercher" value="'.$mot.'" />
+		</form>&nbsp;
+			';
+		}
+	}
+	}
+}
+
 /* ####################
  * MULTIMEDIA FUNCTIONS
  */
