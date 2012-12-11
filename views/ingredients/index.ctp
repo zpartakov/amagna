@@ -19,25 +19,35 @@
 </table>
 <!-- end search form -->
 	<table cellpadding="0" cellspacing="0">
+
+<tr>
 	<?php
 ############## ADMIN AREA ##################
 /*	hide from non-admin registred user */
 	if($session->read('Auth.User.role')=="administrator") {
-?><tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
+?>			<th><?php echo $this->Paginator->sort('id');?></th>
+	<?
+	}
+//end hide from non-admin registred user
+?>
 			<th><?php echo $this->Paginator->sort('libelle');?></th>
 			<th><?php echo $this->Paginator->sort('typ');?></th>
-			<th><?php echo $this->Paginator->sort('unit');?></th>
+	<?php
+############## ADMIN AREA ##################
+/*	hide from non-admin registred user */
+	if($session->read('Auth.User.role')=="administrator") {
+?>				<th><?php echo $this->Paginator->sort('unit');?></th>
 			<th><?php echo $this->Paginator->sort('kcal');?></th>
 			<th><?php echo $this->Paginator->sort('price');?></th>
 			<th><?php echo $this->Paginator->sort('img');?></th>
 			<th><?php echo $this->Paginator->sort('commissions');?></th>
 			<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?
+				<?
 	}
 //end hide from non-admin registred user
 ?>
+	</tr>
+
 	<?php
 	/*
 	 * no results, levenshtein
@@ -67,13 +77,19 @@
 <?
 	}
 //end hide from non-admin registred user
-?>		<td>
-					<?php echo $this->Html->link($ingredient['Ingredient']['libelle'], array('action' => 'view', $ingredient['Ingredient']['id'])); ?>
+?>		
+	<td>
+		<?php echo $this->Html->link($ingredient['Ingredient']['libelle'], array('action' => 'view', $ingredient['Ingredient']['id'])); ?>
 		<?php #echo $ingredient['Ingredient']['libelle']; ?>&nbsp;</td>
 		<td><?php echo $ingredient['Ingredient']['typ']; ?>&nbsp;</td>
-		<td><?php echo $ingredient['Ingredient']['unit']; ?>&nbsp;</td>
+		<?php
+############## ADMIN AREA ##################
+/*	hide from non-admin registred user */
+	if($session->read('Auth.User.role')=="administrator") {
+?>		<td><?php echo $ingredient['Ingredient']['unit']; ?>&nbsp;</td>
 		<td><?php echo $ingredient['Ingredient']['kcal']; ?>&nbsp;</td>
 		<td><?php echo $ingredient['Ingredient']['price']; ?>&nbsp;</td>
+
 		<td><?php #echo $ingredient['Ingredient']['img']; ?>&nbsp;
 		
 		<? echo $html->image('ingredients/'.$ingredient['Ingredient']['img'], array("width" => "20px", "style"=>"vertical-align: middle"));?>
@@ -85,6 +101,10 @@
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $ingredient['Ingredient']['id'])); ?>
 			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $ingredient['Ingredient']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $ingredient['Ingredient']['id'])); ?>
 		</td>
+		<?
+	}
+//end hide from non-admin registred user
+?>
 	</tr>
 <?php endforeach; ?>
 	</table>
