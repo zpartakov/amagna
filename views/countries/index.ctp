@@ -38,12 +38,18 @@
 	if($session->read('Auth.User.role')=="administrator") {
 ?>
 
-		<td><?php echo $country['Country']['id']; ?>&nbsp;</td>
-					<?
+		<td><?php echo $country['Country']['id']; ?>
+		
+		
+		&nbsp;</td>
+<?
 	}
 //end hide from non-admin registred user
 ?>
-		<td><?php echo $country['Country']['name']; ?>&nbsp;</td>
+		<td><?php echo $country['Country']['name']; ?>
+		<?php echo $this->Html->link($country['Country']['name'], array('action' => 'view', $country['Country']['id'])); ?>
+		
+		&nbsp;</td>
 		<?php
 ############## ADMIN AREA ##################
 /*	hide from non-admin registred user */
