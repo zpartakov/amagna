@@ -42,7 +42,7 @@
 			<th><?php echo $this->Paginator->sort('img');?></th>
 			<th><?php echo $this->Paginator->sort('commissions');?></th>
 			<th class="actions"><?php __('Actions');?></th>
-				<?
+<?
 	}
 //end hide from non-admin registred user
 ?>
@@ -68,7 +68,7 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-	<?php
+<?php
 ############## ADMIN AREA ##################
 /*	hide from non-admin registred user */
 	if($session->read('Auth.User.role')=="administrator") {
