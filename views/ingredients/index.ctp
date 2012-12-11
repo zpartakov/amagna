@@ -1,4 +1,8 @@
 <?php App::import('Lib', 'functions'); //imports app/libs/functions ?>
+<?php 
+$title_for_layout="Glossaire";
+?>
+
 <div class="ingredients index">
 	<h2><?php __('Ingredients');?></h2>
 <!-- begin search form -->
