@@ -18,6 +18,46 @@ function np_recette($id){
 	__('Nombre de personnes: ');
 	echo $np;
 }
+function levenshtein_recettes($word) {
+	$word = strtolower($word);
+	echo "<p>Désolé, il n'y a pas de recettes correspondant à votre recherche: <em>" .$word."</em></p><br/>";
+		
+	/* levenshtein fuzzy logic search */
+	
+	echo "<p>Voulez-vous dire:</p><br/>";
+	
+	/*
+	 * construct the array with the recipe's title words
+	*/
+	$lev = 0;
+	$q = mysql_query("SELECT titre FROM `recettes`");
+	$mots=array();
+	while($r = mysql_fetch_assoc($q))
+	{
+		$titre=explode(" ",$r['titre']);
+		$size=count($titre);
+		for ($i=0; $i <= $size; $i++)
+			array_push($mots,$titre[$i]);
+	}
+	
+	/*
+	 * find suggested levenshtein's words
+	*/
+	foreach ($mots as $mot){
+		$lev = levenshtein($word, $mot);
+		if($lev >= 0 && $lev < 5)
+		{
+			echo '
+			<form id="RecetteIndexForm" method="post" action="/atable20/recettes">
+			<input type="hidden" name="_method" value="POST" />
+			<input name="data[Recette][q]" type="hidden" size="50"
+			class="txttosearch" value="'.$mot.'" id="RecetteQ" />
+			<input type="submit" class="chercher" value="'.$mot.'" />
+			</form>&nbsp;
+			';
+		}
+	}
+}
 
 function etapes($id = null,$role) {
 /* 
@@ -125,45 +165,50 @@ function ustensiles_list($recette,$utilisateur){
 		$i++;
 	}
 }
-
-function levenshtein_recettes($word) {
+function levenshtein_ustensile($word) {
 	$word = strtolower($word);
-	echo "<p>Désolé, il n'y a pas de recettes correspondant à votre recherche: <em>" .$word."</em></p><br/>";
-		
+	echo "<p>Désolé, il n'y a pas d'ustensile correspondant à votre recherche: <em>" .$word."</em></p><br/>";
+
 	/* levenshtein fuzzy logic search */
-	
+
 	echo "<p>Voulez-vous dire:</p><br/>";
-	
+
 	/*
 	 * construct the array with the recipe's title words
 	*/
 	$lev = 0;
-	$q = mysql_query("SELECT titre FROM `recettes`");
+	$q = mysql_query("SELECT lib FROM `ustensiles`");
 	$mots=array();
 	while($r = mysql_fetch_assoc($q))
 	{
-		$titre=explode(" ",$r['titre']);
+		$titre=explode(" ",$r['lib']);
 		$size=count($titre);
 		for ($i=0; $i <= $size; $i++)
 			array_push($mots,$titre[$i]);
 	}
-	
+
 	/*
 	 * find suggested levenshtein's words
 	*/
+	$all_lev="";
 	foreach ($mots as $mot){
 		$lev = levenshtein($word, $mot);
-		if($lev >= 0 && $lev < 5)
+		if($lev >= 0 && $lev < 3)
+			if(!preg_match("/;$mot;/",$all_lev)){
+		$all_lev=$all_lev.";".$mot.";";	
+		
 		{
 			echo '
-			<form id="RecetteIndexForm" method="post" action="/atable20/recettes">
-			<input type="hidden" name="_method" value="POST" />
-			<input name="data[Recette][q]" type="hidden" size="50"
-			class="txttosearch" value="'.$mot.'" id="RecetteQ" />
-			<input type="submit" class="chercher" value="'.$mot.'" />
-			</form>&nbsp;
+	<form action="/atable20/ustensiles" id="UstensileIndexForm" method="post">
+	<input type="hidden" name="_method" value="POST" />
+	<input name="data[Ustensile][q]" type="hidden" value="'.$mot.'" id="UstensileQ" />
+	<input type="submit" class="chercher" value="'.$mot.'" />
+		</form>&nbsp;
 			';
+			
+			
 		}
+	}
 	}
 }
 /*######## MENUS ############
