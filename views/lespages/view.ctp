@@ -21,17 +21,21 @@ App::import('Lib', 'functions'); //imports app/libs/functions
 //end hide from non-admin registred user
 ?>		
 
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Introtext'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<p>
 			<?php echo $lespage['Lespage']['introtext']; ?>
 			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Fulltext'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo nl2br($lespage['Lespage']['fulltext']); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
+		</p>
+		<p>&nbsp;</p>
+		<p>	<?php echo nl2br($lespage['Lespage']['fulltext']); ?>
+			&nbsp;</p>
+		
+
+<?php
+############## ADMIN AREA ##################
+/*	hide from non-admin registred user */
+	if($session->read('Auth.User.role')=="administrator") {
+?>
+				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $lespage['Lespage']['created']; ?>
 			&nbsp;
@@ -41,11 +45,6 @@ App::import('Lib', 'functions'); //imports app/libs/functions
 			<?php echo $lespage['Lespage']['modified']; ?>
 			&nbsp;
 		</dd>
-<?php
-############## ADMIN AREA ##################
-/*	hide from non-admin registred user */
-	if($session->read('Auth.User.role')=="administrator") {
-?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Publish Up'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $lespage['Lespage']['publish_up']; ?>
