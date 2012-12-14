@@ -109,7 +109,7 @@ if($session->read('Auth.User.role')=="administrator") {
 			<li><a href="<? echo CHEMIN; ?>stats/">Statistiques</a></li>
 			<li><a href="<? echo CHEMIN; ?>users">Users</a></li>
 			<li><a href="<? echo CHEMIN; ?>groups">Groups</a></li>
-			<li><a href="<? echo CHEMIN; ?>pages">Pages</a></li>
+			<li><a href="<? echo CHEMIN; ?>lespages">Pages</a></li>
 			<li><a href="http://www.picadametles.ch/MySQLAdmin/" target="_blank">MySQLAdmin</a></li>
 			<li><a href="http://imu105.infomaniak.ch/MySQLAdmin/index.php?db=picadametlesch5" target="_blank">MySQL aka9</a></li>			
 		
