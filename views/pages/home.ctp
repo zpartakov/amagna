@@ -16,19 +16,11 @@ $saison=saison();
 $saison=explode(",",$saison);
 
 season_image($saison[1]);//num_season
-echo "<br>".$saison[0];//name
+
+$menus_saison = $this->requestAction('/menus/lesmenus_saison/'.$saison[1]); // menus saisonniers
 
 ?></p>
 <br/>
-<em>
-Exemples
-
-     … (calcul lieu et date)<br/>
-    Genève / et on est en hiver<br/>
-    Grenade et on est en été<br/>
-<br/>
-menu calculé selon la saison et l'endroit<br/>
-</em>
 <br/>
 <p>
 <a href="/dokuwiki/lib/exe/detail.php?id=scenario_pedagogique%3Astart&amp;media=scenario_pedagogique:1907549639.jpeg" class="media" title="scenario_pedagogique:1907549639.jpeg"><img src="/dokuwiki/lib/exe/fetch.php?w=200&amp;media=scenario_pedagogique:1907549639.jpeg" class="media" alt="" width="200" /></a>
@@ -42,6 +34,8 @@ menu calculé selon la saison et l'endroit<br/>
     <a href="http://validator.w3.org/check?uri=referer"><img
       src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
   </p>
+  <hr/>
+  <h2>tests</h2>
     <?php
 /* display a on work image */
 echo $html->image('AT_WORK0.GIF', array("alt"=>"FIXME","title"=>"FIXME", "width"=>"50","height"=>"50"));
@@ -80,4 +74,13 @@ if($session->read('Auth.User.role')) {
 Braiser <a onmouseOver=glossaire('Abricoter')>Abricoter</a>.
 </p>
 
+       <em>
+Exemples
+
+     … (calcul lieu et date)<br/>
+    Genève / et on est en hiver<br/>
+    Grenade et on est en été<br/>
+<br/>
+menu calculé selon la saison et l'endroit<br/>
+</em>
        

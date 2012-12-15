@@ -214,12 +214,15 @@ function levenshtein_ustensile($word) {
 /*######## MENUS ############
  *
 */
+
+
 function titre_menu($id){
 	$query="SELECT * FROM menus WHERE id=".$id;
 	$result=mysql_query($query);
 	$titre_recette=mysql_result($result, 0, 'libelle');
 	echo $titre_recette;
 }
+
 function show_thumb_menu($menu) {
 	$sql = "
 	SELECT * 
