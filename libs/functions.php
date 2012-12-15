@@ -666,7 +666,7 @@ function season_image($season){
 		$season="four_seasons.jpg";
 		$saison="Toute l'année";
 	}
-	echo "<img style=\"width: 60px\" src=\"/atable20/img/seasons/".$season."\" alt=\"".$saison."\" title=\"".$saison."\" />";
+	echo "<img style=\"width: 260px\" src=\"/atable20/img/seasons/".$season."\" alt=\"".$saison."\" title=\"".$saison."\" />";
 	#echo "<p style=\"font-style: italic; font-size: 9px; color: #7F7F7F\">Image courtesy: <a href=\"http://seasonswithpurpose.blogspot.in\">seasonswithpurpose.blogspot.in</a></p>";
 }
 
