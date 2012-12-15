@@ -11,7 +11,7 @@
 		echo $this->Form->input('images');
 		echo $this->Form->input('urls');
 		echo $this->Form->input('metadesc');
-		echo $this->Form->input('featured');
+		echo $this->Form->input('featured', array("value"=>'0'));
 		echo $this->Form->input('language');
 	?>
 	</fieldset>
