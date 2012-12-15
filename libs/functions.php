@@ -646,6 +646,7 @@ function levenshtein_glossaire($word) {
  * MULTIMEDIA FUNCTIONS
  */
 function season_image($season){
+	$width=120;
 	if($season=="1"){
 		$season="spring.jpg";
 		$saison="Printemps";
@@ -665,8 +666,9 @@ function season_image($season){
 	if($season=="5"){
 		$season="four_seasons.jpg";
 		$saison="Toute l'année";
+		$width=350;
 	}
-	echo "<img style=\"width: 260px\" src=\"/atable20/img/seasons/".$season."\" alt=\"".$saison."\" title=\"".$saison."\" />";
+	echo "<img style=\"width: " .$width ."px\" src=\"/atable20/img/seasons/".$season."\" alt=\"".$saison."\" title=\"".$saison."\" />";
 	#echo "<p style=\"font-style: italic; font-size: 9px; color: #7F7F7F\">Image courtesy: <a href=\"http://seasonswithpurpose.blogspot.in\">seasonswithpurpose.blogspot.in</a></p>";
 }
 
