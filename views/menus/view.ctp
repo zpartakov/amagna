@@ -84,7 +84,7 @@
 /*
  * sorting recipes in type order
  */
-	asort($menu['Recette']);
+	//asort($menu['Recette']);
 		$i = 0;
 		foreach ($menu['Recette'] as $recette):
 			$class = null;

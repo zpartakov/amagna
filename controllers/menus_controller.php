@@ -4,7 +4,7 @@ class MenusController extends AppController {
 	var $name = 'Menus';
 	var $components = array('Auth', 'RequestHandler');
 	function beforeFilter() {
-		$this->Auth->allow('index','indeximg', 'view', 'viewimg', 'commissions');
+		$this->Auth->allow('index','indeximg', 'view', 'viewimg', 'commissions', 'lesmenus_saison');
 	}
 	function index() {
 		$this->Menu->recursive = 0;
@@ -18,17 +18,10 @@ class MenusController extends AppController {
 	}
 	
 	function view($id = null) {
-	
-		
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid menu', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		
-//		$recettes = $this->Menu->Recette->find('list', array ('order' => 'Recette.titre'));
-		//$this->set(compact('menu', 'recettes'));
-		//$this->set('menu', 'recettes');
-		
 		$this->set('menu', $this->Menu->read(null, $id));
 	}	
 	/*
