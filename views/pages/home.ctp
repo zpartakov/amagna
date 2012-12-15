@@ -8,11 +8,16 @@
   <script language="Javascript"> 
 	document.write(""+geoplugin_city()+", "+geoplugin_countryName()); 
   </script></p>
-<p>Saison actuelle: 
+<p>Saison actuelle<br> 
 
 <?php      
      // affiche la saison
-echo saison();
+$saison=saison();
+$saison=explode(",",$saison);
+
+season_image($saison[1]);//num_season
+echo "<br>".$saison[0];//name
+
 ?></p>
 <br/>
 <em>

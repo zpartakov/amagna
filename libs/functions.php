@@ -664,7 +664,7 @@ function season_image($season){
 		$saison="Toute l'année";
 	}
 	echo "<img style=\"width: 60px\" src=\"/atable20/img/seasons/".$season."\" alt=\"".$saison."\" title=\"".$saison."\" />";
-	echo "<p style=\"font-style: italic; font-size: 9px; color: #7F7F7F\">Image courtesy: <a href=\"http://seasonswithpurpose.blogspot.in\">seasonswithpurpose.blogspot.in</a></p>";
+	#echo "<p style=\"font-style: italic; font-size: 9px; color: #7F7F7F\">Image courtesy: <a href=\"http://seasonswithpurpose.blogspot.in\">seasonswithpurpose.blogspot.in</a></p>";
 }
 
 
@@ -860,16 +860,15 @@ function saison() {
 	$currentMonth=DATE("m");
 	
 	//retrieve season
-	IF ($currentMonth>="03" && $currentMonth<="05")
-	$season = "printemps";
-	ELSEIF ($currentMonth>="06" && $currentMonth<="08")
-	$season = "été";
-	ELSEIF ($currentMonth>="09" && $currentMonth<="11")
-	$season = "automne";
-	ELSE
-	$season = "hiver";
+	IF ($currentMonth>="03" && $currentMonth<="05") //spring
+	$season = "1";
+	ELSEIF ($currentMonth>="06" && $currentMonth<="08") //summer
+	$season = "2";
+	ELSEIF ($currentMonth>="09" && $currentMonth<="11") //autumn
+	$season = "3";
+	ELSE //winter
+	$season = "winter,4";
 	return($season);
 }
-
 
 ?>
