@@ -1,4 +1,42 @@
+<?php App::import('Lib', 'functions'); //imports app/libs/functions ?>
+    <?php $this->pageTitle = __('titre_page_accueil', true); ?>
 
+     <p>Je pense que tu viens de : 
+
+  <!-- geolocalization: see  http://www.geoplugin.com/examples-->
+  <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+  <script language="Javascript"> 
+	document.write(""+geoplugin_city()+", "+geoplugin_countryName()); 
+  </script></p>
+<p>Saison actuelle: 
+
+<?php      
+     // affiche la saison
+echo saison();
+?></p>
+<br/>
+<em>
+Exemples
+
+     … (calcul lieu et date)<br/>
+    Genève / et on est en hiver<br/>
+    Grenade et on est en été<br/>
+<br/>
+menu calculé selon la saison et l'endroit<br/>
+</em>
+<br/>
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=scenario_pedagogique%3Astart&amp;media=scenario_pedagogique:1907549639.jpeg" class="media" title="scenario_pedagogique:1907549639.jpeg"><img src="/dokuwiki/lib/exe/fetch.php?w=200&amp;media=scenario_pedagogique:1907549639.jpeg" class="media" alt="" width="200" /></a>
+</p>
+
+<p>
+<strong>Cooking Souris</strong>
+</p>
+
+<p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+      src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+  </p>
     <?php
 /* display a on work image */
 echo $html->image('AT_WORK0.GIF', array("alt"=>"FIXME","title"=>"FIXME", "width"=>"50","height"=>"50"));
@@ -14,16 +52,10 @@ if($session->read('Auth.User.role')) {
       //$this->requestAction('/recettes/total_recettes');
  
 ?>
-    <?php $this->pageTitle = __('titre_page_accueil', true); ?>
-
-     
-
     <h1>test internationlization<?php 
     echo "langue actuelle: " .Configure::read('Config.language');
     echo "<br>";
        __('Delete'); ?></h1>
-
-     
 
 <script type="text/javascript">
        function glossaire(terme) {
@@ -40,24 +72,7 @@ if($session->read('Auth.User.role')) {
 </script>
 
 <p>
-Braiser <a onmouseOver=glossaire('Abricoter')>Abricoter</a> Duis <a href="/atable20/glossaires/terme?terme=test_terme">interdum elementum test link glossaire</a> fringilla. Sed consequat, ipsum sit amet molestie iaculis, metus magna egestas elit, sed tincidunt massa metus vulputate nisl. Nulla euismod adipiscing neque at hendrerit. In in malesuada lectus. Nullam tincidunt commodo metus laoreet mattis? In molestie tincidunt gravida. Quisque eu ante tortor. In hac habitasse platea dictumst. Donec sit amet lectus vitae libero laoreet malesuada sed sed ipsum.
+Braiser <a onmouseOver=glossaire('Abricoter')>Abricoter</a>.
 </p>
 
-<p>
-Aliquam tellus tellus, volutpat et lobortis nec, hendrerit eu elit? Donec eu eros ut enim luctus placerat. Mauris nisi turpis, dapibus sed egestas vitae, feugiat vel tortor. Phasellus diam risus, dictum cursus consequat ut; ultricies sit amet lorem. In accumsan, risus ut imperdiet aliquam, eros erat condimentum metus, at pharetra lacus neque id lectus. Aenean sit amet lorem urna, adipiscing volutpat leo? Integer libero tortor, tempus consequat molestie eget; iaculis non arcu. Donec molestie sollicitudin semper. Pellentesque a erat eget neque sodales interdum. Morbi gravida iaculis pretium. Sed quis nibh in lorem consectetur congue. Sed fermentum suscipit libero nec pretium. Fusce a vehicula lacus. Praesent turpis libero, aliquam in adipiscing non, commodo ac massa! Vivamus orci leo, venenatis vitae egestas ut, dictum nec libero. Pellentesque at tellus dui.
-</p>
-
-<p>
-Praesent et tincidunt risus? Aliquam faucibus, neque accumsan lobortis tempor, enim est vehicula tellus, vestibulum luctus velit nulla et sapien! Pellentesque auctor sagittis lectus sit amet egestas. Aliquam ut hendrerit nulla. Integer vel vulputate magna? Suspendisse lorem sapien, convallis ac cursus sed, varius et dui. Vestibulum convallis aliquet augue, quis tincidunt ligula placerat in? Sed laoreet tristique quam id fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus justo sapien, cursus ut molestie eget, eleifend non sapien. Integer at suscipit metus. Curabitur metus enim, dictum non sollicitudin non, lacinia sit amet erat. Nullam commodo condimentum mauris sit amet tempus. Nulla ut scelerisque elit.
-</p>
-
-
-<p>
-    <a href="http://validator.w3.org/check?uri=referer"><img
-      src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
-  </p>
-Géolocalisation: <br>
-<?php
-var_export(unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$_SERVER['REMOTE_ADDR'])));
-//$run=locateIp($_SERVER['HTTP_HOST']);
-?>
+       

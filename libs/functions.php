@@ -844,5 +844,32 @@ function melto($chaine) {
 	echo $chaine;
 }
 
+/*                                                                            */
+/* Titre          : Affiche la saison actuelle                                */
+/*                                                                            */
+/* URL            : http://www.phpsources.org/scripts312-PHP.htm              */
+/* Auteur         : Mathieu                                                   */
+/* Date édition   : 10 Déc 2007                                               */
+/* Website auteur : http://www.phpsources.org                                 */
+/*                                                                            */
+/******************************************************************************/
+
+
+function saison() {
+	//get current month
+	$currentMonth=DATE("m");
+	
+	//retrieve season
+	IF ($currentMonth>="03" && $currentMonth<="05")
+	$season = "printemps";
+	ELSEIF ($currentMonth>="06" && $currentMonth<="08")
+	$season = "été";
+	ELSEIF ($currentMonth>="09" && $currentMonth<="11")
+	$season = "automne";
+	ELSE
+	$season = "hiver";
+	return($season);
+}
+
 
 ?>
