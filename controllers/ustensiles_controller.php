@@ -6,6 +6,14 @@ class UstensilesController extends AppController {
 	function beforeFilter() {
 		$this->Auth->allow('index', 'view');
 	}
+	
+	var $paginate = array(
+			'limit' => 100,
+			'order' => array(
+					'Ustensile.lib' => 'asc'
+			)
+	);
+	
 	function index() {
 		$this->Ustensile->recursive = 0;
 		if($this->data['Ustensile']['q']) {

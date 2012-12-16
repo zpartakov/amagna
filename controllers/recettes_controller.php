@@ -16,7 +16,7 @@ Configure::write('Config.language', $_POST['language']);
 	}
 	
 	var $paginate = array(
-        'limit' => 10,
+        'limit' => 100,
         'order' => array(
             'Recette.titre' => 'asc'
         )
