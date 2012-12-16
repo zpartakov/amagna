@@ -1,3 +1,10 @@
+<?php 
+/*
+ * standard view of the view of a menu of recipes
+ */
+App::import('Lib', 'functions'); //imports app/libs/functions 
+?>
+
 <div class="menus view">
 <h2><?php echo $menu['Menu']['libelle']; ?>
 </h2>
@@ -40,7 +47,9 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Saison'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($menu['Saison']['saison'], array('controller' => 'saisons', 'action' => 'view', $menu['Saison']['id'])); ?>
+			<?php 			
+			season_image($menu['Saison']['id']);
+			?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Rem'); ?></dt>

@@ -56,7 +56,11 @@ show_thumb_menu($menu['Menu']['id']);
 		}
 		
 		?>
-				<?php echo $menu['Saison']['saison']; ?>
+				<?php 
+				#echo $menu['Saison']['saison']; 
+				season_image($menu['Saison']['id']);
+				
+				?>
 				
 		</h2>
 	</a>	</div>
