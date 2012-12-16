@@ -1,3 +1,9 @@
+<?php 
+/*
+ * the list of the recipe's menus
+ */
+App::import('Lib', 'functions'); //imports app/libs/functions ?>
+
 <div class="menus index">
 	<h2><?php __('Menus');?></h2>
 	<table cellpadding="0" cellspacing="0">
@@ -101,7 +107,8 @@
 //end hide from non-admin registred user
 ?>
 		<td>
-			<?php echo $menu['Saison']['saison']; ?>
+			<?php 				season_image($menu['Saison']['id']);
+		?>
 		</td>
 <?php
 ############## ADMIN AREA ##################

@@ -75,7 +75,7 @@ echo '<a href="http://www.gnu.org/licenses/gpl-3.0.txt" title="GPL License / Cop
 		<li><a href="<? echo CHEMIN; ?>recettes/?typ=15" title="Pâtes et Céréales">Pâtes et Céréales</a></li>
 		<!-- <li><a href="<? echo CHEMIN; ?>recettes/?typ=16" title="Céréales">Céréales</a></li>
 		<li><a href="<? echo CHEMIN; ?>recettes/?typ=18" title="Légumes">Légumes</a></li>-->
-		<li><a href="<? echo CHEMIN; ?>recettes/?typ=20" title="Laitages et oeufs">Laitages et oeufs</a></li>
+		<li><a href="<? echo CHEMIN; ?>recettes/?typ=3" title="Laitages et oeufs">Laitages et oeufs</a></li>
 		<li><a href="<? echo CHEMIN; ?>recettes/?typ=19" title="Fruits et desserts">Fruits et desserts</a></li>
 		<li><a href="<? echo CHEMIN; ?>countries/" title="Recettes par zones géographiques">Par pays</a></li>
 	
