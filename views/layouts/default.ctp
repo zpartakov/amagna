@@ -2,33 +2,6 @@
              "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<?php 
-/*
-if($_GET['debug']==1){
-	Configure::write('debug', 2);
-}
-*/
-/* begin hack unige */
-if($_SERVER["REMOTE_ADDR"]=="129.194.18.217") {
-//echo "bureau";
-	//echo phpinfo();
-	?>
-	<LINK rel=stylesheet Type="text/css" href="http://www.unige.ch/lettres/enseignants/bmuller/contenu.css">
-<TITLE>Histoire de l'histoire (Universit&eacute; de Gen&egrave;ve</TITLE>
-
-		<link rel="stylesheet" type="text/css" href="/lettres/enseignants/bmuller/hist2histcolltexts/css/cake.generic.css" />
-		<?=$html->css(array('hiermenu'), 'stylesheet', array('media' => 'screen'));?>
-		<!-- here we adapt hiermenu css to display a discrete menu on top -->
-		<style>
-		#cakephp-global-navigation {
-		padding-bottom: 10px;
-		opacity:0.4;
-filter:alpha(opacity=40); /* For IE8 and earlier */
-		}
-		</style>
-	<?php
-} else {
-?>
 <title><? echo SITE ." - " .$title_for_layout; ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -41,10 +14,7 @@ filter:alpha(opacity=40); /* For IE8 and earlier */
 
 <?=$html->css(array('print'), 'stylesheet', array('media' => 'print'));?>
 <link rel="shortcut icon" href="<? echo CHEMIN; ?>app/webroot/img/casserole.ico" type="image/x-icon" />
-<?php 
-}
-/* end hack unige */
-?>
+
 <?
 echo $javascript->link('recettes.js');
 echo $javascript->link('jquery-1.5.1.js');
