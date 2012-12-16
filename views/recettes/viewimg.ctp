@@ -10,10 +10,10 @@
  }
 ?>
 <?php App::import('Lib', 'functions'); //imports app/libs/functions ?>
-<h1><?php echo $recette['Recette']['titre']; ?></h1>
+<a title="Début de la recette" href="/atable20/recettes/viewimg/<?php echo $recette['Recette']['id']; ?>"><h1><?php echo $recette['Recette']['titre']; ?></h1>
 <img class="img_recette" src="<? echo CHEMIN; ?>/img/pics/
 <?php echo $recette['Recette']['pict']; ?>" alt="<?php echo $recette['Recette']['titre']; ?>" title="<?php echo $recette['Recette']['titre']; ?>">
-
+</a>
 
 <?php
 
@@ -48,7 +48,10 @@ echo "</a>";
 			?>
 </p>
 		
-		
+			<h2><?php __('Ustensiles'); ?></h2>
+			<?php 
+			ustensiles($recette['Recette']['id'],$session->read('Auth.User.role'));
+			?>
 
 			<?php 
 			

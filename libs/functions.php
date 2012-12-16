@@ -114,7 +114,7 @@ function etapesimg($id = null) {
 	}
 function ustensiles($id){
 /* ###############################################################
- * a function to display kitchen tools required for a given recipe 
+ * a function to display kitchen tools required for a given recipe with images
  * */
 		$query="
 	SELECT * FROM recettes, ustensiles, recettes_ustensiles 
@@ -145,7 +145,7 @@ function ustensiles($id){
 }
 function ustensiles_list($recette,$utilisateur){
 	/* ###############################################################
-	 * a function to display kitchen tools required for a given recipe
+	 * a function to display kitchen tools required for a given recipe without images
 	* */
 	$query="
 	SELECT * FROM recettes, ustensiles, recettes_ustensiles
@@ -158,9 +158,12 @@ function ustensiles_list($recette,$utilisateur){
 	$result=mysql_query($query);
 	$i=0;
 	while($i<mysql_num_rows($result)){
-		echo mysql_result($result, $i, 'ustensiles.lib');
+		echo "<a href=\"/atable20/ustensiles/view/" 
+		.mysql_result($result, $i, 'ustensiles.id')
+		."\">" .mysql_result($result, $i, 'ustensiles.lib') 
+		."</a>";
 		echo "&nbsp;";
-		echo "<img style=\"width: 100px; vertical-align: top\" src=\"/atable20/img/ustensile/" .mysql_result($result, $i, 'ustensiles.img') ."\" />";
+#		echo "<img style=\"width: 100px; vertical-align: top\" src=\"/atable20/img/ustensile/" .mysql_result($result, $i, 'ustensiles.img') ."\" />";
 		echo "<br/>";
 		$i++;
 	}
@@ -393,7 +396,7 @@ function ingredientscalcule($id = null,$image,$np,$arrondit) {
 				/*
 				 * normal view, precise quantitie
 				 */
-				echo $multiplicateur*mysql_result($result,$i,'quant');
+				echo preg_replace("/\.0*$/","",$multiplicateur*mysql_result($result,$i,'quant'));
 			}
 		if(mysql_result($result,$i,'unit')!='0'&&mysql_result($result,$i,'unit')!='1') {
 			echo "" .mysql_result($result,$i,'unit');
@@ -431,7 +434,9 @@ function ingredients($id = null,$image,$role) {
 	while($i<mysql_num_rows($result)){
 		//do not display if facilitate
 		if($image!=1){
-		echo mysql_result($result,$i,'quant');
+			$quantite=mysql_result($result,$i,'quant');
+			$quantite=preg_replace("/\.0*$/","",$quantite);
+		echo $quantite;
 		if(mysql_result($result,$i,'unit')!='0') {
 			echo "&nbsp;" .mysql_result($result,$i,'unit');
 		}

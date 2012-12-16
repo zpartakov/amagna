@@ -10,10 +10,7 @@ width: 70%;
 </style>
 <div class="recettes view">
 
-<?php 
-/* begin hack unige */
-if($_SERVER["REMOTE_ADDR"]!="129.194.18.217") {
-?>
+
 	<h2><?php  
 	__('Recette');
 	echo ": ";
@@ -25,10 +22,7 @@ if($_SERVER["REMOTE_ADDR"]!="129.194.18.217") {
 	</h2>
 	<img class="img_recette" src="<? echo CHEMIN; ?>img/pics/<?php echo $recette['Recette']['pict']; ?>
 	" alt="<?php echo $recette['Recette']['titre']; ?>" title="<?php echo $recette['Recette']['titre']; ?>">
-	<?php 
-}
-/* end hack unige */
-?>
+
 
 
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
