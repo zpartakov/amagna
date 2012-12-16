@@ -14,7 +14,7 @@ function np_recette($id){
 	$query="SELECT * FROM recettes WHERE id=".$id;
 	$result=mysql_query($query);
 	$np=mysql_result($result, 0, 'pers');
-	echo "Nombre de personnes: " .$np;
+	//echo "Nombre de personnes: " .$np;
 	__('Nombre de personnes: ');
 	echo $np;
 }
