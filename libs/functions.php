@@ -114,34 +114,34 @@ function etapesimg($id = null) {
 	}
 function ustensiles($id){
 /* ###############################################################
- * a function to display kitchen tools required for a given recipe with images
- * */
-		$query="
-	SELECT * FROM recettes, ustensiles, recettes_ustensiles 
-	WHERE recettes.id=" .$id ." 
-	AND recettes_ustensiles.recette_id=" .$id ."
-	AND  ustensiles.id=recettes_ustensiles.ustensile_id
-	ORDER BY ustensiles.lib
-	" ;
-//	echo "<br>".$query."<br>";
-	echo "<h3>Ustensiles pour la recette</h3>";
-	$result=mysql_query($query);
-	$i=0;
-	echo "<table>";
-	while($i<mysql_num_rows($result)){
-		echo "<tr><td>";
-//		echo  "<span style=\"color: black\">" 
-		 echo mysql_result($result, $i, 'ustensiles.lib');
-//		. "</span>";
-		echo "&nbsp;";
-		echo "</td><td style=\"text-align: right;\">";
-		echo "<img class=\"rounded\" style=\"width: 100px; \" src=\"http://www.picadametles.ch/atable/images/stories/atable/" .mysql_result($result, $i, 'ustensiles.img') ."\" />";
-		//http://www.picadametles.ch/atable/images/stories/atable/poele.jpg //TODO
-		echo "</td></tr>";
-//echo "   ";
-		$i++;
-	}
-	echo "</table>";
+* a function to display kitchen tools required for a given recipe with images
+* */
+$query="
+SELECT * FROM recettes, ustensiles, recettes_ustensiles
+WHERE recettes.id=" .$id ."
+AND recettes_ustensiles.recette_id=" .$id ."
+AND ustensiles.id=recettes_ustensiles.ustensile_id
+ORDER BY ustensiles.lib
+" ;
+// echo "<br>".$query."<br>";
+echo "<h3>Ustensiles pour la recette</h3>";
+$result=mysql_query($query);
+$i=0;
+echo "<table>";
+while($i<mysql_num_rows($result)){
+echo "<tr><td>";
+// echo "<span style=\"color: black\">"
+echo mysql_result($result, $i, 'ustensiles.lib');
+// . "</span>";
+echo "&nbsp;";
+echo "</td><td style=\"text-align: right;\">";
+echo "<img class=\"rounded\" style=\"width: 100px; \" src=\"/atable20/img/ustensile/" .mysql_result($result, $i, 'ustensiles.img') ."\" />";
+//http://www.picadametles.ch/atable/images/stories/atable/poele.jpg //TODO
+echo "</td></tr>";
+//echo " ";
+$i++;
+}
+echo "</table>";
 }
 function ustensiles_list($recette,$utilisateur){
 	/* ###############################################################
