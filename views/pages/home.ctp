@@ -25,17 +25,29 @@ $menus_saison = $this->requestAction('/menus/lesmenus_saison/'.$saison[1]); // m
 
 <br/>
 <br/>
+<div class="infobulle">
+
 <p>
-<?php
+<a href="#">
+    <?php
 $largeur_image=200;
 echo $html->image('animate/souris.gif', 
 array("alt"=>"Cooking Souris", "width" => $largeur_image."px", "style"=>"vertical-align: middle"));?>
 		
-
-<p>
-<strong>Cooking Souris</strong>
+<br/>
+Cooking Souris
+         <span>Bonjour, je suis Cooking souris et je vais vous aider à cuisiner</span>
+    </a>
+    
 </p>
 
+
+<style>
+
+</style>
+
+</p>
+</div>
 <p>
     <a href="http://validator.w3.org/check?uri=referer"><img
       src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
