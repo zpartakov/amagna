@@ -19,12 +19,18 @@ season_image($saison[1]);//num_season
 
 $menus_saison = $this->requestAction('/menus/lesmenus_saison/'.$saison[1]); // menus saisonniers
 
+
 ?></p>
+
+
 <br/>
 <br/>
 <p>
-<a href="/dokuwiki/lib/exe/detail.php?id=scenario_pedagogique%3Astart&amp;media=scenario_pedagogique:1907549639.jpeg" class="media" title="scenario_pedagogique:1907549639.jpeg"><img src="/dokuwiki/lib/exe/fetch.php?w=200&amp;media=scenario_pedagogique:1907549639.jpeg" class="media" alt="" width="200" /></a>
-</p>
+<?php
+$largeur_image=200;
+echo $html->image('animate/souris.gif', 
+array("alt"=>"Cooking Souris", "width" => $largeur_image."px", "style"=>"vertical-align: middle"));?>
+		
 
 <p>
 <strong>Cooking Souris</strong>
