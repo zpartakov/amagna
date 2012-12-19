@@ -72,29 +72,34 @@ function etapes($id = null,$role) {
 	$result=mysql_query($query);
 	//echo "Nombre d'étapes: " .mysql_num_rows($result) ."<br />";
 	$i=0;
+	
+	echo "<ol>";
 	while($i<mysql_num_rows($result)){
-		echo "<p style=\"margin-bottom: 15px;\">";
-		echo mysql_result($result,$i,'order');
-echo ". ";
-
-
+		echo "<li>";
+		/*
+		 * encode glossaries entries
+		 */
 		glossaire(mysql_result($result,$i,'text'));
-		
+
+		/*
+		 * display CRUD for admin
+		 */
 			if($role=="administrator") {
-				//echo " edit";
 				echo "&nbsp;<a href=\"".CHEMIN ."etapes/edit/".mysql_result($result,$i,'etape_id') ."\"><img alt=\"Modifier\" src=\"".CHEMIN ."img/b_edit.png\" /></a>";
 				echo "&nbsp;<a href=\"".CHEMIN ."etapes/delete/".mysql_result($result,$i,'etape_id') ."\"><img alt=\"Supprimer\" src=\"".CHEMIN ."img/b_drop.png\" /></a>";
-echo "&nbsp;<a title=\"Déplacer vers le haut\" href=\"". CHEMIN ."etapes/deplacer?recette_id=".$id ."&etape_id=" .mysql_result($result,$i,'etape_id') ."&dir=up\">";
-echo "<img alt=\"Déplacer vers le haut\" src=\"".CHEMIN ."img/icons/up.jpg\" />";
-echo "&nbsp;<a title=\"Déplacer vers le bas\" href=\"". CHEMIN ."etapes/deplacer?recette_id=".$id ."&etape_id=" .mysql_result($result,$i,'etape_id') ."&dir=down\">";
-echo "<img alt=\"Déplacer vers le bas\" src=\"".CHEMIN ."img/icons/down.jpg\" />";
-echo "&nbsp;</a>";			
+				echo "&nbsp;<a title=\"Déplacer vers le haut\" href=\"". CHEMIN ."etapes/deplacer?recette_id=".$id ."&etape_id=" .mysql_result($result,$i,'etape_id') ."&dir=up\">";
+				echo "<img alt=\"Déplacer vers le haut\" src=\"".CHEMIN ."img/icons/up.jpg\" />";
+				echo "&nbsp;<a title=\"Déplacer vers le bas\" href=\"". CHEMIN ."etapes/deplacer?recette_id=".$id ."&etape_id=" .mysql_result($result,$i,'etape_id') ."&dir=down\">";
+				echo "<img alt=\"Déplacer vers le bas\" src=\"".CHEMIN ."img/icons/down.jpg\" />";
+				echo "&nbsp;</a>";			
 			}
-echo "</p>";
+echo "</li>";
 		$i++;
 	}
+	echo "</ol>";
 	return $etapes;
 }
+
 function etapesimg($id = null) {
 /* 
  * affiche les étapes d'une recette en liste visuelle facilitée
@@ -375,7 +380,9 @@ function ingredientscalcule($id = null,$image,$np,$arrondit) {
 	/* print results */
 	echo "<h3>Nombre d'ingrédients: " .mysql_num_rows($result) ."</h3>";
 	echo "Pour: " .$np ." personne(s) à table<br />";
-	$multiplicateur=intval($np/$persrecettes);
+
+		$multiplicateur=$np/$persrecettes;
+		
 	//echo "Nbre pers originale: " .$persrecettes ." - à calculer : " .$np ." - multiplicateur: " .$multiplicateur;
 			echo "<table>";
 	$i=0;
@@ -396,7 +403,16 @@ function ingredientscalcule($id = null,$image,$np,$arrondit) {
 				/*
 				 * normal view, precise quantitie
 				 */
-				echo preg_replace("/\.0*$/","",$multiplicateur*mysql_result($result,$i,'quant'));
+				$quant=$multiplicateur*mysql_result($result,$i,'quant');
+				if(preg_match("/\./",$quant)) {
+					
+					//$quant=preg_replace("/^(.*)\.(..).*$/",$1.".".$2$3,$quant);
+					$quant=preg_replace("/^(.*)\.(..).*$/","\$1.$2",$quant);
+						
+				}
+				//echo preg_replace("/\.0*$/","",$quant);
+				echo $quant;
+				echo "&nbsp;";
 			}
 		if(mysql_result($result,$i,'unit')!='0'&&mysql_result($result,$i,'unit')!='1') {
 			echo "" .mysql_result($result,$i,'unit');

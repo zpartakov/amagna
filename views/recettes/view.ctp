@@ -33,24 +33,12 @@ width: 70%;
 		
 			&nbsp;
 		</dd>
-	<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Country'); ?></dt>
+			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Country'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($recette['Country']['name'], array('controller' => 'countries', 'action' => 'view', $recette['Country']['id'])); ?>
 			&nbsp;
-		</dd>
-	<!--  	<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Titre'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $recette['Recette']['titre']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Temps'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $recette['Recette']['temps']; ?>
-			&nbsp;
-		</dd>
-	-->	
-	
-				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Ustensiles'); ?></dt>
+		</dd>	
+			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Ustensiles'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php 
 			ustensiles_list($recette['Recette']['id'],$session->read('Auth.User.role'));
@@ -65,30 +53,21 @@ width: 70%;
 			&nbsp;
 		</dd>
 		
-	<!-- 	<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Commentaire'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?> title="changer la valeur pour calculer les commissions"><?php __('Personnes'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $recette['Recette']['ingr']; ?>
-			&nbsp;
-		</dd>	-->	
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Personnes'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+				
 				<form action="../commissions" target="_blank">
 				<input type="hidden" name="img" value="0">
-	<!-- <select name="np" size="1" style="vertical-align: top" onchange="this.form.submit()"> 
-	<?php 
-	/*
-	for($i=1; $i<=30; $i++) {
-		//echo $i;
-	echo '<option value="'.$i.'"';
-	if($i==$recette['Recette']['pers']) {
-		echo " selected";
-	}
-	echo '>'.$i ." personnes</option>";
-	}*/
-?>
-	</select> -->
-		<input type="text" name="np" value="2" style="width: 30px" onchange="this.form.submit()">
-	
+		&nbsp;
+		<?php echo $recette['Recette']['pers'];?>
+				&nbsp;
+				<span style="font-style: italic; font-size: smaller">
+			<input type="submit" value="recalculer"> pour: 
+				<input title="changer la valeur pour calculer les commissions" type="text" 
+		name="np" value="<?php echo $recette['Recette']['pers'];?>" 
+		style="width: 30px; font-size: smaller" onchange="this.form.submit()">
+		&nbsp;personnes
+	</span>
 	<input type="hidden" name="id" value="<?php echo $recette['Recette']['id'];?>">
 		<input type="hidden" name="type" value="texte">
 		</form>
