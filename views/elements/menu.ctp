@@ -132,6 +132,9 @@ if($session->read('Auth.User.role')=="administrator") {
 /*
  * setting the language for the current session; the translations are in locale/.../default.po
  */
+############## ADMIN AREA ##################
+/*	hide from non-admin registred user */
+if($session->read('Auth.User.role')=="administrator") {
 
 ?>	<li>Langues
 	 	<ul class="sousMenu">
@@ -148,7 +151,9 @@ if($session->read('Auth.User.role')=="administrator") {
 </div> 
     </ul>
     </li>
-
+<?
+	}
+?>
  
 
 	

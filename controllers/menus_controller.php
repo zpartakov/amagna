@@ -86,22 +86,28 @@ class MenusController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
+	/*
+	 * other functions
+	 */
+	
+	/*
+	 * print menus for a given season
+	 */
 	function lesmenus_saison($saison){
-		//echo "saison: " .$saison;
-	echo "<h2>Menus proposés pour cette saison</h2><ul>";
 		$sql="SELECT * FROM menus WHERE (saison_id='" .$saison ."' OR saison_id='5')";
 		//echo $sql;
 		$sql=mysql_query($sql);
 		$i=0;
+	echo "<h2>Menus proposés pour cette saison</h2>";
+	echo "<ul>";
 		while($i<mysql_num_rows($sql)){
-			//echo "<img style=\"width: 100px\" class=\"rounded\" src=\"/atable20/img/pics/";
 			echo "<li><a href=\"menus/view/" .mysql_result($sql,$i,'id')."\">" 
 			.mysql_result($sql,$i,'libelle')
 			."</a>";
 			echo "</li>";
 			$i++;
 		}
-		echo "</ul>";
+	echo "</ul>";		
 	}
 	
 }
