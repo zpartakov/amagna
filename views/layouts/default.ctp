@@ -47,24 +47,7 @@ e($html->meta('rss', array('controller' => 'posts', 'action' => 'flux.rss'), arr
 <table class="titre">
 	<tr class="titre">
 		<td class="titre">		
-		<?php 
-/* begin hack unige */
-if($_SERVER["REMOTE_ADDR"]=="129.194.18.217") {
-	?>
-				<a href="<? echo CHEMIN; ?>" title="Accueil">
-	<IMG class="logo" src="http://www.unige.ch/UDK/lenya/lettres.jpg" align="center"> 
-	</IMG></a>
-<br>
-<a href="http://www.unige.ch/index.html"> Universit&eacute; de Gen&egrave;ve</a> 
-		<a href="http://www.unige.ch/lettres/index.html"> > Facult&eacute; des lettres</a>
-		<a href="http://www.unige.ch/lettres/istge/index.html"> > D&eacute;partement d histoire g&eacute;n&eacute;rale</a>
-		<a href="http://www.unige.ch/lettres/istge/hco/index.html">> Histoire contemporaine</a>
-		<a href="http://www.unige.ch/lettres/enseignants/bmuller/index.php?page=Cours/lestextes.html">> Les textes de référence</a>
-		<a href="http://cms.unige.ch/lettres/enseignants/bmuller/hist2histcolltexts/saisies/">> Lise des textes de référence</a>
-		> Bertrand M&uuml;ller
-		<?php 
-} else {
-	?>
+
 			<a href="<? echo CHEMIN; ?>" title="Accueil recettes A table!">
 			<? echo $html->image('logo/650502.gif', array("alt"=>"Accueil recettes A table!", "width" => "80px", "style"=>"vertical-align: middle"));?>
 			</a>
@@ -75,13 +58,7 @@ if($_SERVER["REMOTE_ADDR"]=="129.194.18.217") {
 		</span>
 		
 		
-	<?php 		
-}
-//echo phpinfo();
-/* end hack unige */			
-
-
-?>			</td>
+		</td>
 		
 		</tr>
 	</table>
