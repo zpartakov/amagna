@@ -7,7 +7,12 @@ class PostsController extends AppController {
 	function beforeFilter() {
 		$this->Auth->allow('index', 'view', 'flux');
 	}
-	
+	var $paginate = array(
+        'limit' => 20,
+        'order' => array(
+            'Post.created' => 'DESC'
+        )
+    );
 	function index() {
 		if( $this->RequestHandler->isRss() ){
 			$posts = $this->Post->find('all', array('limit' => 20, 'order' => 'Post.created DESC'));
