@@ -5,7 +5,9 @@ A facilitated cakePhp cooking recipes community;
 Originally destinated to persons with an intellectual disability, it can be useful to everybody!
 Required: AMP (apache - mysql - php), cakePHP 1.3
 
+###################################################################################################################################
 *** Caution: please install cakePHP 1.3 before vamosAcomer as some required files for cakePHP are not present in this software ***
+###################################################################################################################################
 
 FRENCH:
 Ceci est un système de gestion de recettes de cuisine en ligne,
