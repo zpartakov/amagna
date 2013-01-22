@@ -25,16 +25,18 @@ echo $html->image('menus/th_liens.jpg', array("alt"=>"Liens","width"=>"20","heig
 echo "&nbsp;Liens</a>";
 ?></li>
 <li><?
-echo "<a href=\"". CHEMIN ."posts/\" title=\"Blog\">";
+echo "<a href=\"/blog/\" title=\"Blog\">";
 echo $html->image('icons/btn_blog.png', array("alt"=>"Blog", "width"=>"20","height"=>"20"));
 echo "&nbsp;Blog</a>";
 ?></li>
+<!-- 
 <li><? 
 echo "<a href=\"". CHEMIN ."posts/index.rss\" target=\"_blank\" title=\"Flux RSS blog\">";
 echo $html->image('rss.gif', array("alt"=>"Flux RSS recettes A table!", "width" => "40px"));
 echo "&nbsp;Flux RSS du Blog</a>";
 ?>
 </li>
+ -->
 <li><?
 echo "<a href=\"http://www.picadametles.ch/dokuwiki/doku.php?id=cuisine:aide_recettes\" title=\"Aide\">";
 echo $html->image('help.png', array("alt"=>"Aide", "width"=>"20","height"=>"20"));
@@ -99,7 +101,7 @@ if($session->read('Auth.User.role')=="administrator") {
 		
 		<li><a style="color: PeachPuff" href="https://129.194.18.197/hg/hgwebdir.wsgi/var/www/atable20/app/" target="_blank">Versioning (hg - mercurial)</a></li>
 		<li><a style="color: PeachPuff" href="<? echo CHEMIN; ?>recettes/add">Nouvelle recette</a></li>
-			<li><a href="<? echo CHEMIN; ?>recettes/rss">MàJ flux RSS</a></li>
+	<!--  		<li><a href="<? echo CHEMIN; ?>recettes/rss">MàJ flux RSS</a></li>-->
 			<li><a href="http://www.picadametles.ch/dokuwiki/doku.php?id=cuisine:intranet:start&do=recent">Wiki (Recent changes)</a></li>
 			<li><a href="recettes/app/webroot/img/up.php">Nouvelle image TODO</a></li>
 			<li><a href="<? echo CHEMIN; ?>menus/">Menus</a></li>
