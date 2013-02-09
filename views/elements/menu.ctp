@@ -20,7 +20,7 @@ echo "&nbsp;À propos</a>";
 ?></li>		
 			
 <li><?
-echo "<a href=\"". CHEMIN ."liens/\" title=\"Liens\">";
+echo "<a href=\"http://www.picadametles.ch/blog/index.php?category/Sites-int%C3%A9ressants\" title=\"Liens\">";
 echo $html->image('menus/th_liens.jpg', array("alt"=>"Liens","width"=>"20","height"=>"20"));
 echo "&nbsp;Liens</a>";
 ?></li>
