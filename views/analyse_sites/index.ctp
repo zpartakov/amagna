@@ -35,7 +35,15 @@ $title_for_layout="Analyse des sites";
 		<?php echo $this->Html->link($analyseSite['AnalyseSite']['soft'], array('action' => 'view', $analyseSite['AnalyseSite']['id'])); ?>
 		
 		</td>
-		<td><a href="<?php echo $analyseSite['AnalyseSite']['url']; ?>" target="_blank"><?php echo $analyseSite['AnalyseSite']['url']; ?></a>&nbsp;</td>
+		<td>
+		<?php 
+		if(strlen($analyseSite['AnalyseSite']['url'])>1) {
+		echo "<a href=\"" .$analyseSite['AnalyseSite']['url'] ."\" target=\"_blank\">";
+		echo $html->image('icons/url/url.png', array("alt"=>"Site web","width"=>"20","height"=>"20"));
+		echo "</a>";
+		}
+		?>
+		&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($analyseSite['User']['email'], array('controller' => 'users', 'action' => 'view', $analyseSite['User']['id'])); ?>
 		</td>

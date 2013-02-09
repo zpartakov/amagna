@@ -4,22 +4,22 @@
 		<legend><?php __('Edit Analyse Site'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('soft');
-		echo $this->Form->input('url');
-		echo $this->Form->input('calc_invites');
-		echo $this->Form->input('calc_ingredients');
-		echo $this->Form->input('formats');
-		echo $this->Form->input('langage');
-		echo $this->Form->input('glossaire');
-		echo $this->Form->input('icones');
-		echo $this->Form->input('graphisme');
-		echo $this->Form->input('audio');
-		echo $this->Form->input('video');
-		echo $this->Form->input('sequencage');
-		echo $this->Form->input('automatisation');
-		echo $this->Form->input('facilite');
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('note');
+		echo $this->Form->input('soft', array('type'=>'textarea'));
+		echo $this->Form->input('url', array('type'=>'textarea'));
+		echo $this->Form->input('calc_invites', array('type'=>'textarea'));
+		echo $this->Form->input('calc_ingredients', array('type'=>'textarea'));
+		echo $this->Form->input('formats', array('type'=>'textarea'));
+		echo $this->Form->input('langage', array('type'=>'textarea'));
+		echo $this->Form->input('glossaire', array('type'=>'textarea'));
+		echo $this->Form->input('icones', array('type'=>'textarea'));
+		echo $this->Form->input('graphisme', array('type'=>'textarea'));
+		echo $this->Form->input('audio', array('type'=>'textarea'));
+		echo $this->Form->input('video', array('type'=>'textarea'));
+		echo $this->Form->input('sequencage', array('type'=>'textarea'));
+		echo $this->Form->input('automatisation', array('type'=>'textarea'));
+		echo $this->Form->input('facilite', array('type'=>'textarea'));
+		echo $this->Form->input('user_id', array('type'=>'textarea'));
+		echo $this->Form->input('note', array('type'=>'textarea'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

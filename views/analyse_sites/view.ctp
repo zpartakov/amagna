@@ -1,9 +1,18 @@
 <?php 
 $title_for_layout="Analyse des sites - voir le site: " .$analyseSite['AnalyseSite']['soft'];
 ?>
+<style>
+dt {
+text-width: 40%
+}
+dd {
+text-width: 55%
+}
+
+</style>
 <div class="analyseSites view">
 <h2><?php echo $title_for_layout; ?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
+	<dl style="text-width: 99%"><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $analyseSite['AnalyseSite']['id']; ?>
@@ -16,67 +25,81 @@ $title_for_layout="Analyse des sites - voir le site: " .$analyseSite['AnalyseSit
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Url'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<?php 
+		if(strlen($analyseSite['AnalyseSite']['url'])>1) {
+			?>
+		<?php 
+			echo $html->image('icons/url/url.png', array("alt"=>"Site web","width"=>"20","height"=>"20"));
+		?>
+				&nbsp;
+			<a href="<?php echo $analyseSite['AnalyseSite']['url']; ?>">
 			<?php echo $analyseSite['AnalyseSite']['url']; ?>
-			&nbsp;
+
+		</a>			
+<?php 
+				}
+?>	
+		
+					&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Calc Invites'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $analyseSite['AnalyseSite']['calc_invites']; ?>
+			<?php echo nl2br($analyseSite['AnalyseSite']['calc_invites']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Calc Ingredients'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $analyseSite['AnalyseSite']['calc_ingredients']; ?>
+			<?php echo nl2br($analyseSite['AnalyseSite']['calc_ingredients']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Formats'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $analyseSite['AnalyseSite']['formats']; ?>
+			<?php echo nl2br($analyseSite['AnalyseSite']['formats']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Langage'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $analyseSite['AnalyseSite']['langage']; ?>
+			<?php echo nl2br($analyseSite['AnalyseSite']['langage']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Glossaire'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $analyseSite['AnalyseSite']['glossaire']; ?>
+			<?php echo nl2br($analyseSite['AnalyseSite']['glossaire']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Icones'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $analyseSite['AnalyseSite']['icones']; ?>
+			<?php echo nl2br($analyseSite['AnalyseSite']['icones']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Graphisme'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $analyseSite['AnalyseSite']['graphisme']; ?>
+			<?php echo nl2br($analyseSite['AnalyseSite']['graphisme']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Audio'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $analyseSite['AnalyseSite']['audio']; ?>
+			<?php echo nl2br($analyseSite['AnalyseSite']['audio']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Video'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $analyseSite['AnalyseSite']['video']; ?>
+			<?php echo nl2br($analyseSite['AnalyseSite']['video']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Sequencage'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $analyseSite['AnalyseSite']['sequencage']; ?>
+			<?php echo nl2br($analyseSite['AnalyseSite']['sequencage']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Automatisation'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $analyseSite['AnalyseSite']['automatisation']; ?>
+			<?php echo nl2br($analyseSite['AnalyseSite']['automatisation']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Facilite'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $analyseSite['AnalyseSite']['facilite']; ?>
+			<?php echo nl2br($analyseSite['AnalyseSite']['facilite']); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
@@ -91,7 +114,7 @@ $title_for_layout="Analyse des sites - voir le site: " .$analyseSite['AnalyseSit
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Note'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $analyseSite['AnalyseSite']['note']; ?>
+			<?php echo nl2br($analyseSite['AnalyseSite']['note']); ?>
 			&nbsp;
 		</dd>
 	</dl>
