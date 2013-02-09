@@ -1,5 +1,8 @@
+<?php 
+$title_for_layout="Analyse des sites - voir le site: " .$analyseSite['AnalyseSite']['soft'];
+?>
 <div class="analyseSites view">
-<h2><?php  __('Analyse Site');?></h2>
+<h2><?php echo $title_for_layout; ?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -93,6 +96,11 @@
 		</dd>
 	</dl>
 </div>
+<?php
+############## ADMIN AREA ##################
+/*	hide from non-admin registred user */
+	if($session->read('Auth.User.role')=="administrator") {
+?>
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
@@ -104,3 +112,7 @@
 		<li><?php echo $this->Html->link(__('New User', true), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<?
+	}
+//end hide from non-admin registred user
+?>

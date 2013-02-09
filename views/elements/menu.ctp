@@ -104,6 +104,7 @@ if($session->read('Auth.User.role')=="administrator") {
 	<!--  		<li><a href="<? echo CHEMIN; ?>recettes/rss">MàJ flux RSS</a></li>-->
 			<li><a href="http://www.picadametles.ch/dokuwiki/doku.php?id=cuisine:intranet:start&do=recent">Wiki (Recent changes)</a></li>
 			<li><a href="recettes/app/webroot/img/up.php">Nouvelle image TODO</a></li>
+			<li><a href="<? echo CHEMIN; ?>analyse_sites/">Analyse des sites</a></li>
 			<li><a href="<? echo CHEMIN; ?>menus/">Menus</a></li>
 			<li><a href="<? echo CHEMIN; ?>modecuissons/">Modes de cuisson</a></li>
 			<li><a href="<? echo CHEMIN; ?>invitations/">Invitations</a></li>

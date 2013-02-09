@@ -19,7 +19,6 @@
 		echo $this->Form->input('automatisation');
 		echo $this->Form->input('facilite');
 		echo $this->Form->input('user_id');
-		echo $this->Form->input('date_mod');
 		echo $this->Form->input('note');
 	?>
 	</fieldset>

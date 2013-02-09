@@ -4,7 +4,7 @@ $title_for_layout="Glossaire";
 <?php App::import('Lib', 'functions'); //imports app/libs/functions ?>
 
 <div class="glossaires index">
-	<h2><?php __('Glossaire');?></h2>
+	<h2><?php  echo $title_for_layout; ?></h2>
 <!-- begin search form -->
 <table>
 	<tr>
