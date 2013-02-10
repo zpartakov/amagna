@@ -17,8 +17,8 @@
 		echo $this->Form->input('sequencage', array('type'=>'textarea'));
 		echo $this->Form->input('automatisation', array('type'=>'textarea'));
 		echo $this->Form->input('facilite', array('type'=>'textarea'));
-		echo $this->Form->input('user_id', array('type'=>'textarea'));
-		echo $this->Form->input('date_mod', array('type'=>'textarea'));
+		echo $this->Form->input('user_id', array('type'=>'hidden', 'value'=>$session->read('Auth.User.id')));
+		echo $this->Form->input('date_mod', array('type'=>'textarea', 'value'=>date("Y-m-d h:i:s")));
 		echo $this->Form->input('note', array('type'=>'textarea'));
 	?>
 	</fieldset>
