@@ -2,7 +2,24 @@
 class AnalyseSitesController extends AppController {
 
 	var $name = 'AnalyseSites';
-
+	
+	/*
+	 * protection
+	 */
+	function beforeFilter() {
+		$this->Auth->allow('index', 'view');
+	}
+	
+	/*
+	 * order display
+	 */
+	var $paginate = array(
+			'limit' => 100,
+			'order' => array(
+					'AnalyseSite.soft' => 'asc'
+			)
+	);
+	
 	function index() {
 		$this->AnalyseSite->recursive = 0;
 		$this->set('analyseSites', $this->paginate());

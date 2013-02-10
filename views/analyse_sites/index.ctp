@@ -1,11 +1,8 @@
 <?php 
 $title_for_layout="Analyse des sites";
-
 ?>
-
 	<div class="analyseSites index">
 	<h2><?php  echo $title_for_layout; ?></h2>
-	<h2><?php __('Analyse Sites');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('soft');?></th>
