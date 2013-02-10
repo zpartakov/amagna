@@ -5,7 +5,10 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('soft', array('type'=>'textarea'));
+		echo $this->Form->input('facilite', array('type'=>'textarea'));
 		echo $this->Form->input('url', array('type'=>'textarea'));
+		echo $this->Form->input('rss', array('type'=>'textarea'));
+		echo $this->Form->input('lang', array('type'=>'textarea'));
 		echo $this->Form->input('calc_invites', array('type'=>'textarea'));
 		echo $this->Form->input('calc_ingredients', array('type'=>'textarea'));
 		echo $this->Form->input('formats', array('type'=>'textarea'));
@@ -17,7 +20,6 @@
 		echo $this->Form->input('video', array('type'=>'textarea'));
 		echo $this->Form->input('sequencage', array('type'=>'textarea'));
 		echo $this->Form->input('automatisation', array('type'=>'textarea'));
-		echo $this->Form->input('facilite', array('type'=>'textarea'));
 		echo $this->Form->input('user_id', array('type'=>'textarea'));
 		echo $this->Form->input('note', array('type'=>'textarea'));
 	?>

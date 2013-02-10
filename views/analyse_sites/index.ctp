@@ -7,7 +7,6 @@ $title_for_layout="Analyse des sites";
 	<tr>
 			<th><?php echo $this->Paginator->sort('soft');?></th>
 			<th><?php echo $this->Paginator->sort('url');?></th>
-			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th><?php echo $this->Paginator->sort('date_mod');?></th>
 <?php
 ############## ADMIN AREA ##################
@@ -42,9 +41,6 @@ $title_for_layout="Analyse des sites";
 		}
 		?>
 		&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($analyseSite['User']['pseudo'], array('controller' => 'users', 'action' => 'view', $analyseSite['User']['id'])); ?>
-		</td>
 		<td><?php echo $analyseSite['AnalyseSite']['date_mod']; ?>&nbsp;</td>
 <?php
 ############## ADMIN AREA ##################

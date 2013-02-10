@@ -44,6 +44,40 @@ text-width: 800px;
 		
 					&nbsp;
 		</dd>
+		
+				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Rss'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<?php 
+		if(strlen($analyseSite['AnalyseSite']['rss'])>1) {
+			?>
+		<?php 
+			echo $html->image('rss.gif', array("alt"=>"Site web","width"=>"20","height"=>"20"));
+		?>
+				&nbsp;
+			<a href="<?php echo $analyseSite['AnalyseSite']['rss']; ?>">
+			<?php echo $analyseSite['AnalyseSite']['rss']; ?>
+
+		</a>			
+<?php 
+				}
+?>	
+		
+					&nbsp;
+		</dd>
+		
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Facilite'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo nl2br($analyseSite['AnalyseSite']['facilite']); ?>
+			&nbsp;
+		</dd>
+		
+				
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Langue'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo nl2br($analyseSite['AnalyseSite']['lang']); ?>
+			&nbsp;
+		</dd>
+		
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Calc Invites'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo nl2br($analyseSite['AnalyseSite']['calc_invites']); ?>
@@ -99,11 +133,7 @@ text-width: 800px;
 			<?php echo nl2br($analyseSite['AnalyseSite']['automatisation']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Facilite'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo nl2br($analyseSite['AnalyseSite']['facilite']); ?>
-			&nbsp;
-		</dd>
+
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($analyseSite['User']['pseudo'], array('controller' => 'users', 'action' => 'view', $analyseSite['User']['id'])); ?>

@@ -5,6 +5,9 @@
 	<?php
 		echo $this->Form->input('soft', array('type'=>'textarea'));
 		echo $this->Form->input('url', array('type'=>'textarea'));
+		echo $this->Form->input('facilite', array('type'=>'textarea'));
+		echo $this->Form->input('rss', array('type'=>'textarea'));
+		echo $this->Form->input('lang', array('type'=>'textarea'));
 		echo $this->Form->input('calc_invites', array('type'=>'textarea'));
 		echo $this->Form->input('calc_ingredients', array('type'=>'textarea'));
 		echo $this->Form->input('formats', array('type'=>'textarea'));
@@ -16,7 +19,6 @@
 		echo $this->Form->input('video', array('type'=>'textarea'));
 		echo $this->Form->input('sequencage', array('type'=>'textarea'));
 		echo $this->Form->input('automatisation', array('type'=>'textarea'));
-		echo $this->Form->input('facilite', array('type'=>'textarea'));
 		echo $this->Form->input('user_id', array('type'=>'hidden', 'value'=>$session->read('Auth.User.id')));
 		echo $this->Form->input('date_mod', array('type'=>'textarea', 'value'=>date("Y-m-d h:i:s")));
 		echo $this->Form->input('note', array('type'=>'textarea'));
