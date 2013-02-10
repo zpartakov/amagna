@@ -6,6 +6,8 @@ class AnalyseSitesController extends AppController {
 	/*
 	 * protection
 	 */
+	var $components = array('RequestHandler','Auth');
+	
 	function beforeFilter() {
 		$this->Auth->allow('index', 'view');
 	}
