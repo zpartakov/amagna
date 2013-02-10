@@ -1,5 +1,6 @@
 <?php 
 $title_for_layout="Analyse des sites";
+
 ?>
 
 	<div class="analyseSites index">
@@ -45,7 +46,7 @@ $title_for_layout="Analyse des sites";
 		?>
 		&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($analyseSite['User']['email'], array('controller' => 'users', 'action' => 'view', $analyseSite['User']['id'])); ?>
+			<?php echo $this->Html->link($analyseSite['User']['pseudo'], array('controller' => 'users', 'action' => 'view', $analyseSite['User']['id'])); ?>
 		</td>
 		<td><?php echo $analyseSite['AnalyseSite']['date_mod']; ?>&nbsp;</td>
 <?php

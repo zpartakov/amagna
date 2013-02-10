@@ -1,18 +1,20 @@
 <?php 
 $title_for_layout="Analyse des sites - voir le site: " .$analyseSite['AnalyseSite']['soft'];
+
 ?>
 <style>
+dl {
+}
 dt {
-text-width: 40%
+text-width: 400px;
 }
 dd {
-text-width: 55%
+text-width: 800px;
 }
-
 </style>
 <div class="analyseSites view">
 <h2><?php echo $title_for_layout; ?></h2>
-	<dl style="text-width: 99%"><?php $i = 0; $class = ' class="altrow"';?>
+	<dl><?php $i = 0; $class = ' class="altrow"';?>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $analyseSite['AnalyseSite']['id']; ?>
@@ -104,7 +106,7 @@ text-width: 55%
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('User'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($analyseSite['User']['email'], array('controller' => 'users', 'action' => 'view', $analyseSite['User']['id'])); ?>
+			<?php echo $this->Html->link($analyseSite['User']['pseudo'], array('controller' => 'users', 'action' => 'view', $analyseSite['User']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Date Mod'); ?></dt>

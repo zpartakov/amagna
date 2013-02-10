@@ -1,7 +1,7 @@
 <?php
 class User extends AppModel {
 	var $name = 'User';
-	var $displayField = 'email';
+	var $displayField = 'pseudo'; //hide email so better for privacy
 	var $validate = array(
 		'username' => array(
 			'notempty' => array(
