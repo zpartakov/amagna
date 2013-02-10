@@ -1,12 +1,42 @@
 <?php 
-$title_for_layout="Analyse des sites";
+$title_for_layout="Sites de recettes avec analyse";
 ?>
 	<div class="analyseSites index">
 	<h2><?php  echo $title_for_layout; ?></h2>
+<?php
+############## ADMIN AREA ##################
+/*	hide from non-admin registred user */
+	if($session->read('Auth.User.role')=="administrator") {
+?>
+<?php echo $this->Html->link(__('New Analyse Site', true), array('action' => 'add')); ?>
+<?
+	}
+//end hide from non-admin registred user
+?> 	
+<!-- begin search form -->
+<table>
+	<tr>
+	<td> 
+		<div class="input">
+			<?php echo $form->create('AnalyseSite', array('url' => array('action' => 'index'))); ?>
+			<?php #echo $form->input('q', array('style' => 'width: 250px;', 'label' => false, 'size' => '80')); ?>
+			<?php echo $form->input('q', array('label' => false, 'size' => '50', 'class'=>'txttosearch')); ?>
+		</div>
+	</td>
+	<td>
+		<input type="button" class="vider" value="Vider" onClick="javascript:vide_recherche('AnalyseSiteQ')" />
+		<input type="submit" class="chercher" value="Chercher" /> 
+	</td>
+	</tr>
+</table>
+<!-- end search form -->	
+	
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('soft');?></th>
 			<th><?php echo $this->Paginator->sort('url');?></th>
+			<th><?php echo $this->Paginator->sort('rss');?></th>
+			<th><?php echo $this->Paginator->sort('lang');?></th>
 			<th><?php echo $this->Paginator->sort('date_mod');?></th>
 <?php
 ############## ADMIN AREA ##################
@@ -32,6 +62,7 @@ $title_for_layout="Analyse des sites";
 		<?php echo $this->Html->link($analyseSite['AnalyseSite']['soft'], array('action' => 'view', $analyseSite['AnalyseSite']['id'])); ?>
 		
 		</td>
+		
 		<td>
 		<?php 
 		if(strlen($analyseSite['AnalyseSite']['url'])>1) {
@@ -40,9 +71,23 @@ $title_for_layout="Analyse des sites";
 		echo "</a>";
 		}
 		?>
-		&nbsp;</td>
+		&nbsp;
+		</td>
+		
+		<td>
+		<?php 
+		if(strlen($analyseSite['AnalyseSite']['rss'])>1) {
+		echo "<a href=\"" .$analyseSite['AnalyseSite']['rss'] ."\" target=\"_blank\">";
+		echo $html->image('rss.gif', array("alt"=>"Site web","width"=>"20","height"=>"20"));
+		echo "</a>";
+		}
+		?>
+		&nbsp;
+		</td>
+				
+		<td><?php echo $analyseSite['AnalyseSite']['lang']; ?>&nbsp;</td>
 		<td><?php echo $analyseSite['AnalyseSite']['date_mod']; ?>&nbsp;</td>
-<?php
+		<?php
 ############## ADMIN AREA ##################
 /*	hide from non-admin registred user */
 	if($session->read('Auth.User.role')=="administrator") {

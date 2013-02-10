@@ -24,7 +24,18 @@ class AnalyseSitesController extends AppController {
 	
 	function index() {
 		$this->AnalyseSite->recursive = 0;
+		if($this->data['AnalyseSite']['q']) {
+		$q = $this->data['AnalyseSite']['q'];
+		$options = array(
+		"AnalyseSite.soft LIKE '%" .$q ."%'" 
+		." OR AnalyseSite.facilite LIKE '%" .$q 
+		."%' OR AnalyseSite.url LIKE '%" .$q 
+		."%' OR AnalyseSite.note LIKE '%" .$q ."%'");
+			
+		$this->set(array('analyseSites' => $this->paginate('AnalyseSite', $options)));
+		} else {
 		$this->set('analyseSites', $this->paginate());
+		}
 	}
 
 	function view($id = null) {

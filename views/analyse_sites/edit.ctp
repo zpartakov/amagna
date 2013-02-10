@@ -6,9 +6,9 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('soft', array('type'=>'textarea'));
 		echo $this->Form->input('facilite', array('type'=>'textarea'));
-		echo $this->Form->input('url', array('type'=>'textarea'));
-		echo $this->Form->input('rss', array('type'=>'textarea'));
-		echo $this->Form->input('lang', array('type'=>'textarea'));
+		echo $this->Form->input('url', array('style'=>'width: 300px'));
+		echo $this->Form->input('rss', array('style'=>'width: 300px'));
+		echo $this->Form->input('lang', array('style'=>'width: 50px'));
 		echo $this->Form->input('calc_invites', array('type'=>'textarea'));
 		echo $this->Form->input('calc_ingredients', array('type'=>'textarea'));
 		echo $this->Form->input('formats', array('type'=>'textarea'));
