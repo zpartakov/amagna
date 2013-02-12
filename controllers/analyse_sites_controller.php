@@ -25,7 +25,10 @@ class AnalyseSitesController extends AppController {
 	function index() {
 		$this->AnalyseSite->recursive = 0;
 		
-		/*if($this->data['AnalyseSite']['q']) {
+		/*
+		 * old: POST not fine for urls and emails
+		 * 
+		 * if($this->data['AnalyseSite']['q']) {
 		$q = $this->data['AnalyseSite']['q'];*/
 		if($_GET['q']) {
 		$q=$_GET['q'];
