@@ -3,6 +3,8 @@ $title_for_layout="Sites de recettes avec analyse";
 ?>
 	<div class="analyseSites index">
 	<h2><?php  echo $title_for_layout; ?></h2>
+<h3>Cette page propose des liens sur des sites ou des logiciels de cuisine, avec des analyses
+sur la facilitation proposée.</h3>
 <?php
 ############## ADMIN AREA ##################
 /*	hide from non-admin registred user */
@@ -18,7 +20,7 @@ $title_for_layout="Sites de recettes avec analyse";
 	<tr>
 	<td> 
 		<div class="input">
-			<?php echo $form->create('AnalyseSite', array('url' => array('action' => 'index'))); ?>
+			<?php echo $form->create('AnalyseSite', array('type' => 'get')); ?>
 			<?php #echo $form->input('q', array('style' => 'width: 250px;', 'label' => false, 'size' => '80')); ?>
 			<?php echo $form->input('q', array('label' => false, 'size' => '50', 'class'=>'txttosearch')); ?>
 		</div>

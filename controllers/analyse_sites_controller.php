@@ -24,8 +24,11 @@ class AnalyseSitesController extends AppController {
 	
 	function index() {
 		$this->AnalyseSite->recursive = 0;
-		if($this->data['AnalyseSite']['q']) {
-		$q = $this->data['AnalyseSite']['q'];
+		
+		/*if($this->data['AnalyseSite']['q']) {
+		$q = $this->data['AnalyseSite']['q'];*/
+		if($_GET['q']) {
+		$q=$_GET['q'];
 		$options = array(
 		"AnalyseSite.soft LIKE '%" .$q ."%'" 
 		." OR AnalyseSite.facilite LIKE '%" .$q 
