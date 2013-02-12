@@ -30,15 +30,16 @@ $title_for_layout="Voir ustensile: " .$ustensile['Ustensile']['lib'];
 			<?php echo $ustensile['Ustensile']['lib']; ?>
 			&nbsp;
 		</dd>
+				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Img'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+					<? echo $html->image('ustensile/'.$ustensile['Ustensile']['img'], array("width" => "300px", "style"=>"vertical-align: middle"));?>
+		</dd>
 					<?php
 ############## ADMIN AREA ##################
 /*	hide from non-admin registred user */
 	if($session->read('Auth.User.role')=="administrator") {
 ?>	
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Img'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-					<? echo $html->image('ustensile/'.$ustensile['Ustensile']['img'], array("width" => "20px", "style"=>"vertical-align: middle"));?>
-		</dd>
+
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Note'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $ustensile['Ustensile']['note']; ?>
