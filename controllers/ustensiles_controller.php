@@ -23,6 +23,8 @@ class UstensilesController extends AppController {
 			$q = Sanitize::escape($input);
 			$options = array(
 					"Ustensile.lib LIKE '%" .$q ."%'"
+					." OR Ustensile.groupe LIKE '%" .$q ."%'"
+					." OR Ustensile.note LIKE '%" .$q ."%'"
 			);
 			$this->set(array('ustensiles' => $this->paginate('Ustensile', $options)));
 		} else {
