@@ -1,5 +1,7 @@
 <?php App::import('Lib', 'functions'); //imports app/libs/functions ?>
-    <?php $this->pageTitle = __('titre_page_accueil', true); ?>
+    <?php 
+    //$this->pageTitle = __('titre_page_accueil', true); 
+    ?>
 <table style="margin-top: -50px">
 <tr><td>
 <?php      
