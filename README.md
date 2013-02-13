@@ -1,4 +1,4 @@
-vamosAcomer
+vamosAcomer - a magna'
 
 A facilitated cakePhp cooking recipes community; Originally destinated to persons with an intellectual disability, it can be useful to everybody! Required: AMP (apache - mysql - php), cakePHP 1.3
 
