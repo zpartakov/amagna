@@ -2,7 +2,8 @@
 /*
  * a facilitated view of the index of the menus of recipes
  */
-App::import('Lib', 'functions'); //imports app/libs/functions ?>
+App::import('Lib', 'functions'); //imports app/libs/functions 
+?>
 <div class="menus index">
 	<h2><?php __('Menus');?></h2>
 	<table cellpadding="0" cellspacing="0">

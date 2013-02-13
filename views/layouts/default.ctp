@@ -1,3 +1,11 @@
+<?php 
+App::import('Lib', 'functions'); //imports app/libs/functions 
+?>
+<?
+         if($session->read('Auth.User.role')) {
+        recordActivity($session->read('Auth.User.id'));
+          }
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
              "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -73,11 +81,7 @@ echo $this->element('menu');
 <!-- graphical navigation -->
 <div id="graphnav" class="graphmenu">
 <?php 
-/* begin hack unige */
-if($_SERVER["REMOTE_ADDR"]!="129.194.18.217") {
 echo $this->element('graphicalmenu');
-}
-
 ?>
 </div>
 <!-- content -->
@@ -85,7 +89,12 @@ echo $this->element('graphicalmenu');
     <div id="content">
     <br />
          <?=$content_for_layout;?>
+         <?php if($session->read('Auth.User.role')) {
+		echo "Bienvenue, " .$session->read('Auth.User.username');
+          }
+		?>
      </div>
 </div>
+
  </body>
  </html>

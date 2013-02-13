@@ -897,4 +897,31 @@ function saison() {
 	return($season);
 }
 
+/*
+ * personalization - personalisation
+ */
+
+function recordActivity($uid)
+/*
+ * log logged user's actions
+*/
+{
+		
+	$sql="INSERT INTO `activities` 
+	(`id`, `user_browser`, `user_ip`, `user_id`, `user_accessed`, `referer`, `url`) 
+	VALUES
+	('', 
+	'" .$_SERVER['HTTP_USER_AGENT'] ."', 
+	'".$_SERVER['REMOTE_ADDR']."', 
+	'" .$uid ."', 
+	'".date("Y-m-d H:i:s")."',
+	'".$_SERVER["HTTP_REFERER"]."',
+	'".$_SERVER["REQUEST_URI"]."' 
+	)";
+	
+	//echo "<pre>$sql</pre>";
+	$sql=mysql_query($sql);
+	
+}
 ?>
+

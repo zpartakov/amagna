@@ -521,7 +521,7 @@ function renvoiemail() {
 	Votre nouveau mot de passe: " .$password;
 	$textemail.='
 	
-	Se connecter à "a magna'!": <a href="http://www.picadametles.ch/amagna/users/login">http://www.picadametles.ch/amagna/users/login</a>
+	Se connecter à "a magna\'!": <a href="http://www.picadametles.ch/amagna/users/login">http://www.picadametles.ch/amagna/users/login</a>
 	
 	----
 	Message automatique généré par un script

@@ -9,7 +9,9 @@
 	 $keletape=0;
  }
 ?>
-<?php App::import('Lib', 'functions'); //imports app/libs/functions ?>
+<?php 
+App::import('Lib', 'functions'); //imports app/libs/functions 
+?>
 <a title="Début de la recette" href="<? echo CHEMIN; ?>recettes/viewimg/<?php echo $recette['Recette']['id']; ?>"><h1><?php echo $recette['Recette']['titre']; ?></h1>
 <img class="img_recette" src="<? echo CHEMIN; ?>img/pics/
 <?php echo $recette['Recette']['pict']; ?>" alt="<?php echo $recette['Recette']['titre']; ?>" title="<?php echo $recette['Recette']['titre']; ?>">

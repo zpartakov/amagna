@@ -1,3 +1,6 @@
+<?php 
+App::import('Lib', 'functions'); //imports app/libs/functions 
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
              "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!-- a facilitated layout -->
@@ -34,11 +37,7 @@ echo $javascript->link('scrolltopcontrol');
 <!-- graphical navigation -->
 <div id="graphnav" class="graphmenu_fiche">
 <?php 
-/* begin hack unige */
-if($_SERVER["REMOTE_ADDR"]!="129.194.18.217") {
 echo $this->element('small_graphicalmenu');
-}
-
 ?>
 </div>
 <!-- content -->
