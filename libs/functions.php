@@ -48,7 +48,7 @@ function levenshtein_recettes($word) {
 		if($lev >= 0 && $lev < 5)
 		{
 			echo '
-			<form id="RecetteIndexForm" method="post" action="/atable20/recettes">
+			<form id="RecetteIndexForm" method="post" action="/amagna/recettes">
 			<input type="hidden" name="_method" value="POST" />
 			<input name="data[Recette][q]" type="hidden" size="50"
 			class="txttosearch" value="'.$mot.'" id="RecetteQ" />
@@ -140,7 +140,7 @@ echo mysql_result($result, $i, 'ustensiles.lib');
 // . "</span>";
 echo "&nbsp;";
 echo "</td><td style=\"text-align: right;\">";
-echo "<img class=\"rounded\" style=\"width: 100px; \" src=\"/atable20/img/ustensile/" .mysql_result($result, $i, 'ustensiles.img') ."\" />";
+echo "<img class=\"rounded\" style=\"width: 100px; \" src=\"/amagna/img/ustensile/" .mysql_result($result, $i, 'ustensiles.img') ."\" />";
 //http://www.picadametles.ch/atable/images/stories/atable/poele.jpg //TODO
 echo "</td></tr>";
 //echo " ";
@@ -163,12 +163,12 @@ function ustensiles_list($recette,$utilisateur){
 	$result=mysql_query($query);
 	$i=0;
 	while($i<mysql_num_rows($result)){
-		echo "<a href=\"/atable20/ustensiles/view/" 
+		echo "<a href=\"/amagna/ustensiles/view/" 
 		.mysql_result($result, $i, 'ustensiles.id')
 		."\">" .mysql_result($result, $i, 'ustensiles.lib') 
 		."</a>";
 		echo "&nbsp;";
-#		echo "<img style=\"width: 100px; vertical-align: top\" src=\"/atable20/img/ustensile/" .mysql_result($result, $i, 'ustensiles.img') ."\" />";
+#		echo "<img style=\"width: 100px; vertical-align: top\" src=\"/amagna/img/ustensile/" .mysql_result($result, $i, 'ustensiles.img') ."\" />";
 		echo "<br/>";
 		$i++;
 	}
@@ -207,7 +207,7 @@ function levenshtein_ustensile($word) {
 		
 		{
 			echo '
-	<form action="/atable20/ustensiles" id="UstensileIndexForm" method="post">
+	<form action="/amagna/ustensiles" id="UstensileIndexForm" method="post">
 	<input type="hidden" name="_method" value="POST" />
 	<input name="data[Ustensile][q]" type="hidden" value="'.$mot.'" id="UstensileQ" />
 	<input type="submit" class="chercher" value="'.$mot.'" />
@@ -243,7 +243,7 @@ function show_thumb_menu($menu) {
 	$sql=mysql_query($sql);
 	$i=0;
 	while($i<mysql_num_rows($sql)){
-		echo "<img style=\"width: 100px\" class=\"rounded\" src=\"/atable20/img/pics/";
+		echo "<img style=\"width: 100px\" class=\"rounded\" src=\"/amagna/img/pics/";
 		echo mysql_result($sql,$i,'pict');
 		echo "\"/>";
 		$i++;
@@ -471,7 +471,7 @@ function ingredients($id = null,$image,$role) {
 				 * suppress ingredient if admin		
 				 */
 				if($role=="administrator") {
-					echo " <a href=\"/atable20/recettes/supprimer/?rec_id=" .$id."&ing_id=" .mysql_result($result,$i,'ingredient_id')."\">Supprimer</a>";
+					echo " <a href=\"/amagna/recettes/supprimer/?rec_id=" .$id."&ing_id=" .mysql_result($result,$i,'ingredient_id')."\">Supprimer</a>";
 				}
 		}
 		if($image=="1") { //facilitated print
@@ -489,7 +489,7 @@ function ingredients($id = null,$image,$role) {
 				 * suppress ingredient if admin		
 				 */
 				if($role=="administrator") {
-		echo "</p><a href=\"/atable20/recettes/ajouteringredient?id=" .$id."\">Ajouter un ingrédient</a></p>";
+		echo "</p><a href=\"/amagna/recettes/ajouteringredient?id=" .$id."\">Ajouter un ingrédient</a></p>";
 }
 }
 function ingredients_modif($id = null) {
@@ -517,7 +517,7 @@ function ingredients_modif($id = null) {
 		echo "</td><td style=\"padding: 10px;\">";
 		echo mysql_result($result,$i,'libelle');
 		
-		echo "</td><td><a href=\"/atable20/recettes/supprimer/?rec_id=" .$id."&ing_id=" .mysql_result($result,$i,'ingredient_id')."\">Supprimer</a>";
+		echo "</td><td><a href=\"/amagna/recettes/supprimer/?rec_id=" .$id."&ing_id=" .mysql_result($result,$i,'ingredient_id')."\">Supprimer</a>";
 		
 		echo "</td></tr>";
 		$i++;
@@ -571,7 +571,7 @@ function levenshtein_ingredients($word) {
 		
 		{
 			echo '
-	<form id="IngredientIndexForm" method="post" action="/atable20/ingredients">
+	<form id="IngredientIndexForm" method="post" action="/amagna/ingredients">
 	<input type="hidden" name="_method" value="POST" />
 	<input name="data[Ingredient][q]" type="hidden" value="'.$mot.'" id="IngredientQ" />
 	<input type="submit" class="chercher" value="'.$mot.'" />
@@ -592,10 +592,10 @@ function glossaire($match) {
 	//$text = preg_replace('/\[\[(.*?)|(.*?)\]\]/', '<a target="_blank" href="$1" title="$2">$2</a>', $match);
 	//$text = preg_replace('/\[\[(.*?)\]\]/', '<a target="_blank" href="$1">$1</a>', $match);
 	$text = preg_replace('/\[\[(.*?)\|(.*?)\]\]/', "
-			<a href=\"/atable20/glossaires/viewimg/$1\" title=\"chercher dans le glossaire\"
-			onclick=\"window.open('/atable20/glossaires/viewimg/$1','','width=500, height=300,left=50,top=10');return false;\">
+			<a href=\"/amagna/glossaires/viewimg/$1\" title=\"chercher dans le glossaire\"
+			onclick=\"window.open('/amagna/glossaires/viewimg/$1','','width=500, height=300,left=50,top=10');return false;\">
 			<span style=\"color: #008080;\">
-			<img src=\"/atable20/img/icons/glossaire_icone.jpg\"
+			<img src=\"/amagna/img/icons/glossaire_icone.jpg\"
 			border=\"0\" alt=\"chercher dans le glossaire\" />$2</span></a>", $match);
 	 
 
@@ -652,7 +652,7 @@ function levenshtein_glossaire($word) {
 		
 		{
 			echo '
-	<form action="/atable20/glossaires" id="GlossaireIndexForm" method="post">
+	<form action="/amagna/glossaires" id="GlossaireIndexForm" method="post">
 	<input type="hidden" name="_method" value="POST" />
 	<input name="data[Glossaire][q]" type="hidden" value="'.$mot.'" id="GlossaireQ" />
 	<input type="submit" class="chercher" value="'.$mot.'" />
@@ -689,7 +689,7 @@ function season_image($season){
 		$saison="Toute l'année";
 		$width=350;
 	}
-	echo "<img style=\"width: " .$width ."px\" src=\"/atable20/img/seasons/".$season."\" alt=\"".$saison."\" title=\"".$saison."\" />";
+	echo "<img style=\"width: " .$width ."px\" src=\"/amagna/img/seasons/".$season."\" alt=\"".$saison."\" title=\"".$saison."\" />";
 	#echo "<p style=\"font-style: italic; font-size: 9px; color: #7F7F7F\">Image courtesy: <a href=\"http://seasonswithpurpose.blogspot.in\">seasonswithpurpose.blogspot.in</a></p>";
 }
 
@@ -700,7 +700,7 @@ function display_audio($audiofile){
  * 
  * 
 */
-	$filename="/atable20/app/webroot/audios/".$audiofile.".mp3";
+	$filename="/amagna/app/webroot/audios/".$audiofile.".mp3";
 	$audio=$audiofile.".mp3";
 /*
  * testing which server, if dev or prod two different absolute paths
@@ -708,7 +708,7 @@ function display_audio($audiofile){
 	if($_SERVER["HTTP_HOST"]=="testserver"){
 	$filename="/home/radeff/atable/webroot/audios/".$audiofile.".mp3";
 	}elseif($_SERVER["HTTP_HOST"]=="www.picadametles.ch "){
-	$filename="/atable20/app/webroot/audios/".$audiofile.".mp3";
+	$filename="/amagna/app/webroot/audios/".$audiofile.".mp3";
 	}
 	
 	if (file_exists($filename)) {
@@ -742,7 +742,7 @@ function allvideomp3($audio) {
 	<script type=\"text/javascript\">
 	swfobject.embedSWF('/plugins/content/avreloaded/mediaplayer.swf','avreloaded0','70','60','9.0.115','/plugins/content/avreloaded/expressinstall.swf',
 	{
-		file:'http://" .SERVERNAMEPROD .CHEMIN ."audios/" .$audio ."',width:'70',height:'60',image:'/atable20/img/hautparleur.jpg',
+		file:'http://" .SERVERNAMEPROD .CHEMIN ."audios/" .$audio ."',width:'70',height:'60',image:'/amagna/img/hautparleur.jpg',
 		showeq:'false',searchbar:'false',enablejs:'false',autostart:'false',showicons:'true',shownavigation:'false',usefullscreen:'false',backcolor:'0xFFFFFF',frontcolor:'0x000000',
 		lightcolor:'0x000000',screencolor:'0x000000',overstretch:'false'}
 		,{

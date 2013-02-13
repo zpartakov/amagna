@@ -95,7 +95,7 @@ $title_for_layout="Glossaire";
 		* print image only if any
 		*/
 		if($glossaire['Glossaire']['image']){
-			echo "<img style=\"width: 35px;\" src=\"/atable20/img/glossaire/".$glossaire['Glossaire']['image']."\" />";
+			echo "<img style=\"width: 35px;\" src=\"".CHEMIN."img/glossaire/".$glossaire['Glossaire']['image']."\" />";
 		}
 		?>&nbsp;</td>
 		<?php

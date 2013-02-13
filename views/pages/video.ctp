@@ -1,4 +1,4 @@
- <embed src="http://129.194.18.197/atable20/videos/poisson1.flv" height="200" width="200" autostart=FALSE />  
+ <embed src="<? echo CHEMIN; ?>videos/poisson1.flv" height="200" width="200" autostart=FALSE />  
 http://astuces.jeanviet.info/videos/mettre-video-sur-blog-ou-site-web-avec-generateur-html-pour-wmv-flv-divx.htm
 
 
@@ -24,7 +24,7 @@ The newest generation of mainstream internet browsers all support native HTML 5 
 </video>
 <hr/>
 <video poster="http://www.808.dk/pics/video/gizmo.jpg" id="video" style="cursor: pointer;" >
-  <source src="http://129.194.18.197/atable20/files/video/poisson1.flv" />
+  <source src="http://129.194.18.197<? echo CHEMIN; ?>files/video/poisson1.flv" />
  <!-- <source src="http://www.808.dk/pics/video/gizmo.ogv" type="video/ogg" />
   Video not playing? <a href="ttp://www.808.dk/pics/video/gizmo.mp4">Download file</a> instead.
 </video>-->
@@ -38,9 +38,9 @@ The newest generation of mainstream internet browsers all support native HTML 5 
 <!-- 
 <div id="example"></div> 
 <hr>
-<object type="application/x-shockwave-flash" data="http://129.194.18.197/atable20/files/flowplayer-3.2.12.swf" width="400" height="300">
-	<param name="movie" value="http://129.194.18.197/atable20/files/flowplayer-3.2.12.swf" />
+<object type="application/x-shockwave-flash" data="<? echo CHEMIN; ?>files/flowplayer-3.2.12.swf" width="400" height="300">
+	<param name="movie" value="<? echo CHEMIN; ?>files/flowplayer-3.2.12.swf" />
 	<param name="allowFullScreen" value="true" />
-	<param name="FlashVars" value="flv=http://129.194.18.197/atable20/videos/poisson1.flv" />
+	<param name="FlashVars" value="flv=<? echo CHEMIN; ?>videos/poisson1.flv" />
 </object>
  -->

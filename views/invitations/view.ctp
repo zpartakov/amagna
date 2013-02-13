@@ -59,7 +59,7 @@
 	while($i<$nbrec) {
 		$titre=mysql_result($result,$i,'titre');
 		$titre=ucfirst($titre);
-		echo "<li><a href=\"/atable20/recettes/view/" .$titre=mysql_result($result,$i,'recettes.id') ."\">".$titre ."</a></li>\n";
+		echo "<li><a href=\"" .CHEMIN ."recettes/view/" .$titre=mysql_result($result,$i,'recettes.id') ."\">".$titre ."</a></li>\n";
 		$i++;
 	}
 	?>

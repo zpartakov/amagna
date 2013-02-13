@@ -10,8 +10,8 @@
   xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>Le blog de "A table!"</title>
-  <link>http://www.picadametles.ch/atable20/</link>
-  <atom:link href="http://www.picadametles.ch/atable20/posts/rss/index.rss" rel="self" type="application/rss+xml"/>
+  <link>http://www.picadametles.ch/amagna/</link>
+  <atom:link href="http://www.picadametles.ch/amagna/posts/rss/index.rss" rel="self" type="application/rss+xml"/>
   <description>Le blog de "A table!" sur www.picadametles.ch</description>';*/
   
   

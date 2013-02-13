@@ -16,4 +16,4 @@ echo "</h2>";
 echo "<h2>Liste des ingrédients</h2>";
 ingredients_modif($recette['Recette']['id']);
 ?>
-<a href="/atable20/recettes/ajouteringredient?id=<?php echo $recette['Recette']['id']?>">Ajouter un ingrédient</a>
+<a href="<? echo CHEMIN; ?>recettes/ajouteringredient?id=<?php echo $recette['Recette']['id']?>">Ajouter un ingrédient</a>

@@ -17,7 +17,7 @@ Bonjour,<br/>
 <br/>
 Voici tes informations pour te connecter sur la face cachée de la lune - mes recettes protégées, il y en a plusieurs milliers et elles sont top, mais je peux pas les publier pour raisons de copyright:<br/>
 <br/>
-http://www.picadametles.ch/atable20/users/login (en haut à droite du menu)<br/>
+http://www.picadametles.ch<? echo CHEMIN; ?>users/login (en haut à droite du menu)<br/>
 <br/>
 &nbsp;&nbsp;Utilisateur  :   <? echo $_POST['mail'];?><br/>
 &nbsp;&nbsp;Mot de passe :  <? echo generate_password(8); ?><br/>
@@ -26,7 +26,7 @@ http://www.picadametles.ch/atable20/users/login (en haut à droite du menu)<br/>
 <br/>
 Une fois enregistré, regarde p. ex. l'intégrale des magnifiques recettes de Dino Bugialli, star toscane outre-atlantique inconnue ici et dont le livre magnifique est épuisé:
 <br/>
-http://www.picadametles.ch/atable20/recettes/chercher?chercher=bugialli
+http://www.picadametles.ch<? echo CHEMIN; ?>recettes/chercher?chercher=bugialli
 <br/>
 En plus 95% des nouvelles recettes de mon site vont sur cet intranet, car malheureusement aujourd'hui c'est la tendance sur les sites culinaires, on publie des recettes mais on veut qu'elles soit sous copyright (absurde mais c'est comme ça).<br/><br/>
 Merci de garder ces infos pour toi, et bonne cuisine!

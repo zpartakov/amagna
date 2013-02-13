@@ -22,7 +22,7 @@ var $helpers = array('Html', 'Javascript');
     window.onload = function() {  
          flashembed("'.$div.'",             
             {
-                src:"http://129.194.18.197/atable20/files/flowplayer-3.2.12.swf",
+                src:"'.CHEMIN .'files/flowplayer-3.2.12.swf",
                 width: '.$width.', 
                 height: '.$height.'
             },

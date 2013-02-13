@@ -25,7 +25,7 @@ display_audio("menus/".$menu['Menu']['id']);
 ?>
 
 <div class="menuindeximg">
-	<a class="tooltip" href="/atable20/menus/viewimg/<?php echo $menu['Menu']['id'];?>" title="<?php echo $menu['Menu']['libelle']; ?>
+	<a class="tooltip" href="<? echo CHEMIN; ?>menus/viewimg/<?php echo $menu['Menu']['id'];?>" title="<?php echo $menu['Menu']['libelle']; ?>
 	<?php echo $menu['Menu']['descriptif']; ?>"><?php
 	/*
 	 * special output with images

@@ -32,7 +32,7 @@ $sql=mysql_query($sql);
 if (!$sql) {
 	echo "error mysql: " .mysql_error();
 }
-$urlredirect="/atable20/recettes/edit/".$_GET['id_rec'];
+$urlredirect= CHEMIN."recettes/edit/".$_GET['id_rec'];
 header("Location: ".$urlredirect);
 }
 ?>

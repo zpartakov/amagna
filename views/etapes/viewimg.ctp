@@ -1,7 +1,5 @@
 <?php 
 /*
- *     &('body').glossary('/atable20/files/terms.json');
-
  * Display a facilitated view of a given recipe, step by step
  */
 App::import('Lib', 'functions'); //imports app/libs/functions

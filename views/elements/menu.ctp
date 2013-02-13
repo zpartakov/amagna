@@ -54,7 +54,7 @@ echo $html->image('icon-print.jpg', array("alt"=>"Imprimer", "width"=>"20","heig
 echo "&nbsp;Imprimer</a>"; 
 ?></li>
 <li><?php
-echo '<a class="contact" href="http://www.picadametles.ch/atable20/contacts/" title="Contact">'.$html->image('ico-contact.gif', array("alt"=>"Contact", "width"=>"20","height"=>"20")).'&nbsp;Contact</a>';
+echo '<a class="contact" href="' .CHEMIN .'contacts/" title="Contact">'.$html->image('ico-contact.gif', array("alt"=>"Contact", "width"=>"20","height"=>"20")).'&nbsp;Contact</a>';
 ?></li>
 <li><?
 //license
@@ -99,7 +99,6 @@ if($session->read('Auth.User.role')=="administrator") {
 	<li style="background-color: PeachPuff"><a href="" title="">Admin</a>
 		<ul class="sousMenu">
 		
-		<li><a style="color: PeachPuff" href="https://129.194.18.197/hg/hgwebdir.wsgi/var/www/atable20/app/" target="_blank">Versioning (hg - mercurial)</a></li>
 		<li><a style="color: PeachPuff" href="<? echo CHEMIN; ?>recettes/add">Nouvelle recette</a></li>
 	<!--  		<li><a href="<? echo CHEMIN; ?>recettes/rss">MàJ flux RSS</a></li>-->
 			<li><a href="http://www.picadametles.ch/dokuwiki/doku.php?id=cuisine:intranet:start&do=recent">Wiki (Recent changes)</a></li>

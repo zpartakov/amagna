@@ -348,10 +348,10 @@ class UsersController extends AppController {
 					 
 					$Message = "Nouvel utilisateur enregistré à confirmer: " .$this->data['User']['email'] ."
 					
-					Pour confirmer: http://www.picadametles.ch/atable20/users/confirmer?email=" .$this->data['User']['email'] ."
+					Pour confirmer: http://www.picadametles.ch/amagna/users/confirmer?email=" .$this->data['User']['email'] ."
 					----
 					Ne pas répondre à cet email
-					Message automatique du script http://www.picadametles.ch/atable20/users/ajouter
+					Message automatique du script http://www.picadametles.ch/amagna/users/ajouter
 					";
 					$envoie=mail($Destinataire,$Sujet,$Message,$From);
 					if(!$envoie) { echo "Problem sending email!"; }
@@ -409,7 +409,7 @@ $this->Session->setFlash(___('the user has been saved', true), 'flash_message');
 					Identifiant (login):     " .$this->data['User']['username'] ."
 					Mot de passe (password): " .$this->data['User']['text'] ."
 					
-					Pour vous enregistrer: http://www.picadametles.ch/atable20/users/login
+					Pour vous enregistrer: http://www.picadametles.ch/amagna/users/login
 					
 					Nous vous souhaitons un bon accueil à \"À table!\"
 					----
@@ -521,7 +521,7 @@ function renvoiemail() {
 	Votre nouveau mot de passe: " .$password;
 	$textemail.='
 	
-	Se connecter à "À table!": <a href="http://www.picadametles.ch/atable20/users/login">http://www.picadametles.ch/atable20/users/login</a>
+	Se connecter à "À table!": <a href="http://www.picadametles.ch/amagna/users/login">http://www.picadametles.ch/amagna/users/login</a>
 	
 	----
 	Message automatique généré par un script
@@ -539,7 +539,7 @@ $Message = $textemail;
 $envoie=mail($Destinataire,$Sujet,$Message,$From);
 if(!$envoie) { echo "Problem sending email!"; }
 
-			echo '<meta http-equiv="refresh" content="0;URL=/atable20/users/confirmation">';
+			echo '<meta http-equiv="refresh" content="0;URL=/amagna/users/confirmation">';
 
 	
 	} else { //user email not registered, potential hack

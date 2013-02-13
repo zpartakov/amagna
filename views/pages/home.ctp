@@ -79,7 +79,7 @@ if($session->read('Auth.User.role')) {
            //alert(terme);
            $.ajax({
                type: 'GET',
-               url: '/atable20/glossaires/terme?terme='+terme,
+               url: '<? echo CHEMIN; ?>glossaires/terme?terme='+terme,
                success: function(data) {
                  alert(data); },
                error: function() {

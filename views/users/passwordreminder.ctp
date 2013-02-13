@@ -8,7 +8,7 @@ Veuillez compléter les champs ci dessous pour obtenir un nouveau mot de passe p
 Un email avec votre nouveau mot de passe vous sera envoyé à l'adresse de courriel utilisée lors de votre enregistrement. 
 <br />
 <br />
-<form id="form_id" action="/atable20/users/renvoiemail"  onsubmit="javascript:return validate_email('form_id','email');">
+<form id="form_id" action="<? echo CHEMIN; ?>users/renvoiemail"  onsubmit="javascript:return validate_email('form_id','email');">
 Votre email: <input type="text" name="email">
 <input type="submit" value="Renvoyer le mot de passe">
 </form>
@@ -19,5 +19,5 @@ Votre email: <input type="text" name="email">
 <li>Vous avez changé d'email?</li>
 </ul>
 <br />
--> Veuillez utiliser le <a href="/atable20/contact/contacts/add">formulaire de contact</a>
+-> Veuillez utiliser le <a href="<? echo CHEMIN; ?>contact/contacts/add">formulaire de contact</a>
 

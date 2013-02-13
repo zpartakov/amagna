@@ -113,7 +113,7 @@ if($glossaire['Glossaire']['image']){
 ?>		
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Image'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<img src="/atable20/img/glossaire/<?php echo $glossaire['Glossaire']['image']; ?>" />
+			<img src="<? echo CHEMIN; ?>img/glossaire/<?php echo $glossaire['Glossaire']['image']; ?>" />
 			
 			&nbsp;
 		</dd>

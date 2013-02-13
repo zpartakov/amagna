@@ -46,7 +46,7 @@ if($session->read('Auth.User.role')) {
 		<td>
 			<?php #echo $this->Html->link($mystat['Recette']['titre'], array('controller' => 'recettes', 'action' => 'view', $mystat['stat']['recette_id'])); ?>
 			<?php #echo $this->Html->link($mystat['Recette']['titre'], array('controller' => 'recettes', 'action' => 'view', $mystat['Recette']['id'])); ?>
-			<?php echo "<a href=\"/atable20/recettes/view/" .$mystat['stats']['recette_id'] ."\">"; ?>
+			<?php echo "<a href=\"" .CHEMIN  ."recettes/view/" .$mystat['stats']['recette_id'] ."\">"; ?>
 			<?php #echo $mystat['recettes'][$mystat['mystats']['recette_id']]; ?>
 			<?php echo titre_recette($mystat['stats']['recette_id']); 
 			echo "</a>";
@@ -108,7 +108,7 @@ if($session->read('Auth.User.role')) {
 		<td>
 			<?php #echo $this->Html->link($stat['Recette']['titre'], array('controller' => 'recettes', 'action' => 'view', $stat['stat']['recette_id'])); ?>
 			<?php #echo $this->Html->link($stat['Recette']['titre'], array('controller' => 'recettes', 'action' => 'view', $stat['Recette']['id'])); ?>
-			<?php echo "<a href=\"/atable20/recettes/view/" .$stat['stats']['recette_id'] ."\">"; ?>
+			<?php echo "<a href=\"" .CHEMIN."recettes/view/" .$stat['stats']['recette_id'] ."\">"; ?>
 			<?php #echo $stat['recettes'][$stat['stats']['recette_id']]; ?>
 			<?php echo titre_recette($stat['stats']['recette_id']); 
 			echo "</a>";
