@@ -396,7 +396,7 @@ $this->Session->setFlash(___('the user has been saved', true), 'flash_message');
 				 * 
 				 */
 					$Destinataire=$this->data['User']['email'];
-					$Sujet = "Vos informations de connexion à \"À table!\"";
+					$Sujet = "Vos informations de connexion à \"a magna'!\"";
 					 
 					$From  = "From: atable@picadametles.ch\n";
 					$From .= "MIME-version: 1.0\n";
@@ -404,14 +404,14 @@ $this->Session->setFlash(___('the user has been saved', true), 'flash_message');
 					 
 					$Message = "Bonjour, " .$this->data['User']['email'] ."
 					
-					Voici vos informations de connexion à \"À table!\":
+					Voici vos informations de connexion à \"a magna'!\":
 					
 					Identifiant (login):     " .$this->data['User']['username'] ."
 					Mot de passe (password): " .$this->data['User']['text'] ."
 					
 					Pour vous enregistrer: http://www.picadametles.ch/amagna/users/login
 					
-					Nous vous souhaitons un bon accueil à \"À table!\"
+					Nous vous souhaitons un bon accueil à \"a magna'!\"
 					----
 					Ne pas répondre à cet email, généré par un script automatique
 					";
@@ -521,14 +521,14 @@ function renvoiemail() {
 	Votre nouveau mot de passe: " .$password;
 	$textemail.='
 	
-	Se connecter à "À table!": <a href="http://www.picadametles.ch/amagna/users/login">http://www.picadametles.ch/amagna/users/login</a>
+	Se connecter à "a magna'!": <a href="http://www.picadametles.ch/amagna/users/login">http://www.picadametles.ch/amagna/users/login</a>
 	
 	----
 	Message automatique généré par un script
 	';
 	$textemail=nl2br($textemail);
 	$Destinataire = $email;
-$Sujet = "Nouveau mot de passe \"À table!\"";
+$Sujet = "Nouveau mot de passe \"a magna'!\"";
  
 $From  = "From: webmaster@picadametles.ch\n";
 $From .= "MIME-version: 1.0\n";

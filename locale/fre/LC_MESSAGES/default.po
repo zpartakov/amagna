@@ -6,7 +6,7 @@
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "titre_page_accueil"
-msgstr "À table!"
+msgstr "a magna'!"
 
 msgid "Invalid %s"
 msgstr "Invalide %s"

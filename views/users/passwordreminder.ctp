@@ -4,7 +4,7 @@
 $this->pageTitle = "Envoyer un nouveau mot de passe";
 ?> 
 <h1><? echo $this->pageTitle; ?></h1>
-Veuillez compléter les champs ci dessous pour obtenir un nouveau mot de passe pour votre compte sur "À table!".<br /> 
+Veuillez compléter les champs ci dessous pour obtenir un nouveau mot de passe pour votre compte sur "a magna'!".<br /> 
 Un email avec votre nouveau mot de passe vous sera envoyé à l'adresse de courriel utilisée lors de votre enregistrement. 
 <br />
 <br />
