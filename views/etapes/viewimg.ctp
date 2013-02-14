@@ -94,8 +94,9 @@ if($etape['Etape']['order']!=(mysql_num_rows($result))){//not the last step, the
 } else {
 	/* this is last step, give a link for nbavigation */
 	?>
-	FIN DE LA RECETTE<a href="<? echo CHEMIN; ?>pages/recettes" title="Accueil">
-		<? #echo $html->image('menus/accuei_md.jpg', array("alt"=>"Accueil", "width" => $largeur_image."px", "style"=>"vertical-align: middle"));?>
+	<span style="margin-top: 20px; font-size: 2.3em">FIN DE LA RECETTE; Bon appétit!</span><a href="<? echo CHEMIN; ?>pages/recettes" title="Accueil">
+	<br/>
+		<? echo $html->image('menus/accuei_md.jpg', array("alt"=>"Accueil", "width" => $largeur_image."px", "style"=>"vertical-align: middle"));?>
 		</a>
 		<?php 
 }
