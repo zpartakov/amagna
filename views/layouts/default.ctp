@@ -1,7 +1,8 @@
 <?php 
 App::import('Lib', 'functions'); //imports app/libs/functions 
-?>
-<?
+/*
+ * track logged user activity
+ */
          if($session->read('Auth.User.role')) {
         recordActivity($session->read('Auth.User.id'));
           }
