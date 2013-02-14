@@ -219,11 +219,8 @@ function levenshtein_ustensile($word) {
 	}
 	}
 }
-/*######## MENUS ############
- *
-*/
 
-
+######## MENUS ############
 function titre_menu($id){
 	$query="SELECT * FROM menus WHERE id=".$id;
 	$result=mysql_query($query);
@@ -248,14 +245,9 @@ function show_thumb_menu($menu) {
 		echo "\"/>";
 		$i++;
 	}
-	/*		
-	*/
 }
 
-
-/*######## RESERVES & INGREDIENTS ############
- * 
- */
+######## RESERVES & INGREDIENTS ############
 function reserve_calcule($id = null) {
 	/*
 	 * compute the required quantity of meals belonging to reserve for a given recipe
@@ -363,6 +355,7 @@ function arrondit($quantite) {
 	}
 	echo $quantite;
 }
+
 function ingredientscalcule($id = null,$image,$np,$arrondit) {
 	/*
 	 * compute the required quantity of meals for a given recipe, and a given number of people
@@ -427,6 +420,7 @@ function ingredientscalcule($id = null,$image,$np,$arrondit) {
 			echo "</table>";
 			return $etapes;
 }
+
 function ingredients($id = null,$image,$role) {
 	/*
 	 * print the required meals for a given recipe, with picture if any
@@ -492,6 +486,7 @@ function ingredients($id = null,$image,$role) {
 		echo "</p><a href=\"/amagna/recettes/ajouteringredient?id=" .$id."\">Ajouter un ingrédient</a></p>";
 }
 }
+
 function ingredients_modif($id = null) {
 	/*
 	 * print the required meals for a given recipe for editing purpose
@@ -524,6 +519,7 @@ function ingredients_modif($id = null) {
 	}
 			echo "</table>";
 }
+
 function ingredient_info($id = null,$idrec){
 	$query="SELECT * FROM ingredients WHERE id=".$id;
 	$result=mysql_query($query);
@@ -537,14 +533,15 @@ function ingredient_info($id = null,$idrec){
 	echo "<input type=\"hidden\" name=\"id_ingr\" value=\"".$id."\">";	
 	echo $titre_ingredient."&nbsp;<input style=\"width: 50px\" type=\"text\" name=\"ing2add\" value=\"1\">" ." " .$unit."&nbsp;<input type=\"submit\"></h3></form>";
 }
+
+/*
+ * a levenshtein function for fuzzy / boolean search
+ */
 function levenshtein_ingredients($word) {
 	$word = strtolower($word);
 	echo "<p>Désolé, il n'y a pas d'ingrédient correspondant à votre recherche: <em>" .$word."</em></p><br/>";
-
 	/* levenshtein fuzzy logic search */
-
 	echo "<p>Voulez-vous dire:</p><br/>";
-
 	/*
 	 * construct the array with the recipe's title words
 	*/
@@ -582,8 +579,7 @@ function levenshtein_ingredients($word) {
 	}
 }
 
-/* glossaire */
-
+################ glossaire ##################
 function glossaire($match) {
 /*
  * highlight glossaries
@@ -597,8 +593,6 @@ function glossaire($match) {
 			<span style=\"color: #008080;\">
 			<img src=\"/amagna/img/icons/glossaire_icone.jpg\"
 			border=\"0\" alt=\"chercher dans le glossaire\" />$2</span></a>", $match);
-	 
-
 	//echo "test text: ";
 	echo $text;
 	//new version ajax style
@@ -663,9 +657,7 @@ function levenshtein_glossaire($word) {
 	}
 }
 
-/* ####################
- * MULTIMEDIA FUNCTIONS
- */
+#################### MULTIMEDIA FUNCTIONS
 function season_image($season){
 	$width=120;
 	if($season=="1"){
@@ -697,8 +689,6 @@ function season_image($season){
 function display_audio($audiofile){
 /*
  * audio display file if any
- * 
- * 
 */
 	$filename="/amagna/app/webroot/audios/".$audiofile.".mp3";
 	$audio=$audiofile.".mp3";
@@ -719,7 +709,6 @@ function display_audio($audiofile){
 	}
 	
 }
-
 
 function allvideomp3($audio) {
 /* a function to display audio file
@@ -810,9 +799,20 @@ function datemySQL2fr($date) {
 	$jour = $split[2];
 	return "$jour"."-"."$mois"."-"."$annee";
 }
+
+/*
+ * a mysql's test fonction
+*/
+function testsql($sql) {
+	if(!$sql) {
+		echo "SQL error:<br>" .$sql ."<br>" .mysql_error() ."<hr>";
+	}
+}
 /* ##############
  * USERS FUNCTIONS
  */
+
+
 function generate_password($length){
 	// A List of vowels and vowel sounds that we can insert in
 	// the password string
@@ -839,8 +839,23 @@ function generate_password($length){
 	// character, our string can be longer than $length, use substr()
 	// to truncate the string
 	return substr($pass,  0,  $length);
-
-}
+	}
+	
+	#class to compute unique random numbers, to move in an external file eg inc.classes.php
+	class UniqueRand{
+		var $alreadyExists = array();
+		function uRand($min = NULL, $max = NULL){
+			$break='false';
+			while($break=='false'){
+				$rand=mt_rand($min,$max);
+				if(array_search($rand,$this->alreadyExists)===false){
+					$this->alreadyExists[]=$rand;
+					$break='stop';
+				}
+			}
+			return $rand;
+		}
+	}
 /* ##############
  * HTML functions
  * 
@@ -850,6 +865,11 @@ function retour_page_precedente(){
 	/* go back to previous page */
 	echo "<a title=\"Etape précédente\" href=\"".$_SERVER["HTTP_REFERER"]."\"><img alt=\"Etape précédente\" src=\"".CHEMIN ."img/icons/previous.jpg\" /></a>";
 }
+
+/*
+ * a function to convert urls and emails to <a href's
+* */
+
 function urlize($chaine) { 
 /* 
  * replace urls with links a href=http://... */
@@ -862,6 +882,23 @@ function urlize($chaine) {
 	}
 	echo nl2br($chaine);
 }
+
+
+/*
+ * convert a date YYYY-MM-DD to french format DD-MM-YYYY
+*/
+
+function datetime2fr($ladate) {
+	$ladate=explode(" ",$ladate);
+	$ladate=$ladate[0];
+	$ladate=explode("-",$ladate);
+	$ladate=$ladate[2]."-".$ladate[1]."-".$ladate[0];
+	return $ladate;
+}
+
+
+
+
 function melto($chaine) { 
 /*
  * replace mails with a link mailto:

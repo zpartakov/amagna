@@ -2,17 +2,13 @@
 class RecettesController extends AppController {
 
 	var $name = 'Recettes';
-//var $helpers = array('Html', 'Form', 'Javascript');
-
 	var $components = array('Auth', 'RequestHandler');
+
 	function beforeFilter() {
 	 if($_POST['language']) {
-    //Configure::write('Config.language', $_POST['language']);
-Configure::write('Config.language', $_POST['language']);
- }
-		$this->Auth->allow('index', 'commissions', 'ustensiles', 'indeximg', 'view', 'viewimg');
-		
-		
+		Configure::write('Config.language', $_POST['language']);
+	 }
+	$this->Auth->allow('index', 'commissions', 'ustensiles', 'indeximg', 'view', 'viewimg');
 	}
 	
 	var $paginate = array(
@@ -21,7 +17,6 @@ Configure::write('Config.language', $_POST['language']);
             'Recette.titre' => 'asc'
         )
     );
-
 
 /* img controller for visual output of recipes */
 
@@ -45,9 +40,9 @@ Configure::write('Config.language', $_POST['language']);
 		$this->set('recettes', $this->paginate());
 		}
 	}
+	
 	function viewimg($id = null) {
 		$this->layout = 'facile';
-		
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid recette', true));
 			$this->redirect(array('action' => 'index'));
@@ -70,7 +65,7 @@ Configure::write('Config.language', $_POST['language']);
 
 	function index() {
 		$this->Recette->recursive = 0;
-if($this->data['Recette']['q']) {
+		if($this->data['Recette']['q']) {
 					$input = $this->data['Recette']['q']; 
 					# sanitize the query
 					App::import('Sanitize');
@@ -90,7 +85,7 @@ if($this->data['Recette']['q']) {
 	}
 	
 	
-function view($id = null) {
+	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid recette', true));
 			$this->redirect(array('action' => 'index'));
@@ -99,7 +94,6 @@ function view($id = null) {
 	}
 
 	function add() {
-
 		if (!empty($this->data)) {
 			$this->Recette->create();
 			if ($this->Recette->save($this->data)) {
@@ -121,7 +115,7 @@ function view($id = null) {
 	}
 
 	function edit($id = null) {
-
+		eject_non_admin();
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid recette', true));
 			$this->redirect(array('action' => 'index'));
