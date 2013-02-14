@@ -4,6 +4,7 @@ class PostsController extends AppController {
 	var $name = 'Posts';
 	var $components = array('RequestHandler','Auth');
 	var $helpers = array('Text');
+	
 	function beforeFilter() {
 		$this->Auth->allow('index', 'view', 'flux');
 	}
@@ -34,6 +35,7 @@ class PostsController extends AppController {
 	}
 
 	function add() {
+		eject_non_admin();
 		if (!empty($this->data)) {
 			$this->Post->create();
 			if ($this->Post->save($this->data)) {
@@ -48,6 +50,7 @@ class PostsController extends AppController {
 	}
 
 	function edit($id = null) {
+		eject_non_admin();
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid post', true));
 			$this->redirect(array('action' => 'index'));
@@ -68,6 +71,7 @@ class PostsController extends AppController {
 	}
 
 	function delete($id = null) {
+		eject_non_admin();
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for post', true));
 			$this->redirect(array('action'=>'index'));

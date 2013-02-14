@@ -24,12 +24,6 @@ class AnalyseSitesController extends AppController {
 	
 	function index() {
 		$this->AnalyseSite->recursive = 0;
-		
-		/*
-		 * old: POST not fine for urls and emails
-		 * 
-		 * if($this->data['AnalyseSite']['q']) {
-		$q = $this->data['AnalyseSite']['q'];*/
 		if($_GET['q']) {
 		$q=$_GET['q'];
 		$options = array(
@@ -67,6 +61,7 @@ class AnalyseSitesController extends AppController {
 	}
 
 	function edit($id = null) {
+		eject_non_admin();
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid analyse site', true));
 			$this->redirect(array('action' => 'index'));
@@ -87,6 +82,7 @@ class AnalyseSitesController extends AppController {
 	}
 
 	function delete($id = null) {
+		eject_non_admin();
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for analyse site', true));
 			$this->redirect(array('action'=>'index'));

@@ -1,9 +1,7 @@
 <?php
 class EtapesController extends AppController {
-	//var $helpers = array('Glossary'); //whishlist:adapt, see libs/functions : glossaire
-	var $components = array('Auth', 'RequestHandler');
-	
 	var $name = 'Etapes';
+	var $components = array('Auth', 'RequestHandler');
 	
 	function beforeFilter() {
 		$this->Auth->allow('index','view','viewimg');
@@ -33,8 +31,7 @@ class EtapesController extends AppController {
 	}
 
 	function add() {
-				eject_non_admin();
-
+		eject_non_admin();
 		if (!empty($this->data)) {
 			$this->Etape->create();
 			if ($this->Etape->save($this->data)) {
@@ -49,8 +46,7 @@ class EtapesController extends AppController {
 	}
 
 	function edit($id = null) {
-				eject_non_admin();
-
+		eject_non_admin();
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid etape', true));
 			$this->redirect(array('action' => 'index'));
@@ -71,8 +67,7 @@ class EtapesController extends AppController {
 	}
 
 	function delete($id = null) {
-				eject_non_admin();
-
+			eject_non_admin();
 			$this->Session->setFlash(__('Invalid id for etape', true));
 			$this->redirect(array('action'=>'index'));
 		
@@ -85,7 +80,7 @@ class EtapesController extends AppController {
 	}
 	
 	function deplacer($id = null) {
-	
+		eject_non_admin();
 	}
 	
 }

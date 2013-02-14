@@ -4,6 +4,7 @@ class InvitationsController extends AppController {
 	var $name = 'Invitations';
 	var $helpers = array('Form', 'Alaxos.AlaxosForm', 'Alaxos.AlaxosHtml');
 	var $components = array('Alaxos.AlaxosFilter','RequestHandler','Auth');
+	
 	function beforeFilter() {
 		$this->Auth->allow('index', 'view');
 	}
@@ -13,8 +14,7 @@ class InvitationsController extends AppController {
             'Invitation.id' => 'desc'
         )
     );
-	function index()
-	{
+	function index() {
 		$this->Invitation->recursive = 0;
 		$this->set('invitations', $this->paginate($this->Invitation, $this->AlaxosFilter->get_filter()));
 		
@@ -22,13 +22,12 @@ class InvitationsController extends AppController {
 		$this->set(compact('menus'));
 	}
 
-	function view($id = null)
-	{
+	function view($id = null) {
 		$this->_set_invitation($id);
 	}
 
-	function add()
-	{
+	function add() {
+		eject_non_admin();
 		if (!empty($this->data))
 		{
 			$this->Invitation->create();
@@ -47,8 +46,8 @@ class InvitationsController extends AppController {
 		$this->set(compact('menus'));
 	}
 
-	function edit($id = null)
-	{
+	function edit($id = null) {
+		eject_non_admin();
 		if (!$id && empty($this->data))
 		{
 			$this->Session->setFlash(___('invalid invitation', true), 'flash_error');
@@ -74,8 +73,8 @@ class InvitationsController extends AppController {
 		$this->set(compact('menus'));
 	}
 
-	function delete($id = null)
-	{
+	function delete($id = null) {
+		eject_non_admin();
 		if (!$id)
 		{
 			$this->Session->setFlash(___('invalid id for invitation', true), 'flash_error');
@@ -92,8 +91,8 @@ class InvitationsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	function actionAll()
-	{
+	function actionAll() {
+		eject_non_admin();
 	    if(!empty($this->data['_Tech']['action']))
 	    {
             if(isset($this->Acl) && $this->Acl->check($this->Auth->user(), 'Invitations/' . $this->data['_Tech']['action']))
@@ -125,8 +124,8 @@ class InvitationsController extends AppController {
 	    }
 	}
 	
-	function deleteAll()
-	{
+	function deleteAll() {
+		eject_non_admin();
 	    $ids = Set :: extract('/Invitation/id[id > 0]', $this->data);
 	    if(count($ids) > 0)
 	    {
@@ -148,10 +147,7 @@ class InvitationsController extends AppController {
 	    }
 	}
 	
-	
-	
-	function _set_invitation($id)
-	{
+	function _set_invitation($id) {
 		if(empty($this->data))
 	    {
     	    $this->data = $this->Invitation->read(null, $id);
@@ -161,10 +157,8 @@ class InvitationsController extends AppController {
                 $this->redirect(array('action' => 'index'));
             }
 	    }
-	    
 	    $this->set('invitation', $this->data);
 	}
-	
 	
 }
 ?>

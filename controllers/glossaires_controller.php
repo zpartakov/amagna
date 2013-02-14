@@ -15,15 +15,6 @@ class GlossairesController extends AppController {
             'Glossaire.libelle' => 'asc'
         )
     );
-	/*
-	function index()
-	{
-	
-		$this->Glossaire->recursive = 0;
-
-			$this->set('glossaires', $this->paginate($this->Glossaire, $this->AlaxosFilter->get_filter()));
-		
-	}*/
 	
 	function index() {
 		$this->Glossaire->recursive = 0;
@@ -41,20 +32,18 @@ class GlossairesController extends AppController {
 		}
 	}
 
-	function view($id = null)
-	{
+	function view($id = null) {
 		$this->_set_glossaire($id);
 	}
 
 	
-	function viewimg($id = null)
-	{
+	function viewimg($id = null) {
 		$this->layout = 'facile';
 		$this->_set_glossaire($id);
 	}			
 	
-	function add()
-	{
+	function add() {
+		eject_non_admin();
 		if (!empty($this->data))
 		{
 			$this->Glossaire->create();
@@ -71,16 +60,15 @@ class GlossairesController extends AppController {
 		
 	}
 
-	function edit($id = null)
-	{
+	function edit($id = null) {
+		eject_non_admin();
 		if (!$id && empty($this->data))
 		{
 			$this->Session->setFlash(___('invalid glossaire', true), 'flash_error');
 			$this->redirect(array('action' => 'index'));
 		}
 		
-		if (!empty($this->data))
-		{
+		if (!empty($this->data)) {
 			if ($this->Glossaire->save($this->data))
 			{
 				$this->Session->setFlash(___('the glossaire has been saved', true), 'flash_message');
@@ -91,25 +79,20 @@ class GlossairesController extends AppController {
 				$this->Session->setFlash(___('the glossaire could not be saved. Please, try again.', true), 'flash_error');
 			}
 		}
-		
 		$this->_set_glossaire($id);
-		
 	}
 
-	function delete($id = null)
-	{
-		if (!$id)
-		{
+	function delete($id = null)	{			
+		eject_non_admin();
+		if (!$id)		{
 			$this->Session->setFlash(___('invalid id for glossaire', true), 'flash_error');
 			$this->redirect(array('action'=>'index'));
-		}
-		
+		}		
 		if ($this->Glossaire->delete($id))
 		{
 			$this->Session->setFlash(___('glossaire deleted', true), 'flash_message');
 			$this->redirect(array('action'=>'index'));
-		}
-			
+		}			
 		$this->Session->setFlash(___('glossaire was not deleted', true), 'flash_error');
 		$this->redirect(array('action' => 'index'));
 	}
@@ -130,9 +113,7 @@ class GlossairesController extends AppController {
 	}
 	
 	function terme($id){
-
 	}
-	
 	
 }
 ?>

@@ -3,9 +3,11 @@ class LespagesController extends AppController {
 
 	var $name = 'Lespages';
 	var $components = array('Auth', 'RequestHandler');
+	
 	function beforeFilter() {
 		$this->Auth->allow('view');
 	}
+	
 	function index() {
 		$this->Lespage->recursive = 0;
 		$this->set('lespages', $this->paginate());
@@ -20,6 +22,7 @@ class LespagesController extends AppController {
 	}
 
 	function add() {
+		eject_non_admin();
 		if (!empty($this->data)) {
 			$this->Lespage->create();
 			if ($this->Lespage->save($this->data)) {
@@ -32,6 +35,7 @@ class LespagesController extends AppController {
 	}
 
 	function edit($id = null) {
+		eject_non_admin();
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid lespage', true));
 			$this->redirect(array('action' => 'index'));
@@ -50,6 +54,7 @@ class LespagesController extends AppController {
 	}
 
 	function delete($id = null) {
+		eject_non_admin();
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for lespage', true));
 			$this->redirect(array('action'=>'index'));

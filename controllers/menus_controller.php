@@ -3,13 +3,17 @@ class MenusController extends AppController {
 
 	var $name = 'Menus';
 	var $components = array('Auth', 'RequestHandler');
+	
 	function beforeFilter() {
-		$this->Auth->allow('index','indeximg', 'view', 'viewimg', 'commissions', 'lesmenus_saison');
+		$this->Auth->allow('index','indeximg', 'view', 
+				'viewimg', 'commissions', 'lesmenus_saison');
 	}
+	
 	function index() {
 		$this->Menu->recursive = 0;
 		$this->set('menus', $this->paginate());
 	}
+	
 	function indeximg() {
 		$this->layout = 'facile';
 		
@@ -38,6 +42,7 @@ class MenusController extends AppController {
 	}
 
 	function add() {
+		eject_non_admin();
 		if (!empty($this->data)) {
 			$this->Menu->create();
 			if ($this->Menu->save($this->data)) {
@@ -53,6 +58,7 @@ class MenusController extends AppController {
 	}
 
 	function edit($id = null) {
+		eject_non_admin();
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid menu', true));
 			$this->redirect(array('action' => 'index'));
@@ -74,6 +80,7 @@ class MenusController extends AppController {
 	}
 
 	function delete($id = null) {
+		eject_non_admin();
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for menu', true));
 			$this->redirect(array('action'=>'index'));

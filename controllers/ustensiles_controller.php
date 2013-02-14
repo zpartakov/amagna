@@ -3,6 +3,7 @@ class UstensilesController extends AppController {
 
 	var $name = 'Ustensiles';
 	var $components = array('RequestHandler','Auth');
+	
 	function beforeFilter() {
 		$this->Auth->allow('index', 'view');
 	}
@@ -41,6 +42,7 @@ class UstensilesController extends AppController {
 	}
 
 	function add() {
+		eject_non_admin();
 		if (!empty($this->data)) {
 			$this->Ustensile->create();
 			if ($this->Ustensile->save($this->data)) {
@@ -55,6 +57,7 @@ class UstensilesController extends AppController {
 	}
 
 	function edit($id = null) {
+		eject_non_admin();
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid ustensile', true));
 			$this->redirect(array('action' => 'index'));
@@ -75,6 +78,7 @@ class UstensilesController extends AppController {
 	}
 
 	function delete($id = null) {
+		eject_non_admin();
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for ustensile', true));
 			$this->redirect(array('action'=>'index'));

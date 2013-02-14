@@ -2,10 +2,11 @@
 class LiensController extends AppController {
 
 	var $name = 'Liens';
+	
 	var $helpers = array('Form', 'Alaxos.AlaxosForm', 'Alaxos.AlaxosHtml');
 	var $components = array('Alaxos.AlaxosFilter','Auth');
 	
-	  function beforeFilter() {
+	function beforeFilter() {
 		$this->Auth->allow('view','index');
 	 }
 	
@@ -16,20 +17,18 @@ class LiensController extends AppController {
         )
     );	
     	
-	function index()
-	{
+	function index() {
 		$this->Lien->recursive = 0;
 		$this->set('liens', $this->paginate($this->Lien, $this->AlaxosFilter->get_filter()));
 		
 	}
 
-	function view($id = null)
-	{
+	function view($id = null) {
 		$this->_set_lien($id);
 	}
 
-	function add()
-	{
+	function add() {
+		eject_non_admin();
 		if (!empty($this->data))
 		{
 			$this->Lien->create();
@@ -43,11 +42,10 @@ class LiensController extends AppController {
 				$this->Session->setFlash(___('the lien could not be saved. Please, try again.', true), 'flash_error');
 			}
 		}
-		
 	}
 
-	function edit($id = null)
-	{
+	function edit($id = null) {
+		eject_non_admin();
 		if (!$id && empty($this->data))
 		{
 			$this->Session->setFlash(___('invalid lien', true), 'flash_error');
@@ -66,13 +64,11 @@ class LiensController extends AppController {
 				$this->Session->setFlash(___('the lien could not be saved. Please, try again.', true), 'flash_error');
 			}
 		}
-		
 		$this->_set_lien($id);
-		
 	}
 
-	function delete($id = null)
-	{
+	function delete($id = null) {
+		eject_non_admin();
 		if (!$id)
 		{
 			$this->Session->setFlash(___('invalid id for lien', true), 'flash_error');
@@ -89,8 +85,8 @@ class LiensController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	function actionAll()
-	{
+	function actionAll() {
+		eject_non_admin();
 	    if(!empty($this->data['_Tech']['action']))
 	    {
             if(isset($this->Acl) && $this->Acl->check($this->Auth->user(), 'Liens/' . $this->data['_Tech']['action']))
@@ -122,8 +118,8 @@ class LiensController extends AppController {
 	    }
 	}
 	
-	function deleteAll()
-	{
+	function deleteAll(){
+		eject_non_admin();
 	    $ids = Set :: extract('/Lien/id[id > 0]', $this->data);
 	    if(count($ids) > 0)
 	    {
@@ -145,8 +141,6 @@ class LiensController extends AppController {
 	    }
 	}
 	
-	
-	
 	function _set_lien($id)
 	{
 		if(empty($this->data))
@@ -158,10 +152,7 @@ class LiensController extends AppController {
                 $this->redirect(array('action' => 'index'));
             }
 	    }
-	    
 	    $this->set('lien', $this->data);
 	}
-	
-	
 }
 ?>

@@ -77,6 +77,7 @@ var $components = array('RequestHandler','Auth');
 	}
 
 	function edit($id = null) {
+		eject_non_admin();
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid comment', true));
 			$this->redirect(array('action' => 'index'));
@@ -97,6 +98,7 @@ var $components = array('RequestHandler','Auth');
 	}
 
 	function delete($id = null) {
+		eject_non_admin();
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for comment', true));
 			$this->redirect(array('action'=>'index'));

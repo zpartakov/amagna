@@ -164,13 +164,12 @@ class RecettesController extends AppController {
 		/*
 		 * a function to print and edit the given ingredients for a recipe
 		 */
-		//$recette=$this->data->Recette['id'];
 		$recette= $this->Recette->read(null, $id);
-		//$ingredients=$this->data['Ingredient'];
-//$this->set(compact('recette','ingredients'));		
-$this->set(compact('recette'));		
+		$this->set(compact('recette'));		
 	}
+	
 	function supprimer($id=null){
+		eject_non_admin();
 		/* 
 		 * a function to delete an ingredient for a given recipe
 		 */
@@ -178,6 +177,7 @@ $this->set(compact('recette'));
 		$this->layout = '';
 		//$this->redirect($this->referer());		
 	}
+	
 	function ajouteringredient($id=null){
 		/* display all ingredients for adding one to recipe */
 		$ingredients = $this->Recette->Ingredient->find('all', array ('order' => 'Ingredient.libelle'));
@@ -186,6 +186,7 @@ $this->set(compact('recette'));
 	function ajouteringredientok($id=null){
 		/*
 		 * add a given ingredient to recipe
-		 */				}
+		 */				
+	}
 	
 }

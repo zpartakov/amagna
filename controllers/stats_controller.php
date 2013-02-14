@@ -16,8 +16,7 @@ class StatsController extends AppController {
         )
     );
     
-    	function index()
-	{
+    function index() {
 		$this->Stat->recursive = 0;
 		$this->set('stats', $this->paginate($this->Stat, $this->AlaxosFilter->get_filter()));
 		
@@ -26,8 +25,7 @@ class StatsController extends AppController {
 		$this->set(compact('recettes', 'users'));
 	}
     
-	function resume()
-	{
+	function resume() {
 		$this->Stat->recursive = 0;
 		$options="
 			SELECT id, COUNT( id ) AS hits , recette_id 
@@ -56,13 +54,11 @@ class StatsController extends AppController {
 		$this->set(compact('recettes', 'users'));
 	}
 
-	function view($id = null)
-	{
+	function view($id = null) {
 		$this->_set_stat($id);
 	}
 
-	function add()
-	{
+	function add() {
 		if (!empty($this->data))
 		{
 			$this->Stat->create();
@@ -82,8 +78,8 @@ class StatsController extends AppController {
 		$this->set(compact('recettes', 'users'));
 	}
 
-	function edit($id = null)
-	{
+	function edit($id = null) {
+		eject_non_admin();
 		if (!$id && empty($this->data))
 		{
 			$this->Session->setFlash(___('invalid stat', true), 'flash_error');
@@ -110,8 +106,8 @@ class StatsController extends AppController {
 		$this->set(compact('recettes', 'users'));
 	}
 
-	function delete($id = null)
-	{
+	function delete($id = null) {
+		eject_non_admin();
 		if (!$id)
 		{
 			$this->Session->setFlash(___('invalid id for stat', true), 'flash_error');
@@ -128,8 +124,7 @@ class StatsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	function actionAll()
-	{
+	function actionAll() {
 	    if(!empty($this->data['_Tech']['action']))
 	    {
             if(isset($this->Acl) && $this->Acl->check($this->Auth->user(), 'Stats/' . $this->data['_Tech']['action']))
@@ -161,8 +156,8 @@ class StatsController extends AppController {
 	    }
 	}
 	
-	function deleteAll()
-	{
+	function deleteAll() {
+		eject_non_admin();
 	    $ids = Set :: extract('/Stat/id[id > 0]', $this->data);
 	    if(count($ids) > 0)
 	    {
@@ -186,8 +181,7 @@ class StatsController extends AppController {
 	
 	
 	
-	function _set_stat($id)
-	{
+	function _set_stat($id) {
 		if(empty($this->data))
 	    {
     	    $this->data = $this->Stat->read(null, $id);
