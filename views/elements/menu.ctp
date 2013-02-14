@@ -170,7 +170,7 @@ if($session->read('Auth.User.role')=="administrator") {
 
 	
 </script>
-<li>
+<li style="position: relative; left: 25%">
 <?php 
 //open/close
 echo "<a class=\"\" href=\"javascript:fermemenus();\" title=\"Fermer les menus\">";
