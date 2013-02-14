@@ -156,13 +156,42 @@ if($session->read('Auth.User.role')=="administrator") {
 <?
 	}
 ?>
- 
+ <script language="JavaScript" type="text/javascript">
+
+	function fermemenus() {
+		if(document.getElementById("cakephp-global-navigation").style.display=="none"){
+			document.getElementById("cakephp-global-navigation").style.display="block";		
+		} else {
+			document.getElementById("cakephp-global-navigation").style.display="none";	
+			document.getElementById("menuDeroulantOuvre").style.display="block";		
+			
+		}
+	}
 
 	
+</script>
+<li>
+<?php 
+//open/close
+echo "<a class=\"\" href=\"javascript:fermemenus();\" title=\"Fermer les menus\">";
+echo $html->image('close_tab.gif', array("alt"=>"Fermer les menus", "width"=>"20","height"=>"20"));
+echo "</a>"; 
+?>
+</li>
+	
 </ul>
+
+
 <?
 echo $messagebrowser;
 ?>
 
 </div>
-
+<div id="menuDeroulantOuvre" style="display:none; position: absolute; top: 5px; right: 5px;">
+<?php 
+//open/close
+echo "<a class=\"\" href=\"javascript:fermemenus();\" title=\"Ouvrir les menus\">";
+echo $html->image('open_tab.gif', array("alt"=>"Ouvrir les menus", "width"=>"20","height"=>"20"));
+echo "</a>"; 
+?>
+</div>
