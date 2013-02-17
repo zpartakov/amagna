@@ -2,13 +2,13 @@
 	<h2><?php __('Countries');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-	<?php
+<?php
 ############## ADMIN AREA ##################
 /*	hide from non-admin registred user */
 	if($session->read('Auth.User.role')=="administrator") {
 ?>
 			<th><?php echo $this->Paginator->sort('id');?></th>
-			<?
+<?
 	}
 //end hide from non-admin registred user
 ?>
@@ -46,10 +46,13 @@
 	}
 //end hide from non-admin registred user
 ?>
-		<td><?php echo $country['Country']['name']; ?>
-		<?php echo $this->Html->link($country['Country']['name'], array('action' => 'view', $country['Country']['id'])); ?>
+		<td>
+		<?php 
+		echo $this->Html->link($country['Country']['name'], 
+				array('action' => 'view', $country['Country']['id'])); ?>
 		
-		&nbsp;</td>
+		&nbsp;
+		</td>
 		<?php
 ############## ADMIN AREA ##################
 /*	hide from non-admin registred user */

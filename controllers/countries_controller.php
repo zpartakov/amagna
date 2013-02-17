@@ -7,6 +7,14 @@ class CountriesController extends AppController {
 	function beforeFilter() {
 		$this->Auth->allow('index', 'view');
 	}
+	
+	var $paginate = array(
+			'limit' => 50,
+			'order' => array(
+					'Country.name' => 'asc'
+			)
+	);
+	
 	function index() {
 		$this->Country->recursive = 0;
 		$this->set('countries', $this->paginate());

@@ -106,11 +106,37 @@ margin-right: -300px;
     -moz-border-radius: 25px;
     border-radius: 25px;
 }
+
+.related_img_recette {
+	width: 100px;
+	-webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+}
+
 .img_recette_thumb {
 	float: right;
 width: 80px;
 }
 
+.related_all_recettes {
+/*	width: 150px;
+	column-count: 3;
+	column-gap: 20px;
+	column-rule: 1px dotted #BBB;
+	background-color: #FFFFFF;
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;	
+	padding: 8px;
+	text-align: justify;*/
+}
+.relatedrecette {
+	margin-bottom: 10px;
+	display: inline; 
+	border: thin solid;
+	height: 400px;
+	padding: 10px;
+}
 
 .img_preparation {
 	font-size: 1.5em;
