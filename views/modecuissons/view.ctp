@@ -1,5 +1,6 @@
+<?php $pageTitle="Mode de cuisson";?>
 <div class="modecuissons view">
-<h2><?php  __('Modecuisson');?></h2>
+<h2><?php echo $pageTitle;?></h2>
 		
 		<h1><?php echo $modecuisson['Modecuisson']['lib']; ?></h1>
 <p>		
@@ -31,6 +32,11 @@
 	<h3><?php __('Related Recettes');?></h3>
 	<?php if (!empty($modecuisson['Recette'])):?>
 	<?php
+	if(count($modecuisson['Recette'])<1) {
+		echo "Désolé, aucun enregistrement ne correspond à votre recherche";
+	}
+	
+
 		$i = 0;
 		foreach ($modecuisson['Recette'] as $recette):
 			$class = null;
@@ -46,6 +52,7 @@
 		echo "<img class=\"related_img_recette\" 
 			src=\"".CHEMIN."img/pics/".$recette['pict']."\"></a>";
 		echo "</div>";
+		
 		endforeach; ?>
 	</table>
 <?php endif; ?>
