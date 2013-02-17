@@ -67,9 +67,8 @@ echo '<a href="http://www.gnu.org/licenses/gpl-3.0.txt" title="GPL License / Cop
 	<!-- recettes texte -->
 
 	<li><a style="color: PeachPuff" href="<? echo CHEMIN; ?>recettes/" title="Recettes de cuisine">Recettes</a>
-		<ul class="sousMenu">
-	<li><a href="<? echo CHEMIN; ?>menus/" title="Suggestions de menus">Menus</a>	</li>
-	
+	<ul class="sousMenu">
+		<li><a href="<? echo CHEMIN; ?>menus/" title="Suggestions de menus">Menus</a>	</li>
 		<li><a href="<? echo CHEMIN; ?>recettes/?typ=5" title="Salades et Légumes">Salades & Légumes</a></li>
 		<li><a href="<? echo CHEMIN; ?>recettes/?typ=4" title="Potages">Potages</a></li>
 		<li><a href="<? echo CHEMIN; ?>recettes/?typ=8" title="Poissons">Poissons</a></li>
@@ -80,12 +79,11 @@ echo '<a href="http://www.gnu.org/licenses/gpl-3.0.txt" title="GPL License / Cop
 		<li><a href="<? echo CHEMIN; ?>recettes/?typ=3" title="Laitages et oeufs">Laitages et oeufs</a></li>
 		<li><a href="<? echo CHEMIN; ?>recettes/?typ=19" title="Fruits et desserts">Fruits et desserts</a></li>
 		<li><a href="<? echo CHEMIN; ?>countries/" title="Recettes par zones géographiques">Par pays</a></li>
-	
-	<li><a href="<? echo CHEMIN; ?>glossaires/" title="Glossaire de termes culinaires">Glossaire</a></li>
-				<li><a href="<? echo CHEMIN; ?>ingredients/" title="Ingrédients">Ingrédients</a></li>
-			<li><a href="<? echo CHEMIN; ?>ustensiles/" title="Ustensiles">Ustensiles</a></li>
-			</ul>
-
+		<li><a href="<? echo CHEMIN; ?>glossaires/" title="Glossaire de termes culinaires">Glossaire</a></li>
+		<li><a href="<? echo CHEMIN; ?>ingredients/" title="Ingrédients">Ingrédients</a></li>
+		<li><a href="<? echo CHEMIN; ?>ustensiles/" title="Ustensiles">Ustensiles</a></li>
+		<li><a href="<? echo CHEMIN; ?>modecuissons/">Modes de cuisson</a></li>
+	</ul>
 	</li>
 
 
@@ -105,10 +103,8 @@ if($session->read('Auth.User.role')=="administrator") {
 			<li><a href="recettes/app/webroot/img/up.php">Nouvelle image TODO</a></li>
 			<li><a href="<? echo CHEMIN; ?>analyse_sites/">Analyse des sites</a></li>
 			<li><a href="<? echo CHEMIN; ?>menus/">Menus</a></li>
-			<li><a href="<? echo CHEMIN; ?>modecuissons/">Modes de cuisson</a></li>
 			<li><a href="<? echo CHEMIN; ?>invitations/">Invitations</a></li>
-			<li><a href="<? echo CHEMIN; ?>stopwords/">Mots-stop</a></li>
-			
+			<li><a href="<? echo CHEMIN; ?>stopwords/">Mots-stop</a></li>			
 			<li><a href="<? echo CHEMIN; ?>stats/">Statistiques</a></li>
 			<li><a href="<? echo CHEMIN; ?>users">Users</a></li>
 			<li><a href="<? echo CHEMIN; ?>groups">Groups</a></li>

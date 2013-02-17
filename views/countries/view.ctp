@@ -1,12 +1,6 @@
 <div class="countries view">
 <h2><?php  __('Country');?></h2>
 <?php
-/* 
- * display on how much columns?
- * 
- */
-$nb_of_cols=2;
-
 ############## ADMIN AREA ##################
 /*	hide from non-admin registred user */
 	if($session->read('Auth.User.role')=="administrator") {
