@@ -269,6 +269,12 @@ msgstr "Champs requis"
 msgid "Country"
 msgstr "Pays"
 
+msgid "Countries"
+msgstr "Pays"
+
+msgid "Name"
+msgstr "Nom"
+
 msgid "Prep"
 msgstr "Note"
 
