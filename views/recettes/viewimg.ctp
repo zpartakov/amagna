@@ -1,3 +1,11 @@
+<script type="text/javascript">
+			   function zoomit(img) {
+				   document.getElementById(img).style.display = 'block'
+			   }
+			   function zoomout(img) {
+				   document.getElementById(img).style.display = 'none'
+			   }
+   </script>
 <?php
 /* 
  * Easy display of recipes, visual and cutted into pieces like a cucumber
@@ -16,6 +24,7 @@ App::import('Lib', 'functions'); //imports app/libs/functions
 <h1><?php echo $recette['Recette']['titre']; ?></h1>
 <img class="img_recette" src="<? echo CHEMIN; ?>img/pics/
 <?php echo $recette['Recette']['pict']; ?>" alt="<?php echo $recette['Recette']['titre']; ?>" title="<?php echo $recette['Recette']['titre']; ?>">
+
 </a>
 
 <?php

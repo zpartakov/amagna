@@ -469,7 +469,40 @@ function ingredients($id = null,$image,$role) {
 				}
 		}
 		if($image=="1") { //facilitated print
-			echo "</td><td><img class=\"img_ingredient\" alt=\"Image de ".mysql_result($result,$i,'libelle') ."\" src=\"".CHEMIN ."img/ingredients/".mysql_result($result,$i,'ingredients.img')."\" /></a></td></tr>";		
+			/*
+			 * mysql_result($result,$i,'ingredients.img')
+			 * 
+			 */
+			$id_imgs=preg_replace("/^.*\//","",mysql_result($result,$i,'ingredients.img'));
+			//echo "<br>idimg: " .$id_img ."<br>";
+			$id_imgs=preg_replace("/\..*/","",$id_imgs);
+			
+			//echo "<br>idimg: " .$id_img ."<br>";
+						
+			echo "</td><td>";
+			
+			echo "<img onMouseOver=\"javascript:zoomit('".$id_imgs ."')\" class=\"img_ingredient\" alt=\"Image de "
+			.mysql_result($result,$i,'libelle') ."\" 
+			src=\"".CHEMIN ."img/ingredients/".mysql_result($result,$i,'ingredients.img')."\" id=\"" .$id_img ."\"/>
+			</a>";
+/*
+ * display a hidden image with normal size
+ */
+			echo "<img id=\"".$id_imgs."\" onMouseOver=\"javascript:zoomout('".$id_imgs ."')\" alt=\"Image de "
+			.mysql_result($result,$i,'libelle') ."\" 
+			src=\"".CHEMIN ."img/ingredients/"
+			.mysql_result($result,$i,'ingredients.img')."\" id=\"" .$id_img ."\" style=\"
+			position: realtive; 
+			top: 10px;
+			left: 300px;
+			display: none;
+			background-color: lightyellow;
+			border: thin solid red;
+			padding: 10px; 
+			\"/>";
+				
+			
+			echo "</td></tr>";		
 		} else {
 		echo "<br />";
 		}
