@@ -7,6 +7,12 @@ class ModecuissonsController extends AppController {
 	function beforeFilter() {
 		$this->Auth->allow('index', 'view');
 	}
+	var $paginate = array(
+			'limit' => 100,
+			'order' => array(
+					'Modecuisson.lib' => 'asc'
+			)
+	);
 	
 	function index() {
 		$this->Modecuisson->recursive = 0;

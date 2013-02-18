@@ -1,6 +1,6 @@
 <?php $pageTitle="Modes de cuisson";
 ?><div class="modecuissons index">
-	<h2><?php __('Modecuissons');?></h2>
+	<h2><?php echo $pageTitle;?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 	<?php
@@ -14,7 +14,7 @@
 	}
 //end hide from non-admin registred user
 ?>			
-			<th><?php echo $this->Paginator->sort('lib');?></th>
+			<th><?php echo $this->Paginator->sort('Mode de cuisson','lib');?></th>
 <?php
 ############## ADMIN AREA ##################
 /*	hide from non-admin registred user */

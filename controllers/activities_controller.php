@@ -6,8 +6,12 @@ class ActivitiesController extends AppController {
 
 	var $name = 'Activities';
 	var $components = array('Auth', 'RequestHandler');
-	$this->Auth->allow('index', 'view', 'add');
 	
+	function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow('index','view','add');
+	}
+		
 	var $paginate = array(
 			'limit' => 100,
 			'order' => array(
