@@ -92,7 +92,18 @@ if($etape['Etape']['order']!=(mysql_num_rows($result))){//not the last step, the
 	//todo: put blank page if absent
 	echo "<a title=\"Etape suivante\" href=\"".CHEMIN ."etapes/viewimg/".$etapesuiv ."\"><img alt=\"Etape suivante\" src=\"".CHEMIN ."img/icons/suivant.jpg\" /></a>";
 } else {
-	/* this is last step, give a link for nbavigation */
+	/* this is last step: */
+	
+	/*
+	 * record recipe for logged user
+	*/
+	
+	if($session->read('Auth.User.role')) {
+		recordRecipe($session->read('Auth.User.id'),$recette['id']);
+	}
+	
+	 /* give a link for navigation */
+	
 	?>
 	<span style="margin-top: 20px; font-size: 2.3em">FIN DE LA RECETTE; Bon appétit!</span><a href="<? echo CHEMIN; ?>pages/recettes" title="Accueil">
 	<br/>

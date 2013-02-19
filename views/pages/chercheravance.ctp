@@ -1,13 +1,6 @@
 <?php
 $this->pageTitle = 'Accueil'; 
 
-if($session->read('Auth.User.role')) {
-		echo "Bienvenue, " .$session->read('Auth.User.username');
-	echo "<br>Ton groupe: " .$session->read('Auth.User.role')."<br>";
-}
-
-
-
  //total_recettes
       $this->requestAction('/recettes/total_recettes');
 ?>

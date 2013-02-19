@@ -90,11 +90,7 @@ echo $this->element('graphicalmenu');
     <div id="content">
     <br />
          <?=$content_for_layout;?>
-         <?php if($session->read('Auth.User.role')) {
-		echo "Bienvenue, " .$session->read('Auth.User.username');
-          }
-		?>
-     </div>
+             </div>
 </div>
 
  </body>

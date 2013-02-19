@@ -65,7 +65,9 @@ echo $html->image('AT_WORK0.GIF', array("alt"=>"FIXME","title"=>"FIXME", "width"
 
 if($session->read('Auth.User.role')) {
 		echo "Bienvenue, " .$session->read('Auth.User.username');
-	echo "<br>Ton groupe: " .$session->read('Auth.User.role')."<br>";
+	echo "<br>Mon groupe: " .$session->read('Auth.User.role')."<br>";
+	echo "<br><a href=\"".CHEMIN."ilikerecipes/myrecipes\">Mes recettes</a><br>";
+	
 }
 
  //total_recettes

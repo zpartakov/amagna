@@ -7,6 +7,8 @@
 			   }
    </script>
 <?php
+App::import('Lib', 'functions'); //imports app/libs/functions 
+
 /* 
  * Easy display of recipes, visual and cutted into pieces like a cucumber
  * 
@@ -16,9 +18,7 @@
  if(!$keletape) {
 	 $keletape=0;
  }
-?>
-<?php 
-App::import('Lib', 'functions'); //imports app/libs/functions 
+
 ?>
 <a title="Début de la recette" href="<? echo CHEMIN; ?>recettes/viewimg/<?php echo $recette['Recette']['id']; ?>">
 <h1><?php echo $recette['Recette']['titre']; ?></h1>

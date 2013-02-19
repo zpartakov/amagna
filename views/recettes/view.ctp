@@ -1,4 +1,15 @@
-<?php App::import('Lib', 'functions'); //imports app/libs/functions ?>
+<?php 
+
+App::import('Lib', 'functions'); //imports app/libs/functions 
+
+/*
+ * record recipe for logged user
+ */
+
+if($session->read('Auth.User.role')) {
+	recordRecipe($session->read('Auth.User.id'),$recette['Recette']['id']);
+}
+?>
 <style>
 dt {
 width: 30%;
@@ -9,6 +20,7 @@ width: 70%;
 }
 </style>
 <div class="recettes view">
+
 
 
 	<h2><?php  

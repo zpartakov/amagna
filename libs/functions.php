@@ -993,5 +993,25 @@ function recordActivity($uid)
 	$sql=mysql_query($sql);
 	
 }
+
+function recordRecipe($uid,$url)
+/*
+ * log logged user's viewing a recipe
+*/
+{
+
+	$sql="INSERT INTO `ilikerecipes` 
+	(`id`, `user_id`, `user_accessed`, `recette_id`)
+	VALUES
+	('',
+		'" .$uid ."',
+	'".date("Y-m-d H:i:s")."',
+	'".$url."'
+	)";
+
+	//echo "<pre>$sql</pre>";
+	$sql=mysql_query($sql);
+
+}
 ?>
 
