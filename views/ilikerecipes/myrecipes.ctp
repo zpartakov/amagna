@@ -2,7 +2,7 @@
 /*
  * display recipes viewed by logged user, ranking # of views desc
  */
-$pageTitle="Mes recettes";
+$this->$pageTitle="Mes recettes péférées";
 ?>
 <div class="ilikerecipes index">
 	<h2><?php 
@@ -15,9 +15,9 @@ $pageTitle="Mes recettes";
 	GROUP BY i.recette_id 
 	ORDER BY nr DESC
 	";
-	echo "<br>test<br>" .nl2br($sql) ."<br>";
+	#echo "<br>test<br>" .nl2br($sql) ."<br>";
 	$sql=mysql_query($sql);
-		__('Ilikerecipes');?></h2>
+		echo $this->$pageTitle;?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th>recette</th>
