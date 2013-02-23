@@ -1,57 +1,50 @@
-
-todo: mettre dans controlleur; calculer totaux, présenter par totaux
-
+<?php 
+/*
+ * display recipes viewed by logged user, ranking # of views desc
+ */
+$pageTitle="Mes recettes";
+?>
 <div class="ilikerecipes index">
-	<h2><?php __('Ilikerecipes');?></h2>
+	<h2><?php 
+	//Configure::write('debug', 2);
+	$sql="	
+	SELECT *, COUNT(i.recette_id) AS nr  
+	FROM ilikerecipes AS i, recettes AS r
+	WHERE i.user_id = '".$_SESSION['Auth']['User']['id'] ."' 
+	AND  i.recette_id = r.id 
+	GROUP BY i.recette_id 
+	ORDER BY nr DESC
+	";
+	echo "<br>test<br>" .nl2br($sql) ."<br>";
+	$sql=mysql_query($sql);
+		__('Ilikerecipes');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('user_id');?></th>
-			<th><?php echo $this->Paginator->sort('user_accessed');?></th>
-			<th><?php echo $this->Paginator->sort('recette_id');?></th>
-	</tr>
+			<th>recette</th>
+			<th>visites</th>
+				</tr>
 	<?php
+	//echo "<br>testnumrows: #" .mysql_num_rows($sql) ."<br>";
 	$i = 0;
-	foreach ($ilikerecipes as $ilikerecipe):
-	
-	/*
-	 * only show recipes of current logged user
-	 * todo: put in into the controller!
-	 */
-	if($ilikerecipe['User']['id']==$_SESSION['Auth']['User']['id']) {
-	
+	while($i<mysql_num_rows($sql)) {		
 		$class = null;
-		if ($i++ % 2 == 0) {
+		if (intval($i/2) == $i/2) {
 			$class = ' class="altrow"';
 		}
-	?>
-	<tr<?php echo $class;?>>
-		<td><?php echo $ilikerecipe['Ilikerecipe']['id']; ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($ilikerecipe['User']['pseudo'], array('controller' => 'users', 'action' => 'view', $ilikerecipe['User']['id'])); ?>
-		</td>
-		<td><?php echo $ilikerecipe['Ilikerecipe']['user_accessed']; ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($ilikerecipe['Recette']['titre'], array('controller' => 'recettes', 'action' => 'view', $ilikerecipe['Recette']['id'])); ?>
-		</td>
-
-	</tr>
-<?php 
+		
+	echo '<tr' .$class .'>';
+		echo '<td>';
+			echo $this->Html->link(
+					mysql_result($sql,$i,'r.titre'), 
+					array('controller' => 'recettes', 'action' => 'view', 
+							mysql_result($sql,$i,'r.id')));			 
+		echo '</td>';
+		echo '<td>';
+		echo mysql_result($sql,$i,'nr');
+		echo '</td>';		
+	echo '</tr>';
+		$i++;
 	}
-
-endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
-	));
-	?>	</p>
-
-	<div class="paging">
-		<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
-	 | 	<?php echo $this->Paginator->numbers();?>
- |
-		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
-	</div>
+echo '</table>';
+?>
 </div>

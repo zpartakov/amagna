@@ -1,4 +1,4 @@
-<?php $pageTitle="Mode de cuisson";?>
+<?php $pageTitle="Mode de cuisson: " .$modecuisson['Modecuisson']['lib'];?>
 <div class="modecuissons view">
 <h2><?php echo $pageTitle;?></h2>
 		

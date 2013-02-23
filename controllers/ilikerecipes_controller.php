@@ -18,10 +18,8 @@ class IlikerecipesController extends AppController {
 	*/
 	
 	function myrecipes() {
-		//$options=array("Ilikerecipe.user_id LIKE '".$_SESSION['Auth']['User']['id'] ."'");
-		//$recettes = $this->ilikerecipes->Recette->find('all',$options);
-		$this->Ilikerecipe->recursive = 0;
-		$this->set('ilikerecipes', $this->paginate());
+	
+							
 	}
 	
 	function index() {
