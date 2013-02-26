@@ -2,7 +2,7 @@
 /*
  * display recipes viewed by logged user, ranking # of views desc
  */
-$this->$pageTitle="Mes recettes péférées";
+$pageTitle="Mes recettes péférées";
 ?>
 <div class="ilikerecipes index">
 	<h2><?php 
@@ -17,7 +17,7 @@ $this->$pageTitle="Mes recettes péférées";
 	";
 	#echo "<br>test<br>" .nl2br($sql) ."<br>";
 	$sql=mysql_query($sql);
-		echo $this->$pageTitle;?></h2>
+		echo $pageTitle;?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th>recette</th>

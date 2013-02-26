@@ -11,6 +11,21 @@ App::import('Lib', 'functions'); //imports app/libs/functions
  */
 $menus_saison = $this->requestAction('/menus/lesmenus_saison/'.$saison[1]); // menus saisonniers
 ?>
+<div id="suggestion_recette">
+<h1>Suggestions du jour &nbsp;
+<?php 
+echo $html->image('suggestions/suggestion2.jpg',
+array("alt"=>"Suggestion", "width" => "100px", "style"=>"vertical-align: middle"));
+?>
+</h1>
+<?php 
+/*
+ * a random suggestion of 2 recipes
+ */
+random_recipes(2);
+?>
+</div>	
+
 </td>
 <td>
      Je pense que vous venez de : 
@@ -21,6 +36,7 @@ $menus_saison = $this->requestAction('/menus/lesmenus_saison/'.$saison[1]); // m
 	/* document.write(""+geoplugin_city()+", "+geoplugin_countryName()); */
 	document.write(geoplugin_countryName()); 
 	</script>
+	
 <p>Saison actuelle<br/> 
 <?php      
      // affiche la saison

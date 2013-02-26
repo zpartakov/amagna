@@ -10,6 +10,43 @@ function titre_recette($id){
 	$titre_recette=mysql_result($result, 0, 'titre');
 	echo $titre_recette;
 }
+
+function recette_link($id){
+	$query="SELECT * FROM recettes WHERE id=".$id;
+	$result=mysql_query($query);
+	$titre_recette=mysql_result($result, 0, 'titre');
+	echo "<tr>";
+	echo "<td>";
+	echo "<a href=\"/amagna/recettes/viewimg/" .mysql_result($result, 0, 'id') ."\">";
+	echo $titre_recette;
+	echo "</td><td>";
+	echo "<img style=\"width: 100px\" class=\"rounded\" src=\"/amagna/img/pics/";
+	echo mysql_result($result,0,'pict');
+	echo "\"/>";
+	echo "</a>";
+	echo "</td>";
+	echo "</tr>";
+	}
+
+function random_recipes($nb) {
+$offset_result = mysql_query( " 
+		SELECT FLOOR(RAND() * COUNT(*)) AS `offset` FROM `recettes` ");
+$offset_row = mysql_fetch_object( $offset_result );
+$offset = $offset_row->offset;
+$resultran = mysql_query( " SELECT * FROM `recettes` LIMIT $offset, ".$nb ); 
+	$i=0;
+	if(mysql_num_rows($resultran)<$nb) {
+		random_recipes($nb);
+	}
+	echo "<table>";
+	while($i<mysql_num_rows($resultran)) {
+		recette_link(mysql_result($resultran, $i, 'id'));
+		$i++;
+	}
+	echo "</table>";
+	
+}
+
 function np_recette($id){
 	$query="SELECT * FROM recettes WHERE id=".$id;
 	$result=mysql_query($query);
