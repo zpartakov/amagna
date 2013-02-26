@@ -19,7 +19,11 @@ function recette_link($id){
 	echo "<td>";
 	echo "<a href=\"/amagna/recettes/viewimg/" .mysql_result($result, 0, 'id') ."\">";
 	echo $titre_recette;
+	echo "</a>";
+	
 	echo "</td><td>";
+	echo "<a href=\"/amagna/recettes/viewimg/" .mysql_result($result, 0, 'id') ."\">";
+	
 	echo "<img style=\"width: 100px\" class=\"rounded\" src=\"/amagna/img/pics/";
 	echo mysql_result($result,0,'pict');
 	echo "\"/>";
