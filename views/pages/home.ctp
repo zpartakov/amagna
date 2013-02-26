@@ -20,9 +20,9 @@ array("alt"=>"Suggestion", "width" => "100px", "style"=>"vertical-align: middle"
 </h1>
 <?php 
 /*
- * a random suggestion of 2 recipes
+ * a random suggestion of n recipes
  */
-random_recipes(2);
+random_recipes(4);
 ?>
 </div>	
 
