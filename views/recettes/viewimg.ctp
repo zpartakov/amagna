@@ -41,12 +41,16 @@ if($recette['Recette']['ingr']){
 			?>
 </div>
 
-<h2 style="margin-top: 20px; font-size: 2.3em"><?php __('Ingrédients'); ?>&nbsp;
 <?php 
 /* market */ 
 echo "<a href=\"" .CHEMIN ."recettes/commissions?id=".$recette['Recette']['id']."\" title=\"";
 __('Market');
 echo "\">";
+?>
+<h2 style="margin-top: 20px; font-size: 2.3em"><?php __('Ingrédients & commissions'); ?>&nbsp;
+
+<?php
+
 //echo $html->image('icons/panier.jpg', array("class"=>"img_market", "alt"=>"Marché", "width"=>"20","height"=>"20"));
 echo $html->image('icons/caddi.jpg', array("class"=>"img_market", "alt"=>"Marché", "width"=>"20","height"=>"20"));
 //echo "<br/>";
@@ -54,31 +58,3 @@ echo $html->image('icons/caddi.jpg', array("class"=>"img_market", "alt"=>"March�
 echo "</a>";
 ?>
 </h2>
-<p class="img_display" >
-			<?php 
-			ingredients($recette['Recette']['id'],1);
-			?>
-</p>
-		
-			<h2 style="margin-top: 20px; font-size: 2.3em"><?php __('Ustensiles'); ?></h2>
-			<?php 
-			ustensiles($recette['Recette']['id'],$session->read('Auth.User.role'));
-			?>
-
-			<?php 
-			
-			//$etapes=etapesimg($recette['Recette']['id'],$session->read('Auth.User.role'),$keletape); 
-			etapesimg($recette['Recette']['id']);
-				
-			//echo $etapes;
-?>
-
-		<?php 
-/*
- * AS we work with etapes, field prep is a kind of general features about the recipe; 
- * string __('Prep') replaced in french with "Note", see locale/fre/default.po
- */		?>
-
-
-
-

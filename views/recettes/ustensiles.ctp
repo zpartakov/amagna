@@ -11,12 +11,10 @@ $id=$_GET['id'];
 /* 
  * recipe title
  */
-echo "<h1>";
 /*
  * audio list of required tools
  */
-$audio="ustensiles/".$id.".mp3";
-allvideomp3($audio);
+echo "<h1>";
 titre_recette($id);
 echo "</h1>";
 
@@ -33,6 +31,10 @@ echo "
 <td style=\"text-align: left\">";
 retour_page_precedente();
 echo "</td><td style=\"text-align: right\">";
+
 etapesimg($id);
+
 echo "</td></tr></table>";
+$audio="ustensiles/".$id.".mp3";
+allvideomp3($audio);
 ?>

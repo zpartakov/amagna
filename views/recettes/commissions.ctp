@@ -4,6 +4,7 @@
  * 
  */
 App::import('Lib', 'functions'); //imports app/libs/functions 
+
 ?>
 <div class="recettes view">
 
@@ -32,9 +33,19 @@ if(!$np){
 		 * print the required meals which belongs to reserves for the given recipe id
 		 */
 		reserve_calcule($id);
-	?>
-	<input type="submit">
-	</form>	<?php
+		echo "<table>";
+		echo "<tr>";
+		echo "<td>";
+		retour_page_precedente();
+		echo "</td><td>";
+		echo $form->submit('icons/suivant.jpg', 
+				array("style"=>"margin-top: -15px; margin-left: 150px"));
+		echo "</tr></table>";
+		?>
+	</form>	
+	<?php
+	
+	
 } else {
 /* compute missing reserves */	
 	$reserves=$_SERVER["REQUEST_URI"];
