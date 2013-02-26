@@ -1,4 +1,7 @@
 <?php
+/*
+ * this is the main cakephp's application controller
+ */
 class AppController extends Controller {
 	var $helpers = array('Html', 'Form', 'Javascript', 'Ajax', 'Session', 'Text', 'Video');
 
