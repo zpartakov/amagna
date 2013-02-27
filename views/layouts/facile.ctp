@@ -44,7 +44,12 @@ echo $javascript->link('scrolltopcontrol');
 <!-- graphical navigation -->
 <div id="graphnav" class="graphmenu_fiche">
 <?php 
+/*
+ * menu facilite sauf glossaire
+ */
+if(!preg_match("/glossaires/",$_REQUEST["url"])){
 echo $this->element('small_graphicalmenu');
+}
 ?>
 </div>
 <!-- content -->
