@@ -84,6 +84,12 @@ class RecettesController extends AppController {
 		}
 	}
 	
+	function orphans(){
+		/*
+		 * display recipes with no menu
+		 */
+	}
+	
 	
 	function view($id = null) {
 		if (!$id) {
