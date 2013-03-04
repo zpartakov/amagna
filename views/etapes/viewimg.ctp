@@ -72,8 +72,16 @@ if($etape['Etape']['video']){
 	$video=$etape['Etape']['video'];
 	$thumbnail=preg_replace("/\.flv$/","",$video);
 	allvideoflv($video,$thumbnail);
+
+	if(preg_match("/^poisson.*\.flv/", $etape['Etape']['video'])) {
+		echo "<br><span style=\"color: grey\">Source vidéo: <a href=\"http://www.goosto.fr/recette-de-cuisine/poisson-vapeur-10009101.htm\">&copy;&nbsp;goosto.fr</a></span>";
+	}
+
 }
+
+
 echo "</td></tr>";
+
 echo "<tr><td style=\"text-align: left\">";
 if($etape['Etape']['order']!=1){//not the first step, there are some previous
 	//todo: put blank page if absent
@@ -115,6 +123,10 @@ if($etape['Etape']['order']!=(mysql_num_rows($result))){//not the last step, the
 //echo "</div>";
 echo "</td></tr>";
 echo "</table>";
+
+if($recette['source']) {
+	echo "<br><span style=\"color: grey\">Source recette: <a href=\"" .$recette['source'] ."\">" .$recette['source'] ."</a></span>";
+}
 
 
 ?>

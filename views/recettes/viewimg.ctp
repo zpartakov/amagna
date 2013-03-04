@@ -58,3 +58,9 @@ echo $html->image('icons/caddi.jpg', array("class"=>"img_market", "alt"=>"March√
 echo "</a>";
 ?>
 </h2>
+<?php 
+if($recette['Recette']['source']) {
+	echo "<br><span style=\"color: grey\">Source recette: <a href=\"" .$recette['Recette']['source'] ."\">" .$recette['Recette']['source'] ."</a></span>";
+}
+
+?>

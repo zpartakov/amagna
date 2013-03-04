@@ -166,4 +166,9 @@ width: 70%;
 	}
 //end hide from non-admin registred user
 ?>
+<?php 
+if($recette['Recette']['source']) {
+	echo "<br><span style=\"color: grey\">Source recette: <a href=\"" .$recette['Recette']['source'] ."\">" .$recette['Recette']['source'] ."</a></span>";
+}
 
+?>
