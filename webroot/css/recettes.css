@@ -310,3 +310,7 @@ font-size: 9px;
 .permalink {
 display: none;
 }
+
+.recettes_suggerees {
+	padding-top: 15px;
+}

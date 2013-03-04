@@ -64,3 +64,6 @@ if($recette['Recette']['source']) {
 }
 
 ?>
+<?php 
+menus_lies($recette['Recette']['id'],$recette['Recette']['type_id']);
+?>

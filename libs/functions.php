@@ -263,12 +263,54 @@ function levenshtein_ustensile($word) {
 }
 
 ######## MENUS ############
+function menus_lies($id,$tid) {
+	$sql = "
+	SELECT *
+	FROM menus_recettes
+	WHERE menus_recettes.recette_id=" . $id;
+	$sql=mysql_query($sql);
+	$menuid=mysql_result($sql,0,'menus_recettes.menu_id');
+	
+	$sql = "
+	SELECT *
+	FROM menus, menus_recettes, recettes
+	WHERE (menus_recettes.menu_id=" . $menuid ." 
+	AND recettes.id=menus_recettes.recette_id)  
+	AND recettes.type_id NOT LIKE '" .$tid ."'
+	 GROUP BY recettes.id 
+	 ORDER BY recettes.type_id";
+	//echo $sql;
+	$sql=mysql_query($sql);
+	$i=0;
+	if(mysql_num_rows($sql)>0) {
+		echo "<h2 class=\"recettes_suggerees\">Recettes suggérées en accompagnement</h2>";
+	}
+	while($i<mysql_num_rows($sql)){
+		echo "<p>";
+		echo "<a href=\"" .mysql_result($sql,$i,'recettes.id') ."\"";
+		echo " title=\"".mysql_result($sql,$i,'recettes.titre') ."\"";
+		echo ">";
+		echo "<img style=\"width: 100px\" class=\"rounded\" src=\"/amagna/img/pics/";
+		echo mysql_result($sql,$i,'pict');
+		echo "\"";
+		echo " alt=\"".mysql_result($sql,$i,'recettes.titre') ."\"";
+		echo " />";
+		echo "<br />";
+		echo mysql_result($sql,$i,'recettes.titre');
+		echo "</a>";
+		echo "</p>";
+		$i++;
+	}
+}
+
 function titre_menu($id){
 	$query="SELECT * FROM menus WHERE id=".$id;
 	$result=mysql_query($query);
 	$titre_recette=mysql_result($result, 0, 'libelle');
 	echo $titre_recette;
 }
+
+
 
 function show_thumb_menu($menu) {
 	$sql = "
