@@ -159,6 +159,8 @@ function etapesimg($id = null) {
 	mysql_result($result,0,'etape_id') ."\"><img alt=\"Première étape\" src=\"".CHEMIN ."img/icons/suivant.jpg\" /></a>";
 	}
 	
+
+	
 function ustensiles($id){
 /* ###############################################################
 * a function to display kitchen tools required for a given recipe with images

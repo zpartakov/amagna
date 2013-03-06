@@ -40,7 +40,9 @@ if($recette['Recette']['ingr']){
 			glossaire($recette['Recette']['prep']); 
 			?>
 </div>
-
+<?php 
+etapesimg($recette['Recette']['id']);
+?>
 <?php 
 /* market */ 
 echo "<a href=\"" .CHEMIN ."recettes/commissions?id=".$recette['Recette']['id']."\" title=\"";
