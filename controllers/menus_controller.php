@@ -108,7 +108,7 @@ class MenusController extends AppController {
 	echo "<h2>Menus proposés pour cette saison</h2>";
 	echo "<ul>";
 		while($i<mysql_num_rows($sql)){
-			echo "<li><a href=\"menus/view/" .mysql_result($sql,$i,'id')."\">" 
+			echo "<li><a href=\"menus/viewimg/" .mysql_result($sql,$i,'id')."\">" 
 			.mysql_result($sql,$i,'libelle')
 			."</a>";
 			echo "</li>";
