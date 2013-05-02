@@ -5,7 +5,11 @@
 	<?php
 		echo $this->Form->input('title');
 		echo $this->Form->input('introtext');
+								echo $fck->load('Lespage.introtext');
+		
 		echo $this->Form->input('fulltext');
+										echo $fck->load('Lespage.fulltext');
+		
 		echo $this->Form->input('publish_up');
 		echo $this->Form->input('publish_down');
 		echo $this->Form->input('images');
