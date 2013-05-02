@@ -2,6 +2,10 @@
 class RecettesController extends AppController {
 
 	var $name = 'Recettes';
+	//var $helpers = array('Form', 'Fck','Alaxos.AlaxosForm', 'Alaxos.AlaxosHtml','Html','Ajax','Javascript');
+	//var $helpers = array('Form', 'Fck', 'Html','Ajax','Javascript');
+	var $helpers = array('Fck');
+	
 	var $components = array('Auth', 'RequestHandler');
 
 	function beforeFilter() {
