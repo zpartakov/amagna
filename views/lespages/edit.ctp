@@ -3,10 +3,16 @@
 	<fieldset>
  		<legend><?php __('Edit Lespage'); ?></legend>
 	<?php
+	//$wysiwyg->changeEditor("fck");
 		echo $this->Form->input('id');
 		echo $this->Form->input('title');
 		echo $this->Form->input('introtext');
-		echo $this->Form->input('fulltext');
+						echo $fck->load('Lespage.introtext');
+		
+		echo $this->Form->input('fulltext', array("style"=>"width: 80%; height: 800px"));
+								echo $fck->load('Lespage.fulltext');
+		
+		//$wysiwyg->textarea("Lespage.fulltext");
 		echo $this->Form->input('publish_up');
 		echo $this->Form->input('publish_down');
 		echo $this->Form->input('images');
