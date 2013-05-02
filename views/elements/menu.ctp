@@ -14,7 +14,7 @@ if(preg_match("/MSIE/",$_SERVER['HTTP_USER_AGENT'])&&preg_match("/8.0/",$_SERVER
 	<li><a href="<? echo CHEMIN; ?>">Accueil</a>
 		<ul class="sousMenu">
 	<li><?
-echo "<a href=\"". CHEMIN ."pages/about/\" title=\"À propos\">";
+echo "<a href=\"". CHEMIN ."apropos\" title=\"À propos\">";
 echo $html->image('menus/about_th.jpg', array("alt"=>"À propos", "width"=>"20","height"=>"20"));
 echo "&nbsp;À propos</a>";
 ?></li>		
@@ -97,6 +97,7 @@ if($session->read('Auth.User.role')=="administrator") {
 	<li style="background-color: PeachPuff"><a href="" title="">Admin</a>
 		<ul class="sousMenu">
 		
+		<li><a style="color: PeachPuff" href="<? echo CHEMIN; ?>recettes/?testall=123">Toutes les recettes</a></li>
 		<li><a style="color: PeachPuff" href="<? echo CHEMIN; ?>recettes/add">Nouvelle recette</a></li>
 				<li><a style="color: PeachPuff" href="<? echo CHEMIN; ?>recettes/orphans">Recettes orphelines</a></li>
 			<!--  		<li><a href="<? echo CHEMIN; ?>recettes/rss">MàJ flux RSS</a></li>-->
