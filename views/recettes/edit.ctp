@@ -23,7 +23,11 @@
 		echo $this->Form->input('pers');
 		echo $this->Form->input('type_id');
 		echo $this->Form->input('user_id');
+		//	echo $fck->load('Recette.ingr');
+	
 		echo $this->Form->input('prep');
+		echo $fck->load('Recette.prep');
+		
 		echo $this->Form->input('date');
 		echo $this->Form->input('score');
 		echo $this->Form->input('source');
