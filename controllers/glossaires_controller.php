@@ -2,7 +2,7 @@
 class GlossairesController extends AppController {
 
 	var $name = 'Glossaires';
-	var $helpers = array('Form', 'Alaxos.AlaxosForm', 'Alaxos.AlaxosHtml');
+	var $helpers = array('Form', 'Alaxos.AlaxosForm', 'Alaxos.AlaxosHtml','Fck');
 	var $components = array('Alaxos.AlaxosFilter','Auth','RequestHandler');
 	
 	function beforeFilter() {
