@@ -28,7 +28,13 @@ class GlossairesController extends AppController {
 			);
 			$this->set(array('glossaires' => $this->paginate('Glossaire', $options)));
 		} else {
-			$this->set('glossaires', $this->paginate());
+			if(!$_GET['testall']){
+					
+			$options = array(
+					"Glossaire.libelle NOT LIKE '-%'"
+			);
+			}
+			$this->set(array('glossaires' => $this->paginate('Glossaire', $options)));
 		}
 	}
 

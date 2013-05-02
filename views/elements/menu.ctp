@@ -98,8 +98,9 @@ if($session->read('Auth.User.role')=="administrator") {
 		<ul class="sousMenu">
 		
 		<li><a style="color: PeachPuff" href="<? echo CHEMIN; ?>recettes/?testall=123">Toutes les recettes</a></li>
-		<li><a style="color: PeachPuff" href="<? echo CHEMIN; ?>recettes/add">Nouvelle recette</a></li>
+				<li><a style="color: PeachPuff" href="<? echo CHEMIN; ?>recettes/add">Nouvelle recette</a></li>
 				<li><a style="color: PeachPuff" href="<? echo CHEMIN; ?>recettes/orphans">Recettes orphelines</a></li>
+				<li><a style="color: PeachPuff" href="<? echo CHEMIN; ?>glossaires/?testall=123">Tout le glossaire</a></li>
 			<!--  		<li><a href="<? echo CHEMIN; ?>recettes/rss">MàJ flux RSS</a></li>-->
 			<li><a href="http://www.picadametles.ch/dokuwiki/doku.php?id=cuisine:intranet:start&do=recent">Wiki (Recent changes)</a></li>
 			<li><a href="recettes/app/webroot/img/up.php">Nouvelle image TODO</a></li>
