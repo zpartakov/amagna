@@ -3,8 +3,10 @@ class LespagesController extends AppController {
 
 	var $name = 'Lespages';
 	var $components = array('Auth', 'RequestHandler');
+
+		var $helpers = array('Fck');
 	
-	function beforeFilter() {
+function beforeFilter() {
 		$this->Auth->allow('view');
 	}
 	
