@@ -6,11 +6,14 @@
 		echo $this->Form->input('id');
 		echo $this->Form->input('order');
 		echo $this->Form->input('text');
+				echo $fck->load('Etape.text');
+		
 		echo $this->Form->input('url');
 		echo $this->Form->input('image');
 		echo $this->Form->input('sound');
 		echo $this->Form->input('video');
 		echo $this->Form->input('notes');
+				echo $fck->load('Etape.notes');
 		echo $this->Form->input('Recette');
 	?>
 	</fieldset>
