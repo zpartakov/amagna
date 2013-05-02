@@ -41,7 +41,13 @@ class RecettesController extends AppController {
 					);
 					$this->set(array('recettes' => $this->paginate('Recette', $options))); 
 		} else {
-		$this->set('recettes', $this->paginate());
+			
+			$options = array(
+					"Recette.private='1'"
+					);
+					$this->set(array('recettes' => $this->paginate('Recette', $options))); 
+					
+		
 		}
 	}
 	
@@ -84,8 +90,12 @@ class RecettesController extends AppController {
 					);
 					$this->set(array('recettes' => $this->paginate('Recette', $options))); 
 		} else {
-		$this->set('recettes', $this->paginate());
-		}
+			if(!$_GET['testall']){
+			$options = array(
+					"Recette.private='1'"
+					);
+			}		
+					$this->set(array('recettes' => $this->paginate('Recette', $options))); 		}
 	}
 	
 	function orphans(){
