@@ -2,6 +2,8 @@
 class EtapesController extends AppController {
 	var $name = 'Etapes';
 	var $components = array('Auth', 'RequestHandler');
+		var $helpers = array('Fck');
+	
 	
 	function beforeFilter() {
 		$this->Auth->allow('index','view','viewimg');
