@@ -26,7 +26,7 @@ App::import('Lib', 'functions'); //imports app/libs/functions
 			&nbsp;
 		</p>
 		<p>&nbsp;</p>
-		<p>	<?php echo nl2br($lespage['Lespage']['fulltext']); ?>
+		<p>	<?php echo $lespage['Lespage']['fulltext']; ?>
 			&nbsp;</p>
 		
 
