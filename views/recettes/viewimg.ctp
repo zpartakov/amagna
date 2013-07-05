@@ -21,10 +21,9 @@ App::import('Lib', 'functions'); //imports app/libs/functions
 
 ?>
 <a title="Début de la recette" href="<? echo CHEMIN; ?>recettes/viewimg/<?php echo $recette['Recette']['id']; ?>">
-<h1><?php echo $recette['Recette']['titre']; ?></h1>
+<div class="titre_recette"><?php echo $recette['Recette']['titre']; ?></div>
 <img class="img_recette" src="<? echo CHEMIN; ?>img/pics/
 <?php echo $recette['Recette']['pict']; ?>" alt="<?php echo $recette['Recette']['titre']; ?>" title="<?php echo $recette['Recette']['titre']; ?>">
-
 </a>
 
 <?php
@@ -35,11 +34,14 @@ if($recette['Recette']['ingr']){
 	allvideomp3('recettes/'.$audio);
 }
 ?>
-<div class="img_display" style="padding-right: 50px; width: 60%; font-size: 1.3em">
+<div class="img_display">
+<div class="img_first_display">
 			<?php 
 			glossaire($recette['Recette']['prep']); 
 			?>
+			</div>
 </div>
+
 <?php 
 etapesimg($recette['Recette']['id']);
 ?>

@@ -138,9 +138,7 @@ width: 80px;
 	padding: 10px;
 }
 
-.img_preparation {
-	font-size: 1.5em;
-}
+
 .gauche {
 	float: left
 }
@@ -154,9 +152,7 @@ width: 80px;
 }
 
 
-.img_display {
-	color: black;
-}
+
 
 /* rounded images */
 .rounded {
@@ -296,6 +292,43 @@ another infobulle src http://www.css3create.com/Infobulle-avec-effet-de-transpar
  {
 	
 }
+
+
+/* ################ 
+ * nice display of recipe steps
+ * BEGIN 
+ * ########### */
+.titre_recette {
+	background:lightyellow;
+	color: #e32;
+	font-size: 200%;
+	padding: 8px;
+	margin-bottom: 10px;
+}
+
+.img_display {
+	color: black;
+	background-color: #FFF3DC;
+	padding: 20px;
+}
+.img_first_display {
+padding-right: 50px; font-size: 1.3em; width: 40%;
+}
+
+.img_preparation {
+	font-size: 1.5em;
+		background-color: #FFF3DC;
+	padding: 20px;
+}
+
+.fin_recette {
+margin-top: 20px; font-size: 2.3em; background-color: #D8FFD8; padding: 5px;
+}
+/* ################ 
+ * nice display of recipe steps
+ * END 
+ * ########### */
+
 
 /* blog */
 /* posts */

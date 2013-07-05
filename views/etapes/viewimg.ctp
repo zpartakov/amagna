@@ -26,7 +26,7 @@ ORDER BY e.order";
 $result=mysql_query($query);
 
 /* page title */
-echo "<h1>" .$recette['titre'] ."</h1>";
+echo "<div class=\"titre_recette\">" .$recette['titre'] ."</div>";
 
 /* 
  * pagination
@@ -51,12 +51,12 @@ if($etape['Etape']['sound']){
 	allvideomp3('recettes/'.$audio);
 }
 /* howto do the given step */
-echo "<span class=\"img_preparation\">";
+echo "<div class=\"img_preparation\">";
 /*
  * a function to print the step, including glossaries if any
  */
 glossaire($etape['Etape']['text']);
-echo "</span>";
+echo "</div>";
 /* any image */
 if($etape['Etape']['image']) {
 	echo $etape['Etape']['image'];
@@ -113,7 +113,7 @@ if($etape['Etape']['order']!=(mysql_num_rows($result))){//not the last step, the
 	 /* give a link for navigation */
 	
 	?>
-	<span style="margin-top: 20px; font-size: 2.3em">FIN DE LA RECETTE; Bon appétit!</span><a href="<? echo CHEMIN; ?>pages/recettes" title="Accueil">
+	<div class="fin_recette">FIN DE LA RECETTE; Bon appétit!</div><a href="<? echo CHEMIN; ?>pages/recettes" title="Accueil">
 	<br/>
 		<? echo $html->image('menus/accuei_md.jpg', array("alt"=>"Accueil", "width" => $largeur_image."px", "style"=>"vertical-align: middle"));?>
 		</a>
