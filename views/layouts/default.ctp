@@ -26,7 +26,8 @@ App::import('Lib', 'functions'); //imports app/libs/functions
 
 <?
 echo $javascript->link('recettes.js');
-echo $javascript->link('jquery-1.5.1.js');
+//echo $javascript->link('jquery-1.5.1.js');
+echo $javascript->link('jquery/jquery-2.0.3');
 //echo $javascript->link('video');
 
 echo $javascript->link('jquery.zglossary.min');

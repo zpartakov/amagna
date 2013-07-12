@@ -25,7 +25,7 @@ if($session->read('Auth.User.role')) {
 <link rel="shortcut icon" href="<? echo CHEMIN; ?>app/webroot/img/casserole.ico" type="image/x-icon" />
 <?
 echo $javascript->link('recettes.js');
-echo $javascript->link('jquery-1.5.1.js');
+echo $javascript->link('jquery/jquery-2.0.3');
 ?>
 <!-- external cakephp avreloaded lib for audio and video -->
 <script type="text/javascript" src="/plugins/content/avreloaded/swfobject.js"></script>
