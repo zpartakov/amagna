@@ -20,7 +20,6 @@ if($session->read('Auth.User.role')) {
 <?=$html->css(array('cake.generic'), 'stylesheet', array('media' => 'screen'));?>
 <?=$html->css(array('hiermenu'), 'stylesheet', array('media' => 'screen'));?>
 <?=$html->css(array('recettes'), 'stylesheet', array('media' => 'screen'));?>
-<?=$html->css(array('jquery.zglossary.min'), 'stylesheet', array('media' => 'screen'));?>
 <?=$html->css(array('print'), 'stylesheet', array('media' => 'print'));?>
 <link rel="shortcut icon" href="<? echo CHEMIN; ?>app/webroot/img/casserole.ico" type="image/x-icon" />
 <?
@@ -32,7 +31,6 @@ echo $javascript->link('jquery/jquery-2.0.3');
 <script type="text/javascript" src="/plugins/content/avreloaded/avreloaded.js"></script>
 
 <?php
-echo $javascript->link('jquery.zglossary.min');
 /* scroll to top script */
 echo $javascript->link('scrolltopcontrol');
 ?>

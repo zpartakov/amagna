@@ -3,8 +3,13 @@
  * Display a facilitated view of a given recipe, step by step
  */
 App::import('Lib', 'functions'); //imports app/libs/functions
- ?>
-<div class="related">
+
+echo $this->Html->css('jquery/powertip/jquery.powertip-yellow');
+echo $javascript->link('jquery/powertip/jquery.powertip');
+
+
+?>
+ <div class="related">
 	<?php if (!empty($etape['Recette'])):?>
 	<?php
 		$i = 0;

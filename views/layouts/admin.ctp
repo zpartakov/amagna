@@ -32,7 +32,6 @@ filter:alpha(opacity=40); /* For IE8 and earlier */
 <?=$html->css(array('cake.generic'), 'stylesheet', array('media' => 'screen'));?>
 <?=$html->css(array('hiermenu'), 'stylesheet', array('media' => 'screen'));?>
 <?=$html->css(array('recettes'), 'stylesheet', array('media' => 'screen'));?>
-<?=$html->css(array('jquery.zglossary.min'), 'stylesheet', array('media' => 'screen'));?>
 
 <?=$html->css(array('print'), 'stylesheet', array('media' => 'print'));?>
 <link rel="shortcut icon" href="<? echo CHEMIN; ?>app/webroot/img/casserole.ico" type="image/x-icon" />
@@ -42,11 +41,7 @@ filter:alpha(opacity=40); /* For IE8 and earlier */
 ?>
 <?
 echo $javascript->link('recettes.js');
-echo $javascript->link('jquery-1.5.1.js');
-//echo $javascript->link('video');
-
-echo $javascript->link('jquery.zglossary.min');
-
+echo $javascript->link('jquery/jquery-2.0.3');
 ?>
 <!-- external cakephp avreloaded lib for audio and video -->
 <script type="text/javascript" src="/plugins/content/avreloaded/swfobject.js"></script>
