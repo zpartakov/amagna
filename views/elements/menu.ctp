@@ -125,11 +125,19 @@ if($session->read('Auth.User.role')=="administrator") {
 
 
 <!-- login -->
-	<li><a href="<? echo CHEMIN; ?>users/login" title="S'enregistrer">Login</a>
-		<ul class="sousMenu">
-			<li><a href="<? echo CHEMIN; ?>users/logout" title="Logour / Quitter">Logout</a></li>
-		</ul>
-	</li>
+<?php 
+
+if($session->read('Auth.User.role')) {
+	?>
+	<li><a href="<? echo CHEMIN; ?>users/logout" title="Logour / Quitter">Logout</a></li>
+	<?php 
+} else {
+	?>
+	<li><a href="<? echo CHEMIN; ?>users/login" title="S'enregistrer">Login</a></li>
+	<?php
+}
+
+?>
 <?php 
 /*
  * setting the language for the current session; the translations are in locale/.../default.po

@@ -1,7 +1,9 @@
 <?php 
+/*
+ * content pages (static web pages)
+ */
 $title_for_layout=$lespage['Lespage']['title'];
 App::import('Lib', 'functions'); //imports app/libs/functions
-
 ?>
 <div class="lespages view">
 <h2><?php echo $lespage['Lespage']['title'];?></h2>
