@@ -27,8 +27,10 @@ echo $javascript->link('recettes.js');
 echo $javascript->link('jquery/jquery-2.0.3');
 ?>
 <!-- external cakephp avreloaded lib for audio and video -->
-<script type="text/javascript" src="/plugins/content/avreloaded/swfobject.js"></script>
-<script type="text/javascript" src="/plugins/content/avreloaded/avreloaded.js"></script>
+<?
+echo $javascript->link('avreloaded/swfobject.js');
+echo $javascript->link('avreloaded/avreloaded.js');
+?>
 
 <?php
 /* scroll to top script */

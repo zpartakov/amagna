@@ -848,9 +848,9 @@ function allvideomp3($audio) {
 	</ins>
 	</span>
 	<script type=\"text/javascript\">
-	swfobject.embedSWF('/plugins/content/avreloaded/mediaplayer.swf','avreloaded0','70','60','9.0.115','/plugins/content/avreloaded/expressinstall.swf',
+	swfobject.embedSWF('http://" .SERVERNAMEPROD .CHEMIN ."plugins/content/avreloaded/mediaplayer.swf','avreloaded0','70','60','9.0.115','http://" .SERVERNAMEPROD .CHEMIN ."plugins/content/avreloaded/expressinstall.swf',
 	{
-		file:'http://" .SERVERNAMEPROD .CHEMIN ."audios/" .$audio ."',width:'70',height:'60',image:'/amagna/img/hautparleur.jpg',
+		file:'http://" .SERVERNAMEPROD .CHEMIN ."audios/" .$audio ."',width:'70',height:'60',image:'/img/hautparleur.jpg',
 		showeq:'false',searchbar:'false',enablejs:'false',autostart:'false',showicons:'true',shownavigation:'false',usefullscreen:'false',backcolor:'0xFFFFFF',frontcolor:'0x000000',
 		lightcolor:'0x000000',screencolor:'0x000000',overstretch:'false'}
 		,{

@@ -31,7 +31,7 @@ ORDER BY e.order";
 $result=mysql_query($query);
 
 /* page title */
-echo "<div class=\"titre_recette\">" .$recette['titre'] ."</div>";
+echo "<div class=\"titre_recette\"><a href=\"\" title=\"début de la recette\" href=\"".CHEMIN ."recettes/viewimg/" .$recette['id']."\">" .$recette['titre'] ."</a></div>";
 
 /* 
  * pagination
