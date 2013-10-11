@@ -34,5 +34,6 @@
  * ...and connect the rest of 'Pages' controller's urls.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
-
+Router::connect('/apropos', array('controller' => 'lespages', 'action' => 'view', '2'));
+	
 Router::parseExtensions('rss');

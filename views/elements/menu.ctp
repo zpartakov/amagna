@@ -25,7 +25,7 @@ echo $html->image('menus/th_liens.jpg', array("alt"=>"Liens","width"=>"20","heig
 echo "&nbsp;Liens</a>";
 ?></li>
 <li><?
-echo "<a href=\"/blog/\" title=\"Blog\">";
+echo "<a href=\"http://www.picadametles.ch/blog/\" title=\"Blog\">";
 echo $html->image('icons/btn_blog.png', array("alt"=>"Blog", "width"=>"20","height"=>"20"));
 echo "&nbsp;Blog</a>";
 ?></li>
