@@ -1,29 +1,32 @@
 <?php
 echo $content_for_layout;
-
-?><div class="recettes form">
+$largeur="450px";
+$hauteur="50px";
+?>
+<div class="recettes form">
 <?php echo $this->Form->create('Recette');?>
 	<fieldset>
 		<legend><?php __('Add Recette'); ?></legend>
 	<?php
 		echo $this->Form->input('country_id');
-		echo $this->Form->input('titre');
-		echo $this->Form->input('temps');
-		echo $this->Form->input('ingr');
-		echo $this->Form->input('pers');
-		echo $this->Form->input('type_id');
-		echo $this->Form->input('user_id');
+		echo $this->Form->input('titre', array('style'=>'width: '.$largeur));
+		echo $this->Form->input('temps', 
+				array('value'=>'20min', 'style'=>'width: '.$largeur.'; height: 50px'));
+		echo $this->Form->input('ingr', array('type'=>'hidden'));
+		echo $this->Form->input('pers', array('value'=>4, 'style'=>'width: 25px'));
+		echo $this->Form->input('type_id', array('size'=>'21'));
+		echo $this->Form->input('user_id', array('size'=>'4'));
 		echo $this->Form->input('prep', array('class'=>'ckeditor'));
 		echo $this->Form->input('date');
-		echo $this->Form->input('score');
-		echo $this->Form->input('source');
-		echo $this->Form->input('pict');
-		echo $this->Form->input('private');
-		echo $this->Form->input('Etape');
-		echo $this->Form->input('Ingredient');
-		echo $this->Form->input('Modecuisson');
-		echo $this->Form->input('Orthographe');
-		echo $this->Form->input('Saison');
+		echo $this->Form->input('score', array('type'=>'hidden', 'value'=>'0'));
+		echo $this->Form->input('source', array('label'=>'Source: (ex. http://...)', 'style'=>'width: '.$largeur.'; height: 15px'));
+		echo $this->Form->input('pict', array('type'=>'hidden', 'value'=>''));
+		echo $this->Form->input('private', array('type'=>'hidden'));
+		echo $this->Form->input('Etape', array('type'=>'hidden'));
+		echo $this->Form->input('Ingredient', array('type'=>'hidden'));
+		echo $this->Form->input('Modecuisson', array('size'=>'8'));
+		echo $this->Form->input('Orthographe', array('type'=>'hidden'));
+		echo $this->Form->input('Saison', array('size'=>'4'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
