@@ -90,11 +90,22 @@ class RecettesController extends AppController {
 					);
 					$this->set(array('recettes' => $this->paginate('Recette', $options))); 
 		} else {
+			
+			/*
+			 * uncomment if you don't want to display recipe where private=1
+			 * 
+			 * if you activate and want all recipes, user testall=1
+			 * 
+			 * eg http://amagna.org/recettes/?testall=1
+			 */
+			/*
 			if(!$_GET['testall']){
 			$options = array(
 					"Recette.private='1'"
 					);
 			}		
+			*/
+			
 					$this->set(array('recettes' => $this->paginate('Recette', $options))); 		}
 	}
 	
