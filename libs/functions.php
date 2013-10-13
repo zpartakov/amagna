@@ -59,6 +59,25 @@ function np_recette($id){
 	__('Nombre de personnes: ');
 	echo $np;
 }
+
+function select_np_recette($id){
+	$query="SELECT * FROM recettes WHERE id=".$id;
+	$result=mysql_query($query);
+	$np=mysql_result($result, 0, 'pers');
+	echo "<form method=\"get\">Nombre de personnes: ";
+	echo "<select name=\"np\">";
+	for($i=1;$i<25;$i++) {
+	echo "<option";
+	if($i==$np) {
+		echo " selected";
+	}
+	echo ">" .$i;
+	}
+	echo "</select><input type=\"submit\"></form>";
+}
+
+
+
 function levenshtein_recettes($word) {
 	$word = strtolower($word);
 	echo "<p>Désolé, il n'y a pas de recettes correspondant à votre recherche: <em>" .$word."</em></p><br/>";
@@ -141,7 +160,7 @@ echo "</li>";
 	return $etapes;
 }
 
-function etapesimg($id = null) {
+function etapesimg($id = null,$np) {
 /* 
  * affiche les étapes d'une recette en liste visuelle facilitée
  */	
@@ -152,11 +171,8 @@ function etapesimg($id = null) {
 	ORDER BY etapes.order" ;
 	//echo $query ."<br>";
 	$result=mysql_query($query);
-	//echo "Nombre d'étapes: " .mysql_num_rows($result) ."&nbsp;";
-	/*echo "<a title=\"Première étape\" href=\"".CHEMIN ."etapes/view/".
-	mysql_result($result,0,'etape_id') ."\"><img alt=\"Première étape\" src=\"".CHEMIN ."img/bd_nextpage.png\" /></a>";*/
 	echo "<a title=\"Première étape\" href=\"".CHEMIN ."etapes/viewimg/".
-	mysql_result($result,0,'etape_id') ."\"><img alt=\"Première étape\" src=\"".CHEMIN ."img/icons/suivant.jpg\" /></a>";
+	mysql_result($result,0,'etape_id') ."&np=" .$np  ."\"><img alt=\"Première étape\" src=\"".CHEMIN ."img/icons/suivant.jpg\" /></a>";
 	}
 	
 
@@ -604,6 +620,45 @@ function ingredients($id = null,$image,$role) {
 				if($role=="administrator") {
 		echo "</p><a href=\"/amagna/recettes/ajouteringredient?id=" .$id."\">Ajouter un ingrédient</a></p>";
 }
+}
+
+function ingredients_etape($id,$np,$pers) {
+	/*
+	 * print the required meals for a given recipe, with picture if any
+	*/
+	$query="
+	SELECT * FROM etapes_ingredients AS ei, ingredients AS i
+	WHERE etape_id=".$id ."
+	AND i.id=ei.ingredient_id
+	ORDER BY typ, libelle
+	" ;
+	//	echo $query ."<br>";
+	$result=mysql_query($query);
+	if(mysql_num_rows($result)>1) {
+echo "<h2>Ingrédients pour cette étape (nombre de personnes: " .$np.")</h2>";
+	
+	echo "<table>";
+	$i=0;
+	echo "<table style=\"width: 50%\">";
+	while($i<mysql_num_rows($result)){
+	echo "<tr>";
+	echo "<td style=\"text-align: right; padding-right: 10px\">";
+		echo mysql_result($result,$i,'i.libelle');
+		echo "</td><td>";		
+		echo intval($np/$pers)*mysql_result($result,$i,'ei.quant');
+		echo "&nbsp;";
+		echo mysql_result($result,$i,'ei.unit');
+	echo "</td>";	
+	echo "<td>";
+	echo "<img style=\"width: 100px\" class=\"rounded\" src=\"/amagna/img/ingredients/";
+	echo mysql_result($result,$i,'i.img');
+	echo "\">";
+	echo "</td>";
+	echo "</tr>";
+				$i++;
+	}
+	echo "</table>";
+	}
 }
 
 function ingredients_modif($id = null) {

@@ -19,7 +19,24 @@ class Etape extends AppModel {
 			'finderQuery' => '',
 			'deleteQuery' => '',
 			'insertQuery' => ''
-		)
+		),
+		'Ingredient' => array(
+					'className' => 'Ingredient',
+					'joinTable' => 'etapes_ingredients',
+					'foreignKey' => 'etape_id',
+					'associationForeignKey' => 'ingredient_id',
+					'unique' => true,
+					'conditions' => '',
+					'fields' => '',
+					'order' => '',
+					'limit' => '',
+					'offset' => '',
+					'finderQuery' => '',
+					'deleteQuery' => '',
+					'insertQuery' => ''
+			),
 	);
-
+	
+	
+	var $belongsTo = 'Modecuisson';
 }

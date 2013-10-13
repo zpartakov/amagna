@@ -17,9 +17,6 @@ SELECT * FROM etapes_recettes AS er, etapes AS e
 WHERE er.recette_id=" .$recette['id'] ." AND e.id=er.etape_id 
 ORDER BY e.order";
 
-
-
-
 //echo $sql; exit;
 $result=mysql_query($query);
 echo "<h3>Etape: " .$etape['Etape']['order'] ." de " .mysql_num_rows($result) ."</h3>";

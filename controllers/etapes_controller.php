@@ -43,8 +43,10 @@ class EtapesController extends AppController {
 				$this->Session->setFlash(__('The etape could not be saved. Please, try again.', true));
 			}
 		}
+		$ingredients = $this->Etape->Ingredient->find('list');
+		$modecuissons = $this->Etape->Modecuisson->find('list');
 		$recettes = $this->Etape->Recette->find('list');
-		$this->set(compact('recettes'));
+		$this->set(compact('recettes','ingredients','modecuissons'));
 	}
 
 	function edit($id = null) {
@@ -64,8 +66,10 @@ class EtapesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Etape->read(null, $id);
 		}
-		$recettes = $this->Etape->Recette->find('list');
-		$this->set(compact('recettes'));
+		$ingredients = $this->Etape->Ingredient->find('list', array('order'=>'Ingredient.libelle'));
+		$modecuissons = $this->Etape->Modecuisson->find('list');
+		$recettes = $this->Etape->Recette->find('list', array('order'=>'Recette.titre'));
+		$this->set(compact('recettes','ingredients','modecuissons'));
 	}
 
 	function delete($id = null) {

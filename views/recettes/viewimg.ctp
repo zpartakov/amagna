@@ -1,3 +1,21 @@
+<?php 
+/* 
+ * Easy display of recipes, visual and cutted into pieces like a cucumber
+ * 
+ * */
+
+App::import('Lib', 'functions'); //imports app/libs/functions
+/*
+ * nombre de personnes n'est pas fixé
+ */
+if(!$_GET['np']){
+?>
+<div class="titre_recette"><?php echo $recette['Recette']['titre']; ?></div>
+
+<?	
+	select_np_recette($recette['Recette']['id']);
+} else {
+?>
 <script type="text/javascript">
 			   function zoomit(img) {
 				   document.getElementById(img).style.display = 'block'
@@ -7,18 +25,11 @@
 			   }
    </script>
 <?php
-App::import('Lib', 'functions'); //imports app/libs/functions 
-
-/* 
- * Easy display of recipes, visual and cutted into pieces like a cucumber
- * 
- * */
  /* pagination */
  $keletape=$_GET['keletape'];
  if(!$keletape) {
 	 $keletape=0;
  }
-
 ?>
 <a title="Début de la recette" href="<? echo CHEMIN; ?>recettes/viewimg/<?php echo $recette['Recette']['id']; ?>">
 <div class="titre_recette"><?php echo $recette['Recette']['titre']; ?></div>
@@ -43,7 +54,9 @@ if($recette['Recette']['ingr']){
 </div>
 
 <?php 
-etapesimg($recette['Recette']['id']);
+
+
+etapesimg($recette['Recette']['id'],$_GET['np']);
 ?>
 <?php 
 /* market */ 
@@ -70,4 +83,6 @@ if($recette['Recette']['source']) {
 ?>
 <?php 
 menus_lies($recette['Recette']['id'],$recette['Recette']['type_id']);
+
+}
 ?>

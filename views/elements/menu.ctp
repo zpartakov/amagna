@@ -14,18 +14,19 @@ if(preg_match("/MSIE/",$_SERVER['HTTP_USER_AGENT'])&&preg_match("/8.0/",$_SERVER
 	<li><a href="<? echo CHEMIN; ?>">Accueil</a>
 		<ul class="sousMenu">
 	<li><?
-echo "<a href=\"". CHEMIN ."apropos\" title=\"À propos\">";
+//echo "<a href=\"". CHEMIN ."apropos\" title=\"À propos\">";
+echo "<a href=\"/wiki/doku.php?id=apropos\" title=\"À propos\">";
 echo $html->image('menus/about_th.jpg', array("alt"=>"À propos", "width"=>"20","height"=>"20"));
 echo "&nbsp;À propos</a>";
 ?></li>		
 			
 <li><?
-echo "<a href=\"http://www.picadametles.ch/blog/index.php?category/Sites-int%C3%A9ressants\" title=\"Liens\">";
+echo "<a href=\"/blog/index.php?category/Sites-int%C3%A9ressants\" title=\"Liens\">";
 echo $html->image('menus/th_liens.jpg', array("alt"=>"Liens","width"=>"20","height"=>"20"));
 echo "&nbsp;Liens</a>";
 ?></li>
 <li><?
-echo "<a href=\"http://www.picadametles.ch/blog/\" title=\"Blog\">";
+echo "<a href=\"/blog/\" title=\"Blog\">";
 echo $html->image('icons/btn_blog.png', array("alt"=>"Blog", "width"=>"20","height"=>"20"));
 echo "&nbsp;Blog</a>";
 ?></li>
@@ -38,12 +39,12 @@ echo "&nbsp;Flux RSS du Blog</a>";
 </li>
  -->
 <li><?
-echo "<a href=\"http://www.picadametles.ch/dokuwiki/doku.php?id=cuisine:aide_recettes\" title=\"Aide\">";
+echo "<a href=\"/wiki/doku.php?id=cuisine:aide_recettes\" title=\"Aide\">";
 echo $html->image('help.png', array("alt"=>"Aide", "width"=>"20","height"=>"20"));
 echo "&nbsp;Aide</a>";
 ?></li>
 <li><?
-echo "<a href=\"http://www.picadametles.ch/dokuwiki/doku.php\" title=\"Wiki\">";
+echo "<a href=\"/wiki/doku.php\" title=\"Wiki\">";
 echo $html->image('icons/dokuwiki.png', array("alt"=>"Wiki", "width"=>"20","height"=>"20"));
 echo "&nbsp;Wiki</a>";
 ?></li>
@@ -102,7 +103,7 @@ if($session->read('Auth.User.role')=="administrator") {
 				<li><a style="color: PeachPuff" href="<? echo CHEMIN; ?>recettes/orphans">Recettes orphelines</a></li>
 				<li><a style="color: PeachPuff" href="<? echo CHEMIN; ?>glossaires/?testall=123">Tout le glossaire</a></li>
 			<!--  		<li><a href="<? echo CHEMIN; ?>recettes/rss">MàJ flux RSS</a></li>-->
-			<li><a href="http://www.picadametles.ch/dokuwiki/doku.php?id=cuisine:intranet:start&do=recent">Wiki (Recent changes)</a></li>
+			<li><a href="/wiki/doku.php?id=cuisine:intranet:start&do=recent">Wiki (Recent changes)</a></li>
 			<li><a href="recettes/app/webroot/img/up.php">Nouvelle image TODO</a></li>
 			<li><a href="<? echo CHEMIN; ?>analyse_sites/">Analyse des sites</a></li>
 			<li><a href="<? echo CHEMIN; ?>ilikerecipes/">Recettes utilisateurs</a></li>

@@ -1,4 +1,8 @@
-<div class="etapes form">
+<?php 
+//print_r($modecuissons); exit;
+//debug($this->data['Modecuisson']);exit;
+//echo phpinfo();
+?><div class="etapes form">
 <?php echo $this->Form->create('Etape');?>
 	<fieldset>
 		<legend><?php __('Edit Etape'); ?></legend>
@@ -13,8 +17,10 @@
 		echo $this->Form->input('sound');
 		echo $this->Form->input('video');
 		echo $this->Form->input('notes');
-				echo $fck->load('Etape.notes');
+		echo $fck->load('Etape.notes');
 		echo $this->Form->input('Recette');
+		echo $this->Form->input('Modecuisson');
+				
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

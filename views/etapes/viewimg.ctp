@@ -3,11 +3,8 @@
  * Display a facilitated view of a given recipe, step by step
  */
 App::import('Lib', 'functions'); //imports app/libs/functions
-
 echo $this->Html->css('jquery/powertip/jquery.powertip-yellow');
 echo $javascript->link('jquery/powertip/jquery.powertip');
-
-
 ?>
  <div class="related">
 	<?php if (!empty($etape['Recette'])):?>
@@ -20,18 +17,14 @@ echo $javascript->link('jquery/powertip/jquery.powertip');
 			}
 		?>
 <?php 
-/*
- * not very clean, todo: put it into a method (controller) and do not use SQL but cake syntax
- */
 $query="
 SELECT * FROM etapes_recettes AS er, etapes AS e 
 WHERE er.recette_id=" .$recette['id'] ." AND e.id=er.etape_id 
 ORDER BY e.order";
 //echo $query; exit; //tests
 $result=mysql_query($query);
-
 /* page title */
-echo "<div class=\"titre_recette\"><a href=\"\" title=\"début de la recette\" href=\"".CHEMIN ."recettes/viewimg/" .$recette['id']."\">" .$recette['titre'] ."</a></div>";
+echo "<div class=\"titre_recette\"><a title=\"début de la recette\" href=\"".CHEMIN ."recettes/viewimg/" .$recette['id']."&np=".$_GET['np']."\">" .$recette['titre'] ."</a></div>";
 
 /* 
  * pagination
@@ -77,33 +70,50 @@ if($etape['Etape']['video']){
 	$video=$etape['Etape']['video'];
 	$thumbnail=preg_replace("/\.flv$/","",$video);
 	allvideoflv($video,$thumbnail);
-
 	if(preg_match("/^poisson.*\.flv/", $etape['Etape']['video'])) {
 		echo "<br><span style=\"color: grey\">Source vidéo: <a href=\"http://www.goosto.fr/recette-de-cuisine/poisson-vapeur-10009101.htm\">&copy;&nbsp;goosto.fr</a></span>";
 	}
-
 }
-
-
 echo "</td></tr>";
+echo "";
+?>
+<tr><td>
+<div>
+<?php
+/*
+ * ingredients pour cette etape
+*/
+ingredients_etape($etape['Etape']['id'],$_GET['np'],$recette['pers']);
+
+/*	hide from non-admin registred user */
+if($session->read('Auth.User.role')=="administrator") {
+
+	echo "&nbsp;<a href=\"".CHEMIN ."etapes/add/ingredient?etape=".$etape['Etape']['id'] ."\">Ajouter un ingrédient</a>";
+}
+?>
+</div>
+</td></tr>
+<?php 
+
 
 echo "<tr><td style=\"text-align: left\">";
-if($etape['Etape']['order']!=1){//not the first step, there are some previous
+//echo $etape['Etape']['order'];
+if($etape['Etape']['order']!=1){
+	//not the first step, there are some previous
 	//todo: put blank page if absent
-	echo "<a title=\"Etape précédente\" href=\"".CHEMIN ."etapes/viewimg/".$etapeprec ."\"><img alt=\"Etape précédente\" src=\"".CHEMIN ."img/icons/previous.jpg\" /></a>";
+	echo "<a title=\"Etape précédente\" href=\"".CHEMIN ."etapes/viewimg/".$etapeprec ."&np=".$_GET['np']."\"><img alt=\"Etape précédente\" src=\"".CHEMIN ."img/icons/previous.jpg\" /></a>";
 } else {
 	//echo phpinfo();
 	echo "<a title=\"Etape précédente\" href=\"".$_SERVER["HTTP_REFERER"]."\"><img alt=\"Etape précédente\" src=\"".CHEMIN ."img/icons/previous.jpg\" /></a>";
-	
-	//echo $_SERVER["HTTP_REFERER"];
 }
 echo "&nbsp;&nbsp;&nbsp;Etape: " .$etape['Etape']['order'] ." de " .(mysql_num_rows($result));
 
 echo "</td><td style=\"text-align: right\">";
 //if($etape['Etape']['order']!=(mysql_num_rows($result)-1)){//not the last step, there are some next
-if($etape['Etape']['order']!=(mysql_num_rows($result))){//not the last step, there are some next
+if($etape['Etape']['order']!=(mysql_num_rows($result))){
+	//not the last step, there are some next
 	//todo: put blank page if absent
-	echo "<a title=\"Etape suivante\" href=\"".CHEMIN ."etapes/viewimg/".$etapesuiv ."\"><img alt=\"Etape suivante\" src=\"".CHEMIN ."img/icons/suivant.jpg\" /></a>";
+	echo "<a title=\"Etape suivante\" href=\"".CHEMIN ."etapes/viewimg/".$etapesuiv ."&np=".$_GET['np']."\"><img alt=\"Etape suivante\" src=\"".CHEMIN ."img/icons/suivant.jpg\" /></a>";
 } else {
 	/* this is last step: */
 	
@@ -129,9 +139,6 @@ if($etape['Etape']['order']!=(mysql_num_rows($result))){//not the last step, the
 echo "</td></tr>";
 echo "</table>";
 
-if($recette['source']) {
-	echo "<br><span style=\"color: grey\">Source recette: <a href=\"" .$recette['source'] ."\">" .$recette['source'] ."</a></span>";
-}
 
 
 ?>
@@ -140,3 +147,17 @@ if($recette['source']) {
 	<?php endforeach; ?>
 <?php endif; ?>
 </div>
+
+<br/>
+<h3>Mode de cuisson:
+<?php 
+echo $etape['Modecuisson']['lib'];
+?>
+</h3>
+<?php 
+
+if($recette['source']) {
+	echo "<br><span style=\"color: grey\">Source recette: <a href=\"" .$recette['source'] ."\">" .$recette['source'] ."</a></span>";
+}
+
+?>
