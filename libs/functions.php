@@ -602,10 +602,16 @@ function ingredients($id = null,$image,$role) {
 			border: thin solid red;
 			padding: 10px; 
 			\"/>";
-				
+			
+		if(strlen(mysql_result($result,$i,'ingredients.url'))>0){
+			echo "&nbsp;<a href=\"" .mysql_result($result,$i,'ingredients.url') ."\">@</a>";
+		}		
 			
 			echo "</td></tr>";		
 		} else {
+			if(strlen(mysql_result($result,$i,'ingredients.url'))>0){
+				echo "&nbsp;<a href=\"" .mysql_result($result,$i,'ingredients.url') ."\">@</a>";
+			}
 		echo "<br />";
 		}
 		
@@ -685,7 +691,12 @@ function liste_ingredients($eid){
 		$i++;
 	}
 	echo "</select>";
-	echo "<input type=\"text\" name=\"etape_id\" value=\"".$eid."\">";
+	echo "<input type=\"hidden\" name=\"etape_id\" value=\"".$eid."\">";
+		echo "<br>Quantité: ";
+		echo "<input type=\"text\" name=\"quant\" value=\"1\">";
+		echo "<br>Unité: ";
+		echo "<input type=\"text\" name=\"unit\" value=\"g\">";
+		
 }
 /*
  * a levenshtein function for fuzzy / boolean search

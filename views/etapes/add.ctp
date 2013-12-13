@@ -2,6 +2,7 @@
 <?php echo $this->Form->create('Etape');?>
 	<fieldset>
 		<legend><?php __('Add Etape'); ?></legend>
+		<input type="submit">
 	<?php
 		echo $this->Form->input('order');
 		echo $this->Form->input('text');

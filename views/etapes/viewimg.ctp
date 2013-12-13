@@ -1,3 +1,4 @@
+
 <?php 
 /*
  * Display a facilitated view of a given recipe, step by step
@@ -57,12 +58,13 @@ glossaire($etape['Etape']['text']);
 echo "</div>";
 /* any image */
 if($etape['Etape']['image']) {
-	echo $etape['Etape']['image'];
+	echo $html->image('pics/' .$recette['id'] .'/' .$etape['Etape']['image'],
+			array("alt"=>"Image de cette étape", "class"=>"img_etape"));
 }
 
 echo "</td>";
 
-/* rightcol */
+/* rightcol */ 
 
 echo "<td class=\"etape_right_col\">";
 /* video */
@@ -89,6 +91,25 @@ ingredients_etape($etape['Etape']['id'],$_GET['np'],$recette['pers'],$session->r
 ?>
 </div>
 </td></tr>
+<script>
+/* keyboard navigation next / previous */
+$(document).keydown(function(e){
+	  if (e.keyCode == 37) { 
+	      /* alert( "left pressed" );*/
+	       window.location = "http://<?php echo SERVERNAMEPROD; ?><?php echo CHEMIN; ?>etapes/viewimg/<?php echo $etapeprec;?>";
+	     
+	       return false;
+	    }
+});
+$(document).keydown(function(r){
+	  if (r.keyCode == 39) { 
+	      /* alert( "right pressed" );*/
+	       window.location = "http://<?php echo SERVERNAMEPROD; ?><?php echo CHEMIN; ?>etapes/viewimg/<?php echo $etapesuiv;?>";
+	       
+	       return false;
+	    } 
+});
+</script>
 <?php 
 
 
@@ -107,6 +128,8 @@ echo "&nbsp;&nbsp;&nbsp;Etape: " .$etape['Etape']['order'] ." de " .(mysql_num_r
 echo "</td><td style=\"text-align: right\">";
 //if($etape['Etape']['order']!=(mysql_num_rows($result)-1)){//not the last step, there are some next
 if($etape['Etape']['order']!=(mysql_num_rows($result))){
+	
+	
 	//not the last step, there are some next
 	//todo: put blank page if absent
 	echo "<a title=\"Etape suivante\" href=\"".CHEMIN ."etapes/viewimg/".$etapesuiv ."&np=".$_GET['np']."\"><img alt=\"Etape suivante\" src=\"".CHEMIN ."img/icons/suivant.jpg\" /></a>";

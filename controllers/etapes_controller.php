@@ -8,6 +8,12 @@ class EtapesController extends AppController {
 	function beforeFilter() {
 		$this->Auth->allow('index','view','viewimg');
 	}
+	var $paginate = array(
+			'limit' => 20,
+			'order' => array(
+					'Etape.id' => 'desc'
+			)
+	);
 	
 	function index() {
 		$this->Etape->recursive = 0;

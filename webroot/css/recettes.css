@@ -106,6 +106,14 @@ margin-right: -300px;
     -moz-border-radius: 25px;
     border-radius: 25px;
 }
+.img_etape {
+margin: 10px;
+	float: right;
+	width: 350px;
+	-webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+}
 
 .related_img_recette {
 	width: 100px;
