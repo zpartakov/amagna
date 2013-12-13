@@ -1,4 +1,9 @@
-<div class="ingredients form">
+<style>
+input[type=text] {
+width: 60%;
+}
+</style>
+</style><div class="ingredients form">
 <?php echo $this->Form->create('Ingredient');?>
 	<fieldset>
 		<legend><?php __('Add Ingredient'); ?></legend>
@@ -10,6 +15,7 @@
 		echo $this->Form->input('price');
 		echo $this->Form->input('img');
 		echo $this->Form->input('commissions');
+		echo $this->Form->input('url');
 		//echo $this->Form->input('Recette');
 	?>
 	</fieldset>

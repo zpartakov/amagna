@@ -35,7 +35,7 @@ $title_for_layout="Glossaire";
 	<table cellpadding="0" cellspacing="0">
 
 <tr>
-	<?php
+<?php
 ############## ADMIN AREA ##################
 /*	hide from non-admin registred user */
 	if($session->read('Auth.User.role')=="administrator") {
@@ -46,7 +46,8 @@ $title_for_layout="Glossaire";
 ?>
 			<th><?php echo $this->Paginator->sort('libelle');?></th>
 			<th><?php echo $this->Paginator->sort('typ');?></th>
-	<?php
+			<th><?php echo $this->Paginator->sort('url');?></th>
+<?php
 ############## ADMIN AREA ##################
 /*	hide from non-admin registred user */
 	if($session->read('Auth.User.role')=="administrator") {
@@ -96,7 +97,12 @@ $title_for_layout="Glossaire";
 		<?php echo $this->Html->link($ingredient['Ingredient']['libelle'], array('action' => 'view', $ingredient['Ingredient']['id'])); ?>
 		<?php #echo $ingredient['Ingredient']['libelle']; ?>&nbsp;</td>
 		<td><?php echo $ingredient['Ingredient']['typ']; ?>&nbsp;</td>
-		<?php
+		<td><?php 
+		if(strlen($ingredient['Ingredient']['url'])>0) {
+		echo "<a href=\"".$ingredient['Ingredient']['url']."\">@</a>"; 
+		}
+		?>&nbsp;</td>
+				<?php
 ############## ADMIN AREA ##################
 /*	hide from non-admin registred user */
 	if($session->read('Auth.User.role')=="administrator") {

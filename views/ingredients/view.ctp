@@ -32,6 +32,12 @@
 			
 			&nbsp;
 		</dd>
+				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('url'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<a href="<?php echo $ingredient['Ingredient']['url'];?>"><?php echo $ingredient['Ingredient']['url'];?></a>
+			
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <?php

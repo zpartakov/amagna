@@ -11,7 +11,7 @@
 		echo $this->Form->input('price');
 		echo $this->Form->input('img');
 		echo $this->Form->input('commissions');
-		//echo $this->Form->input('Recette');
+		echo $this->Form->input('url');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
