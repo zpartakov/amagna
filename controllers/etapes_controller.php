@@ -89,4 +89,13 @@ class EtapesController extends AppController {
 		eject_non_admin();
 	}
 	
+	function delete_ingredient($id=null){
+		/*
+		 * unhe fonction pour effacer un ingrédient d'une étape d'une recette
+		 */
+	}
+	function add_ingredient($etape) {
+		
+	}
+	
 }

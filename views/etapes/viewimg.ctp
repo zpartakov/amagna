@@ -83,13 +83,9 @@ echo "";
 /*
  * ingredients pour cette etape
 */
-ingredients_etape($etape['Etape']['id'],$_GET['np'],$recette['pers']);
+ingredients_etape($etape['Etape']['id'],$_GET['np'],$recette['pers'],$session->read('Auth.User.role'));
 
-/*	hide from non-admin registred user */
-if($session->read('Auth.User.role')=="administrator") {
 
-	echo "&nbsp;<a href=\"".CHEMIN ."etapes/add/ingredient?etape=".$etape['Etape']['id'] ."\">Ajouter un ingrédient</a>";
-}
 ?>
 </div>
 </td></tr>

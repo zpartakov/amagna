@@ -622,45 +622,6 @@ function ingredients($id = null,$image,$role) {
 }
 }
 
-function ingredients_etape($id,$np,$pers) {
-	/*
-	 * print the required meals for a given recipe, with picture if any
-	*/
-	$query="
-	SELECT * FROM etapes_ingredients AS ei, ingredients AS i
-	WHERE etape_id=".$id ."
-	AND i.id=ei.ingredient_id
-	ORDER BY typ, libelle
-	" ;
-	//	echo $query ."<br>";
-	$result=mysql_query($query);
-	if(mysql_num_rows($result)>1) {
-echo "<h2>Ingrédients pour cette étape (nombre de personnes: " .$np.")</h2>";
-	
-	echo "<table>";
-	$i=0;
-	echo "<table style=\"width: 50%\">";
-	while($i<mysql_num_rows($result)){
-	echo "<tr>";
-	echo "<td style=\"text-align: right; padding-right: 10px\">";
-		echo mysql_result($result,$i,'i.libelle');
-		echo "</td><td>";		
-		echo intval($np/$pers)*mysql_result($result,$i,'ei.quant');
-		echo "&nbsp;";
-		echo mysql_result($result,$i,'ei.unit');
-	echo "</td>";	
-	echo "<td>";
-	echo "<img style=\"width: 100px\" class=\"rounded\" src=\"/amagna/img/ingredients/";
-	echo mysql_result($result,$i,'i.img');
-	echo "\">";
-	echo "</td>";
-	echo "</tr>";
-				$i++;
-	}
-	echo "</table>";
-	}
-}
-
 function ingredients_modif($id = null) {
 	/*
 	 * print the required meals for a given recipe for editing purpose
@@ -708,6 +669,24 @@ function ingredient_info($id = null,$idrec){
 	echo $titre_ingredient."&nbsp;<input style=\"width: 50px\" type=\"text\" name=\"ing2add\" value=\"1\">" ." " .$unit."&nbsp;<input type=\"submit\"></h3></form>";
 }
 
+function liste_ingredients($eid){
+	//// ingredient_id 	etape_id 	quant 	unit 
+
+	$query="
+	SELECT * FROM ingredients
+	ORDER BY libelle
+	" ;
+	//echo $query ."<br>";
+	$result=mysql_query($query);
+	$i=0;
+	echo "<select name=\"ingredient_id\">";
+	while($i<mysql_num_rows($result)){
+		echo "<option value=\"".mysql_result($result,$i,'id') ."\">" .mysql_result($result,$i,'libelle') ." (" .mysql_result($result,$i,'typ').")</option>";
+		$i++;
+	}
+	echo "</select>";
+	echo "<input type=\"text\" name=\"etape_id\" value=\"".$eid."\">";
+}
 /*
  * a levenshtein function for fuzzy / boolean search
  */
@@ -830,7 +809,69 @@ function levenshtein_glossaire($word) {
 	}
 	}
 }
+#################### etapes ingrédients
 
+function ingredients_etape($id,$np,$pers,$role) {
+	/*
+	 * print the required meals for a given recipe, with picture if any
+	*/
+	$query="
+	SELECT * FROM etapes_ingredients AS ei, ingredients AS i
+	WHERE etape_id=".$id ."
+	AND i.id=ei.ingredient_id
+	ORDER BY typ, libelle
+	" ;
+	//	echo $query ."<br>";
+	$result=mysql_query($query);
+	if(mysql_num_rows($result)>1) {
+		echo "<h2>Ingrédients pour cette étape (nombre de personnes: " .$np.")</h2>";
+		//echo "role: " .$role;
+		echo "<table>";
+		$i=0;
+		echo "<table style=\"width: 50%\">";
+		while($i<mysql_num_rows($result)){
+			echo "<tr>";
+			echo "<td style=\"text-align: right; padding-right: 10px\">";
+			echo mysql_result($result,$i,'i.libelle');
+			echo "</td><td>";
+			echo intval($np/$pers)*mysql_result($result,$i,'ei.quant');
+			echo "&nbsp;";
+			echo mysql_result($result,$i,'ei.unit');
+			echo "</td>";
+			echo "<td>";
+			echo "<img style=\"width: 100px\" class=\"rounded\" src=\"/amagna/img/ingredients/";
+			echo mysql_result($result,$i,'i.img');
+			echo "\">";
+			echo "</td>";
+			/*	hide from non-admin registred user */
+			if($role=="administrator") {
+				echo "<td><a href=\"/etapes/delete_ingredient/?eid=".mysql_result($result,$i,'ei.id')."\">delete</a></td>";
+			}
+
+			echo "</tr>";
+			$i++;
+		}
+		echo "</table>";
+	}
+	/*	hide from non-admin registred user */
+	if($role=="administrator") {
+
+		echo "&nbsp;<a href=\"/etapes/add_ingredient?etape=".$id ."\">Ajouter un ingrédient</a>";
+	}
+}
+
+function efface_etape_ingredient($eid){
+	//echo "etape à effacer: " .$eid;
+	
+	$sql="DELETE FROM etapes_ingredients WHERE id=".$eid;
+	//echo $sql;
+	$sql=mysql_query($sql);
+	header("Location: ".$_SERVER["HTTP_REFERER"]);	
+}
+
+function ajoute_ingredient_etape($eid){
+	
+}
 #################### MULTIMEDIA FUNCTIONS
 function season_image($season){
 	$width=120;

@@ -5,6 +5,16 @@ $title_for_layout="Glossaire";
 
 <div class="ingredients index">
 	<h2><?php __('Ingredients');?></h2>
+		<?php
+############## ADMIN AREA ##################
+/*	hide from non-admin registred user */
+	if($session->read('Auth.User.role')=="administrator") {
+?>
+<p><?php echo $this->Html->link(__('New Ingredient', true), array('action' => 'add')); ?></p>
+	<?
+	}
+//end hide from non-admin registred user
+?>
 <!-- begin search form -->
 <table>
 	<tr>
