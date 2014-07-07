@@ -14,7 +14,7 @@ class AppController extends Controller {
 	}
 
  function beforeFilter() {
-  if($_POST['language']) {
+   if($_POST['language']) {
     //Configure::write('Config.language', $_POST['language']);
 	Configure::write('Config.language', $_POST['language']);
 	 }

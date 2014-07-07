@@ -1,5 +1,25 @@
+<?php 
+$title_for_layout="Étapes";
+?>
+
 <div class="etapes index">
-	<h2><?php __('Etapes');?></h2>
+	<h2><?php  echo $title_for_layout; ?></h2>
+<!-- begin search form -->
+<table>
+	<tr>
+	<td>
+		<div class="input">
+			<?php echo $form->create('Etape', array('url' => array('action' => 'index'))); ?>
+			<?php #echo $form->input('q', array('style' => 'width: 250px;', 'label' => false, 'size' => '80')); ?>
+			<?php echo $form->input('q', array('label' => false, 'size' => '50', 'class'=>'txttosearch')); ?>
+		</div>
+	</td>
+	<td>
+		<input type="submit" class="chercher" value="Chercher" /> 
+	</td>
+	</tr>
+</table>
+<!-- end search form -->
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>

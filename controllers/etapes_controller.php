@@ -17,7 +17,16 @@ class EtapesController extends AppController {
 	
 	function index() {
 		$this->Etape->recursive = 0;
+		if($this->data['Etape']['q']) {
+			$q = $this->data['Etape']['q'];
+			$options = array(
+					"Etape.text LIKE '%" .$q ."%'"
+			);
+			$this->set(array('etapes' => $this->paginate('Etape', $options)));
+		} else {
+		
 		$this->set('etapes', $this->paginate());
+		}
 	}
 
 	function view($id = null) {

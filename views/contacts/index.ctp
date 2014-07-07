@@ -1,3 +1,7 @@
+<?php
+header("Location: http://radeff.net/c5/contact-us/");
+exit;
+?>
 <h1>Formulaire de contact</h1>
  
 <?php e($form->create('Contact', array('url' => '/contacts/index'))); ?>

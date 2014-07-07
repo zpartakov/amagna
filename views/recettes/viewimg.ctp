@@ -1,4 +1,5 @@
 <?php 
+//echo phpinfo();
 /* 
  * Easy display of recipes, visual and cutted into pieces like a cucumber
  * 
@@ -14,6 +15,57 @@ if(!$_GET['np']){
 
 <?	
 	select_np_recette($recette['Recette']['id']);
+	
+	/* graphical display 1, 2, 4, 6 , 8, 10 */
+	echo "<table><tr>";
+	echo "<td>";
+	 echo "<form method=\"get\">";
+	echo "<input type=\"hidden\" name=\"np\" value=\"1\">";
+	echo "<input title=\"une personne\" type='image' src='" .CHEMIN ."img/icons/user-identity_s.png'></form>";
+	echo "</td><td>";
+	
+	echo "<form method=\"get\" name=\"2pers\">";
+	echo "<input type=\"hidden\" name=\"np\" value=\"2\">";
+	echo $html->image('icons/user-identity_s.png', array("onclick"=>"document.forms['2pers'].submit();", 'title'=>'deux personnes', "url"=>$_SERVER["REQUEST_URI"]."?np=2"));
+	echo "<input title=\"deux personnes\" type='image' src='" .CHEMIN ."img/icons/user-identity_s.png'></form>";
+	echo "</td><td>";
+	
+	echo "<form method=\"get\" name=\"3pers\">";
+	echo "<input type=\"hidden\" name=\"np\" value=\"3\">";
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=3", 'title'=>'trois personnes'));
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=3", 'title'=>'trois personnes'));
+	echo "<input title=\"trois personnes\" type='image' src='" .CHEMIN ."img/icons/user-identity_s.png'></form>";
+	echo "</td></tr><tr><td>";
+	
+	echo "<form method=\"get\">";
+	echo "<input type=\"hidden\" name=\"np\" value=\"4\">";
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=4"));
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=4"));
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=4"));
+	echo "<input title=\"quatre personnes\" type='image' src='" .CHEMIN ."img/icons/user-identity_s.png'></form>";
+	echo "</td><td>";
+	
+	echo "<form method=\"get\">";
+	echo "<input type=\"hidden\" name=\"np\" value=\"6\">";
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=6"));
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=6"));
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=6"));
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=6"));
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=6"));
+	echo "<input title=\"six personnes\" type='image' src='" .CHEMIN ."img/icons/user-identity_s.png'></form>";
+	echo "</td><td>";
+	
+	echo "<form method=\"get\">";
+	echo "<input type=\"hidden\" name=\"np\" value=\"8\">";
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=8"));
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=8"));
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=8"));
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=8"));
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=8"));
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=8"));
+	echo $html->image('icons/user-identity_s.png', array("url"=>$_SERVER["REQUEST_URI"]."?np=8"));
+	echo "<input title=\"quatre personnes\" type='image' src='" .CHEMIN ."img/icons/user-identity_s.png'></form>";
+	echo "</td></tr></table>";
 } else {
 ?>
 <script type="text/javascript">
@@ -32,7 +84,7 @@ if(!$_GET['np']){
  }
 ?>
 <a title="Début de la recette" href="<? echo CHEMIN; ?>recettes/viewimg/<?php echo $recette['Recette']['id']; ?>">
-<div class="titre_recette"><?php echo $recette['Recette']['titre']; ?></div>
+<div class="titre_recette"><?php echo $recette['Recette']['titre']; ?>&nbsp;<a title="version texte" href="<? echo CHEMIN; ?>recettes/view/<?php echo $recette['Recette']['id']; ?>" style="font-size: 8px">(txt)</a></div>
 <img class="img_recette" src="<? echo CHEMIN; ?>img/pics/
 <?php echo $recette['Recette']['pict']; ?>" alt="<?php echo $recette['Recette']['titre']; ?>" title="<?php echo $recette['Recette']['titre']; ?>">
 </a>
